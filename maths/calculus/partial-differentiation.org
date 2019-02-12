@@ -1,0 +1,69 @@
+#+TITLE: Partial Differentiation
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Definition
+
+The principle of differentiation can be extended to functions of more than one variable.
+
+The partial derivative of \( f(x, y) \) with respect to \( x \) is defined as:
+
+\[ \frac{\partial f}{\partial x} = {f_x}\left( {x,y} \right) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{(x + h) - x}\]
+
+\( \fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+The partial derivative of f(x, y) with respect to x is the rate of change
+of f(x, y) with respect to x , allowing \textbf{x} to vary but keeping \textbf{y} constant.
+\end{minipage}} \)
+
+Similarly, the partial derivative of \( f(x, y) \) with respect to \( y \) is defined as:
+
+\[ \frac{\partial f}{\partial y} = {f_y}\left( {x,y} \right) = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{(y + h) - x}\]
+
+#+LATEX: \newpage
+* Interpretations
+
+For a function of a single variable \( y = f(x) \), \( f'(a) \) can be interpreted as:
+
+1. The rate of change of \( y \) with repect to \( x \) at \( x = a \)
+2. The gradient of the tangent to the curve at \( x = a \)
+
+Both of these can be applied to functions of multiples variables.
+
+** Classic Interpration - Rate of Change
+\[ let\ z = f(x, y) \]
+Then \( {f_x}\left( {a,b} \right) \) represents the rate of change of \( z \) at \( x = a, \ y = b \) in the direction \( y = b \) (ie keeping \( y \) constant)
+
+This interpretation follows nicely if we simply consider \( f(x, y) \) as a family of functions of \( x \), ie \( f(x) = x^2 + 2yx + y^2 \).
+
+** Geometric Interpretation - Tangent to surface
+At any one given point \( P = (a, b, c) \) on the surface defined by \( z = f(x, y) \) there
+are an infinite number of lines tangent to the surface.
+
+Using \( {f_x}\left( {a,b} \right) \) and \( {f_y}\left( {a,b} \right) \) we can find the equations of 2 lines tangent to the surface at \( P \).
+And hence the unique tangent plane to the surface at \( P \) (a plane is equivalent to the linear combination of two lines).
+
+*** A Formula for the Tangent Plane
+    The formula for the tangent plane at \( (a, b, f(a, b) \) is given by:
+    \[ t(x, y) = f(a, b) + f_x(x, y)(x - a) + f_y(x, y)(y - b) \]
+    <b>Proof:</b> the tangent plane must satisfy the conditions: 
+    
+    \[ 1) \ t(a, b) = f(a, b) \] 
+    Direct substitution of \( (a, b) \) into the formula show this holds
+    \[ 2) \ t_x(a, b) = f_x(a, b) \] 
+    \[ 3) \ t_y(a, b) = f_y(a, b)  \] 
+    These must hold as the slope of the surface at \( (a, b) \) letting \( x/y = a/b \) be constant (ie \( f_x \) and \( f_y \) ), must be equivalent to gradient of the line produced by imposing this same constraint on the tangent plane.
+
+* Generalisation
+
+Consider a surface in 3 dimensions. At any \( (x, y, z) \) point \( P \) on the surface there are an
+infinite number of lines tangent to that point (but only one tangent plane). However if we 
+consider a plane passing through \( P \) (though not tangent), there is only one tangent line which lies on the plane
+and is tangent to the surface (considering the outline of the surface on the plane).
+
+Consider the surface defined by \( f(x, y) = x^2y \)
+
+Suppose we only consider the surface at some fixed \( y \), ie let \( y = b \) for some constant 
+\( b \). This gives us a function of \( x, g(x) = bx^2 \).
+
+Then \( g'(x) = 2bx \). The geometric interpretation of this derivative is that the tangent at
+\( (x, b, g(x)) \) on the plane \( y = b \), has gradient \( 2bx \). Hence equation of the 
+tangent line given by \( y = b, x = z/2 \).

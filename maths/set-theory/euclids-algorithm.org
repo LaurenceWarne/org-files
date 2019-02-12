@@ -1,0 +1,94 @@
+#+TITLE: Euclid's Algorithm
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+#+LATEX_HEADER: \usepackage{mdframed}
+
+* Diophantine Equation
+
+Let \(a, b \) and \( c \) be fixed integers, then consider integer solutions to the equation:
+
+\begin{equation}
+ax + by = c
+\end{equation}
+
+We show there exist solutions iff \( gcd(a, b) | c \), and further, if this is the case then there are an infinite number of solutions.
+
+\begin{mdframed}
+  \textbf{Lemma 1}: if \( gcd(a, b) \not| c \) There exists no solution to (1).
+\end{mdframed}
+Proof:
+
+Suppose there does exist a solution, and let \( p = gcd(a, b) \)
+
+\[ \Rightarrow \exists \lambda, \delta \in \mathbb{Z} \ \ s.t. \ a = \lambda p,\ b = \delta p \]
+Factoring (1):
+\[ \Rightarrow (\lambda x + \delta y)p = c \]
+Which shows \( p \) must divide \( c \) and hence is a contradiction.
+
+
+\begin{mdframed}
+  \textbf{Lemma 2}: There exists a solution to (1) if \( c =  gcd(a, b) \)}}
+\end{mdframed}
+Proof:
+
+We have
+\[ gcd(a, b) \equiv p \mod b \]
+Then a solution exists to (1) iff there exists some \( x \) s.t.
+\begin{equation}
+  ax \equiv p \mod b
+\end{equation}
+First, note that \( \lambda \) and \( \delta \) are coprime, proof: consider
+\[ gcd(\lambda p, \ \delta p) \]
+If \( gcd(\lambda, \delta) > 1 \Rightarrow gcd(a, b) \neq p \) and hence is a contradiction. \\
+
+It's commonly known that since \( \lambda \) and \( \delta \) are coprime, there exists an integer \( x \) s.t.
+\[ \lambda x \equiv 1 \mod \delta \]
+And hence this x is a solution to:
+\[ p(\lambda x - 1) \equiv 0 \mod b \]
+Rearranging:
+\[ ax \equiv p \mod b \]
+And therefore
+\[ ax + by = gcd(a, b) \]
+Where y is \( -\lfloor \frac{ax}{b} \rfloor \). \\
+
+Hence trivially there also exists a solution for any integer multiple of gcd(a, b).
+
+\begin{mdframed}
+  \textbf{Lemma 3}: If there exists one solution to ax + by = c then there exists infinite solutions.
+\end{mdframed}
+
+Consider solutions to:
+\begin{equation}
+  k_{a}a + k_{b}b = 0
+\end{equation}
+Setting \( k_{a} = \frac{lcm(a, b)}{a} \) and \( k_{b} = -\frac{lcm(a, b)}{b} \) gives a solution to (3). 
+Also note that:
+\[ (x + k_{a})a + (y + k_{b})b = c \]
+Is also a solution given \(x, \ y \) are the solutions found above, and furthermore:
+\[ (x + Mk_{a})a + (y + Mk_{b})b = c \]
+Where \( M \) is any integer, is a solution.
+* Euclid's Algorithm
+
+We can express \( gcd(a, b) \) as a linear combination of \( a \) and \( b \) easily using Euclid's algorithm.
+
+** Example
+\textbf{Express gcd(1442, 980) as a linear combination of 1442 and 980.} \\
+
+First we obtain gcd(1442, 980) using Euclid's algorithm:
+
+\begin{align}
+1442 &= 1 * 980 + 462 \\
+980  &= 2 * 462 + 56 \\
+462  &= 8 * 56  + 14 \\
+56   &= 4 * 14
+\end{align}
+
+Hence gcd(1442, 980) = 14. Now we take the penultimate equation and rearrange to make 14 the subject:
+
+\begin{align}
+14 &= 462 - 8*56 \\
+14 &= (1442 - 980) - 8(980 - 2*462) \\
+14 &= 1*1442 - 9*980 + 16*(1442 - 980) \\
+14 &= 17*1442 - 25*980
+\end{align}
+
+And thus we arrive at the linear combination.

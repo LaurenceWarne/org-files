@@ -1,0 +1,35 @@
+#+TITLE: Vector Functions
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+
+A *vector-valued* function or *vector function* is a function from \( R^n \rightarrow R^k \) where \( k > 1 \) whose image is interpreted as a set of *vectors*. For example:
+
+\[ r : R \rightarrow R^3 \]
+\[ r(t) = \langle f(t), g(t), h(t) \rangle \]
+
+If we consider the image of \( r \) as *position vectors*, the tip of the moving vector \( r(t) \) traces out a space curve (or equivalently parametric curve):
+
+\[ x = f(t), \ y = g(t), \ z = h(t) \]
+
+* Differentiation
+
+Let us consider \( r(t) : R \rightarrow R^3 \). Now consider the derivatives of the analogous parametric equations:
+
+\begin{itemize}
+\item The rate of change of \( x(t) \) with respect to \( t \): \( \textbf{x'(t)} \)
+\item The rate of change of \( y(t) \) with respect to \( t \): \( \textbf{y'(t)} \)
+\item The rate of change of \( z(t) \) with respect to \( t \): \( \textbf{z'(t)} \)
+\end{itemize}
+
+From this, we can see that
+
+\[ r'(t) = \langle x'(t), y'(t), z'(t) \rangle \]
+
+Is the rate of change of \( r(t) \) with respect to \( t \). \( |r'(t)| \) is the *speed* at \( t \) if we interpret \( r(t) \) as a moving particle in space.
+If we consider \( r(t + h) - r(t) \) geometrically we can see that \( r'(t) \) is also the *tangent vector* to the curve traced out by the tips of \( r(t) \).
+Hence \( r'(t) \) works the same way as the derivative of 1 dimensional scalar functions.
+
+* Vector Field
+
+The term "vector field" is often used synonymously with "vector function" but in general means \( n = k \).

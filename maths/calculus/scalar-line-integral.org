@@ -1,0 +1,24 @@
+#+TITLE: Scalar Line Integral
+
+* Definition
+
+For some scalar field \( f : R^n \to R \) and some parameterized curve C \( r : R \to R^n \) the line integral is defined as:
+
+\[ \int_{C}f(r)ds = \int_{a}^{b}f(r(t))|r'(t)|dt = \int_{a}^{b}f(x(t), \ y(t), \ ...)\sqrt{x'(t)^2 + y'(t)^2 + ...} \ dt \]
+
+Intuitively, we are multiplying some infinitesimally small section of the curve (\( ds \)) by the value of \( f \) at some point in this small section.
+
+* Example
+
+\[ \textrm{Find} \int_{C}f(r)ds \ \textrm{ where C is the right half of the circle: } x^2 + y^2 = 16 \]
+
+We have:
+
+\[ r(t) = \langle 4cos(t) + 4 sin(t) \rangle \Rightarrow r'(t) = \langle -4sin(t) + 4 cos(t) \rangle \]
+
+\begin{align}
+\int_{a}^{b}f(r(t))|r'(t)|dt &= \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} 4^6sin^4(t)cos(t)dt \\
+&= \left[\frac{4^6}{5}sin^5(t)\right]_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \\
+&= 2\frac{4^6}{5}sin^5(\frac{\pi}{2}) \\
+&= 1638.4
+\end{align}

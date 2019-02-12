@@ -1,0 +1,15 @@
+#+TITLE: Double Integrals
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+
+Consider taking the volume of a surface \( S = f(x, y) \) over some rectangular region \( R \) of the \( (x, y) \) plane.
+
+We can approximate the volume by partitioning the rectangular region \( R \) into an \( m \) by \( n \) grid to obtain \( m n \) lots of rectangles.
+
+The double integral is defined as:
+
+\[ \iint_R f(x, \, y) dA = \lim_{m,n \rightarrow \infty} \sum_{i=1}^m \sum_{j=1}^n f(x_{ij}^*, \, y_{ij}^*)\Delta A \]
+
+This converges as any continuous function is Riemann integrable.
+

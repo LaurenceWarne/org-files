@@ -1,0 +1,43 @@
+#+TITLE: Differentiation
+
+* First Principles
+
+The *derivative* of \( f(x) \) is defined as:
+
+\[ f'(x) = \lim_{h \to 0} \left(\frac{f(x + h) - f(x)}{(x + h) - x}\right) \]
+
+We will now prove some important identities using this definition.
+\pagebreak
+
+* Proof of Product Rule
+
+The product rule is defined:
+\[ \frac{d}{dx}f(x)g(x) = f(x)g'(x) + f'(x)g(x) \]
+
+
+Proof:
+
+\begin{align}
+\frac{d}{dx}f(x)g(x) &= \lim_{h \to 0}(\frac{f(x + h)g(x + h) - f(x)g(x)}{(x + h) - x}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(x + h)g(x + h) - f(x)g(x)}{h}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(x + h)g(x + h) - f(x)g(x) + f(x)g(x + h) - f(x)g(x + h)}{h}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(x)(g(x + h) - g(x)) + f(x + h)g(x + h) - f(x)g(x + h)}{h}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(x)(g(x + h) - g(x))}{h} + g(x + h)\frac{f(x + h) - f(x)}{h}) \nonumber \\
+&= f(x)g'(x) + f'(x)g(x) \nonumber
+\end{align}
+
+Alternatively, set \( y = f(x)g(x) \), take logarithms and then implicitly 
+differentiate. This proof requires use of the chain rule however.
+
+* Proof of Chain Rule
+
+The chain rule is defined:
+\[ \frac{d}{dx}f(g(x)) = g'(x)f'(g(x)) \]
+
+
+Proof:
+\begin{align}
+\frac{d}{dx}f(g(x)) &= \lim_{h \to 0}(\frac{f(g(x + h)) - f(g(x))}{(x + h) - x}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(g(x + h)) - f(g(x))}{h}) \nonumber \\
+&= \lim_{h \to 0}(\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \frac{g(x + h) - g(x)}{h}) \nonumber \\
+\end{align}

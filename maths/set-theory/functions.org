@@ -1,0 +1,36 @@
+#+TITLE: Functions
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Function Definition
+
+A function is a mapping from a domain \( A \) to a codomain \( B \). More specifically, a
+function associates every value in the domain with precisely one value in the codomain.
+
+\[ f\colon A\to B : x\mapsto f(x) \]
+
+A function is bijective if it is both injective and surjective.
+
+** Examples
+   |   |                  | Injective                                              | Not Injective                                              |
+   |---+------------------+--------------------------------------------------------+------------------------------------------------------------|
+   | / | <>               | <>                                                     | <>                                                         |
+   |   | *Surjective*     | \( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x \)   | \( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x^3 + x \) |
+   |   | *Not Surjective* | \( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto e^x \) | \( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x^2 \)     |
+
+* Injective Property
+
+A function is injective if it describes a one-one mapping between \( A \) and \( B \). In
+other words every element in the image f is associated with precisely one value in the
+domain \( A \). 
+
+If \( f \) is injective then \( |A| = |f(A)| \)
+
+* Surjective Property
+
+A function is surjective if the image of the function is equal to its codomain. If this is true
+then \( |f(A)| = |B| \).
+
+* Permutation
+
+Let \( A \) be a set, then a permutation is a bijection from \( A\to A \). Hence \( f\colon 
+A \to A \) is a permutation if it is injective (and therefore surjective).

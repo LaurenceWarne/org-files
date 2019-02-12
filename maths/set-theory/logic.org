@@ -1,0 +1,66 @@
+#+TITLE: Logic
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Propositions
+
+A proposition is a sentence which can be considered either true or false (not both). It
+consists of *quantifiers* and *predicates*. A quantifier assigns values to variables
+and predicates are statements in free variables (variables which are not tied to a
+definintion/value).
+
+** Examples
+*** Predicates
+    + \( a \) and \( b \) are coprime
+    + \( x > x^2 \)
+
+*** Quantifiers
+    + Let \( n \) be an integer
+    + \( \forall x \in \mathbb{R} \)
+
+*** Propositions
+    + \( e^{i\theta} = cos\theta + isin\theta \)
+    + \( \forall n \in \mathbb{N} \) and for some constant \( k \), \( k^n = O(n!) \)
+
+* Implication
+
+The statement 
+\[
+ A \Rightarrow B 
+\] 
+is equivalent to \( \neg A \lor B \). Read \( A \) implies
+\( B \) or \( A \) is sufficient for \( B \). Or if \( A \) then \( B \).
+
+See [[https://math.stackexchange.com/questions/61779/problem-in-understanding-p-implies-q]]
+
+** Truth Table
+   |   | \( A \) | \( B \) | \( A \Rightarrow B \) |
+   |---+---------+---------+-----------------------|
+   | / | <       | >       | <>                    |
+   | # | T       | T       | T                     |
+   | # | T       | F       | F                     |
+   | # | F       | T       | T                     |
+   | # | F       | F       | T                     |
+
+
+The third and fourth entries in the above truth table may not seem intuitive at first. However,
+note that the statement \( A \Rightarrow B \) assumes *no causal relationship* between 
+\( A \) and \( B \). Intuitively, \( A \Rightarrow B \) means \( B \) is no more false than
+\( A \).
+
+If \( A \) is false, \( A \Rightarrow B \) is said to be "vacuously" true.
+
+[[https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive][This]] link gives a set of slides with some examples and more information.
+
+* Contrapositive
+
+If \( A \) is sufficient for \( B \) then it follows that:
+1. \( B \) is necessary for \( A \)
+2. \( \neg B \) is sufficient for \( \neg A \) (using \( \neg B \Rightarrow \neg A \))
+3. \( A \Rightarrow B \equiv \neg B \Rightarrow \neg A \)
+
+
+\( \neg B \Rightarrow \neg A \) is the *Contrapositive* of \( A \Rightarrow B \)
+
+* Links
+
+1. More info on the implication statement: https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive

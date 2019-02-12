@@ -1,0 +1,41 @@
+#+TITLE: Gradient
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+
+The *gradient* is a [[./vector-function.org][vector valued function]] \( f\colon \mathbb{R}^n \to \mathbb{R}^n \) defined as the *unique* vector field whose *dot product* with any unit vector \( \vec{v} \) at each \( x, y \) is the *directional derivative* of \( f \) along \( \vec{v} \). In \( \mathbb{R}^2 \) it is given by:
+
+\[ \nabla f(x, y) = \langle \frac{\partial f}{\partial x}, \ \frac{\partial f}{\partial y} \rangle \]
+
+With the obvious extension to multiple dimensions.
+
+* Nabla
+
+As you can see above, The nabla symbol: \( \nabla \) is used in the gradient function notation. The nabla or del operator is a *vector* whose components are *operators*
+
+\[ \nabla = \langle \partial_x, \partial_y \rangle \]
+
+It is not a vector in the typical sense in \( R^2 \) but is a very convenient *abuse of notation*. For instance the gradient can be denoted thusly:
+
+\[ \nabla f =  \langle \partial_x f, \partial_y f \rangle \]
+
+Similar succinct expressions can be found for the *divergence*, *curl* and *Laplace Operator* of a vector field \( F \).
+
+See: https://math.stackexchange.com/questions/2710328/what-does-the-symbol-nabla-indicate
+
+* Proof
+
+The *directional derivative* at a point \( P = (x, y, f(x, y)) \) in the direction of the unit vector \( \vec{u} = ai + bj \) is defined as:
+
+\[ \frac{\partial f}{\partial x} = {f_x}\left( {x,y} \right) = \lim_{h \to 0} \frac{f(x + ah, y +bh) - f(x, y)}{h}\]
+
+Intuitively it is the slope of the surface at \( P \) in the direction \( \vec{u} \).
+
+** Proof 1: subsitution
+
+   A proof can be found at http://tutorial.math.lamar.edu/Classes/CalcIII/DirectionalDeriv.aspx
+
+** Proof 2: Taylor series
+   A direct proof can be obtained using the Taylor series of \( f(x, y) \).
+
+

@@ -1,0 +1,34 @@
+#+TITLE: Modular Arithmetic
+
+* Definition
+
+We say
+
+\[ a \equiv b \pmod n \iff a - b | n \]
+
+* Residue Groups
+
+Let \( n \in Z^+ \), let \( S \) be the set of natural numbers less than \( n \) which are coprime to \( n \):
+
+\[ S = \{x : x \in Z^+, \ x < n, \ gcd(n, x) = 1\} \]
+
+An important idea when working with modular arithmetic is:
+
+ \[ (1) \ \forall a \in S, \ \exists b \in S \ s.t. \ ab \equiv 1 \pmod n \]
+
+Which we will now prove. Define
+
+\[ f: S \to S, \ \ f(x) = ax \pmod n \]
+
+
+To show (1) it is sufficient to show \( f \) is a surjection (\( 1 \in S \ \forall n \)). And since the domain and codomain of the function are the same and finite, we can say \( f \) is surjective iff it is injective, which we will now prove.
+
+Suppose \( f \) is not injective,  ie
+
+\[ \exists \text{ distinct } k_1 < k_2 \in S \ s.t. \  f(k_1) = f(k_2)\]
+\begin{align}
+&\Rightarrow ak_2 \equiv ak_1 \pmod{n} \\
+&\Rightarrow a(k_2 - k_1) = \lambda n \\
+\end{align}
+
+But \( lcm(a, n) = an \) because \( a \) and \( n \) are coprime. This is hence a contradiction as the supposition implies there is nonzero some common multiple of \( a \) and \( n \) less than this, equal to \( a(k_2 - k_1) \)  (\( n > k_2 > k_1 > 0 \)). Hence we have \( f \) is a injection and thus statement (1).

@@ -1,0 +1,6 @@
+#+TITLE: Relations
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Equivalence Class
+
+If \( R \) is an equivalence relation on a set \( A \), and \( a \in A \). Then the *Equivalence class* of \( A \) is defined as 

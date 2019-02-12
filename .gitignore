@@ -1,0 +1,8 @@
+# org output types
+*.tex
+*.html
+*.pdf
+
+# emacs backups
+*~
+*#

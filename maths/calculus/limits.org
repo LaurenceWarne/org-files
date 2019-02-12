@@ -1,0 +1,16 @@
+#+TITLE: Limits
+
+* Formal Definition
+
+The limit, \( L \), of a function \( f(x) \), as \( x \) approaches some \( a \) is
+defined as:
+
+\[ \forall \epsilon > 0, \ \exists \delta > 0, \ s.t. | f(x) - L | < \epsilon \]
+\[ \forall x \in (a - \delta, a + \delta) \]
+
+The notation for this is \( \lim_{x \to a} f(x) = L \)
+* Example
+
+** Example 1
+
+   Show that: \( \lim_{x \to 2} (x^2) = 4\)

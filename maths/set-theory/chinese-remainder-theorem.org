@@ -1,0 +1,80 @@
+#+TITLE: Chinese Remainder Theorem
+
+* Theorem Statement
+Given a system with \( a_i, n_i \in Z \):
+\begin{align*}
+&x \equiv a_1 \pmod{n_1} \\
+&x \equiv a_2 \pmod{n_2} \\
+&... \\
+&x \equiv a_k \pmod{n_j}
+\end{align*}
+If \( n_j \) are pairwise coprime, then \textbf{Chinese Remainder Theorem} asserts that
+the system has a unique solution modulo \( N = n_1 * n_2 * ... * n_j \).
+
+A proof can be found [[https://brilliant.org/wiki/chinese-remainder-theorem/#theorem-and-proof][here]].
+
+They can also be solved in [[https://docs.sympy.org/0.7.5/modules/ntheory.html#sympy.ntheory.modular.crt][sympy]].
+
+
+* Extension
+
+If \( n_i \) are not pairwise coprime, it is still possible to apply CRT. Suppose that:
+
+\[
+x \equiv a \pmod n
+\]
+
+Now we prove:
+
+\[
+(1)\ x \equiv a \pmod n \iff \forall k \in U, x \equiv a \pmod k
+\]
+where
+\[
+U = \{ N^p : N \text{ prime },\ N | n,\ N^{p + 1} \not{|} n \}
+\]
+
+The forward case is trivial:
+\begin{align}
+&x \equiv a \pmod n \nonumber \\
+\Rightarrow& \exists \lambda \in Z \ s.t. \ x - a = \lambda n \nonumber \\
+\intertext{ Applying modulo k, since k | n} \nonumber
+\Rightarrow& x - a \equiv 0 \pmod{k} \nonumber
+\end{align}
+
+For the backward case, note that the distinct elements of \( U \) form the prime
+decomposition of \( n \), hence their product is \( n \). All of the distinct elements
+are also coprime.
+Consider the system \( S \):
+\begin{align*}
+&x \equiv a \pmod{k_1}\\
+&x \equiv a \pmod{k_2}\\
+&...\\
+&x \equiv a \pmod{k_i}
+\end{align*}
+where \( k_1, k_2, ... k_i \) are the distinct elements of \( U \). Then by standard
+CRT there exists a unique solution modulo \( k_1*k_2*...*k_i = n \). From inspection,
+we can identify the trivial solution \( x = a \), and thus by CRT this is the unique 
+solution modulo \( n \). Hence the solution set of \( S \) is identical to the
+solution set of:
+
+\[
+x \equiv a \pmod n
+\]
+
+Hence (1) is proved. Suppose we have some system of linear congruences which satisfy the
+predicates required by CRT except there is some pair of congruences whose moduli are
+not coprime:
+
+\[ x \equiv a_1 \pmod{k_1} \]
+\[ x \equiv a_2 \pmod{k_2} \]
+
+Then by (1), we can reduce these two congruences into more congruences, whose moduli are
+either pairwise coprime or of the form:
+
+\[ x \equiv a \pmod{a^{p_1}} \]
+\[ x \equiv b \pmod{a^{p_2}} \]
+
+Which has solutions \( \iff a = b \), in which case we can ignore the congruence with
+the smaller power. With these two reductions, we now have a system of congruences
+which we can apply CRT to.

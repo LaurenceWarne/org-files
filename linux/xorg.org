@@ -1,0 +1,45 @@
+#+TITLE: Xorg
+
+* Introduction
+Xorg is an open source implementation of the X Window System (frequenty abbreviated to X or
+X11).
+
+Xorg provides an interface between hardware and the graphical software which you want to run.
+
+* Nomenclature
+
+1) *X session* The combination of an X server and connecting X clients.
+2) *Display Managers* Provide X users with a graphical login prompt
+
+* X Client Server Architecture
+
+X uses a client server model. A given X server runs on one user's *local* machine, whilst
+the client programs which communicate with the server may run on *different* remote
+machines. This is the *reverse* of the common configuration of client-server systems, where
+the client runs on the user's computer and the server runs on a remote computer. 
+
+For example I can run *emacs* on my local machine, and connect via ssh to a remote CS server
+at uni to run say *libreoffice*, which would be running on the remote server so I can
+access my school files, but the libre office window would be rendered on my local machine,
+and it would also process my keyboard input (assuming of course the SSH session is
+configured correctly).
+
+
+* Starting an X Session
+An X session is usually started by either the *startx* command or a daemon X display manager
+daemon program started by systemd based on the dependency of *graphical.target*.
+
+1. Running startx basically runs xinit.
+
+2. startx first looks for ~/.xinitrc which, unless there is a very good
+reason, should not be on a Debian system.
+
+3. startx now searches for the system xinitrc in /etc/X11/xinit/. This
+contains the line ". /etc/X11/Xsession" and Xsession will use ~/.xsession if it exists.
+
+See [[https://unix.stackexchange.com/questions/281858/difference-between-xinitrc-xsession-and-xsessionrc][this]] stackexchange post for more details.
+
+** Summary
+   tl;dr: .xinitrc is run from xinit (and thus its wrapper startx), .xsession is run when
+   *custom* is selected on display manager login or if .xinitrc is not found (have tested),
+   and .xsessionrc is always run.
