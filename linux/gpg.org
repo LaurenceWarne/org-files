@@ -1,0 +1,101 @@
+#+TITLE: gpg
+
+* Introduction
+
+[[https://www.gnupg.org/][GnuPG]] is an implementation of the *OpenPGP standard*. It enables the encryption of data and
+features a versatile key management system. At its core, gpg is a *command line tool*, 
+it can be used with the *gpg* command.
+
+A public key consists of the public portion of the master signing key, the public portions
+of the subordinate signing and encryption subkeys, and a set of user IDs used to associate
+the public key with a real person.
+
+* CLI
+
+We can generate a new key pair with:
+
+#+BEGIN_SRC bash
+gpg --gen-key
+gpg --full-generate-key  # Allows choice of key size, expiration, etc
+#+END_SRC
+
+Now if we call:
+
+#+BEGIN_SRC bash
+gpg -k                   # Equivalent to the following commands
+gpg --list-keys
+gpg --list-public-keys
+#+END_SRC
+
+We will be met with something along these lines, which show information about keys on
+your *public keyring*:
+
+/home/laurencewarne/.gnupg/pubring.gpg
+--------------------------------------
+pub   rsa3072 2019-02-13 [SC] [expires: 2021-02-12]
+      A3500FD11FFBF3E0D2B1E2FB43ECFD79C3A76493
+uid           [ultimate] Laurence Warne <foo@bar.com>
+sub   rsa3072 2019-02-13 [E] [expires: 2021-02-12]
+
+pub   rsa2048 2018-11-09 [SC]
+      9129AB98125EAC18C65DBF2964D3012D80EE3190
+uid           [ unknown] John Smith <ragnarok89@yahoo.com>
+sub   rsa2048 2018-11-09 [E]
+
+Note only public keys are listed here. The first column here denotes the type of the key.
+
+** Fingerprints
+   The long strings are the *key fingerprints*. A fingerprint is calculated from a
+   constant, the packet length and finally a part of the public key packet (see [[https://superuser.com/questions/769452/what-is-a-openpgp-gnupg-key-id][this]] stack
+   overflow post for more details). To see the fingerprint of a key:
+   
+   #+BEGIN_SRC bash
+   gpg --fingerprint foo@bar.com
+   #+END_SRC
+   
+   Closely related (but not shown), is the ID of a key (pair), which just denotes the lowest
+   64 bits of the key's fingerprint.
+
+** Subkeys
+   In the first column 'sub', defines the described key to be a *subkey*, of the 
+   *master signing key pair* displayed in the 'pub' column. Note to display the fingerprints
+   of subkeys,
+   call:
+   #+BEGIN_SRC bash
+   gpg --list-keys --with-subkey-fingerprints
+   #+END_SRC
+
+   When you decrypt a document with your private key, you are most likely using a private
+   encryption subkey to do so, in place of your master signing key. The characters in square
+   brackets shown in the output correspond to the following:
+*** Key roles:
+    | Constant          | Character | Explanation                                 |
+    |-------------------+-----------+---------------------------------------------|
+    | PUBKEY_USAGE_SIG  | S         | Key is good for signing                     |
+    | PUBKEY_USAGE_CERT | C         | Key is good for certifying other signatures |
+    | PUBKEY_USAGE_ENC  | E         | Key is good for encryption                  |
+    | PUBKEY_USAGE_AUTH | A         | Key is good for authentication              |
+
+    
+
+  
+* Editing Keys
+
+We can interact with the keys on our keyring using:
+
+#+BEGIN_SRC bash
+gpg --edit-key foo@bar.com
+#+END_SRC
+
+This will open a little interpreter from which we can add a key to our public key (We will
+then be prompted to describe what the subkey will be used for):
+
+gpg> addkey
+
+State how much we 'trust' a key:
+
+gpg> trust
+
+* Digital Signatures
+
+A *digital signature* serves the same purpose as a hand-written signature.
