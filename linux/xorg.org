@@ -24,7 +24,6 @@ access my school files, but the libre office window would be rendered on my loca
 and it would also process my keyboard input (assuming of course the SSH session is
 configured correctly).
 
-
 * Starting an X Session
 An X session is usually started by either the *startx* command or a daemon X display manager
 daemon program started by systemd based on the dependency of *graphical.target*.
