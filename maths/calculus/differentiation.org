@@ -6,7 +6,7 @@ The *derivative* of \( f(x) \) is defined as:
 
 \[ f'(x) = \lim_{h \to 0} \left(\frac{f(x + h) - f(x)}{(x + h) - x}\right) \]
 
-We will now prove some important identities using this definition.
+We will now prove some important identities from this definition.
 \pagebreak
 
 * Proof of Product Rule
