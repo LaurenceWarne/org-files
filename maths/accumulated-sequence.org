@@ -1,0 +1,147 @@
+#+TITLE: Accumulated sequence
+#+REVEAL_PREAMBLE: \usepackage[normalem]{ulem}
+#+REVEAL_PREAMBLE: \usepackage{multirow}
+
+
+* Definition
+
+Define the sequence \( (a_n)_n = 1 \). Now consider taking the first 4 elements of
+the sequence:
+\[ 1 \ \ 1 \ \ 1 \ \ 1 \]
+Now throw away the first element to get:
+\[ 1 \ \ 1 \ \ 1 \]
+Set the new second element to the sum of the first element and old second element,
+and similarly set the new third element to the sum of the old third element and
+new second element and so on to get:
+\[ 1 \ \ 2 \ \ 3 \]
+If we then apply the same process to this new sequence we get:
+\[ 2 \ \ 5 \]
+And so if we apply the process until we are left with one element we get 5. This can
+easily be generalised to starting with n lots of ones, and applying the process n - 1
+times to be left with 1 element, \( f(n) \). Can we find a closed form for \( f(n) \)?
+
+* Recursions
+
+If we stack each pass of the process on top of one another, we obtain the diagram:
+\begin{center}
+\begin{tabular}{l c c c}
+  \hline
+  1 & 1 & 1 & 1 \\
+    & 1 & 2 & 3 \\
+    &   & 2 & 5 \\
+    &   &   & 5 \\
+  \hline
+\end{tabular}
+\end{center}
+Note starting with more 1s in the first row simply extends the diagram to the right
+and does not change the triangle left of the new column. It can be seen from
+our definition above, each element in the diagram (above the first row) is equal to
+the sum of the element above it and the element immediately to the left of it, save
+for the elements we are interested in, which are equal solely to the elements above
+them.
+
+However, we can incorporate these elements into
+the relation by making the following edit to our diagram:
+
+\begin{center}
+\begin{tabular}{l c c c c}
+  \hline
+  1 & 1 & 1 & 1 \\
+  0 & 1 & 2 & 3 \\
+    & 0 & 2 & 5 \\
+    &   & 0 & 5 \\
+  \hline
+\end{tabular}
+\end{center}
+
+Lets label the axes:
+
+\begin{center}
+\begin{tabular}{l |c c c c}
+  & \multicolumn{4}{c}{n \rightarrow } \\
+  \hline
+  \multirow{4}{*}{k} & 1 & 1 & 1 & 1 \\
+  & 0 & 1 & 2 & 3 \\
+  &   & 0 & 2 & 5 \\
+  &   &   & 0 & 5 \\
+  \hline
+\end{tabular}
+\end{center}
+
+Formally:
+
+\begin{align*}
+&f(n, 0)       = 1                          &\forall n     \\
+&f(n, k=n + 1) = 0                          &\forall n > 0 \\
+&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 <= k <= n \\
+\end{align*}
+
+We can reason from the above recursion that each number in the diagram can be written
+as some sum of the leftmost nonzero elements on each row, added to some sum of
+elements in the first row (\( k = 0 \)), which also happen to be equal to the leftmost
+element of the first row ( \( f(0, 0) = 1 \)). These are the numbers we are interested
+in. ie:
+
+\[ f(n) = \sum_{r=1}^{n-1} A_r * f(r) \]
+
+Where \( A_r \) is some constant to be determined. Now we can consider how each 
+\( f(r) \) contributes to \( f(n) \) via the following diagram:
+
+\begin{center}
+\begin{tabular}{l l l l l}
+  & \multicolumn{5}{c}{n \rightarrow } \\
+  \hline
+  f(r) \rightarrow  & f(r) + B_1  \rightarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow & ...\\
+  0                 & f(r + 1)                & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow &  ...\\
+                    & 0                       & f(r + 2)   & 2f(r) + B_3 \rightarrow        & ...\\
+  \hline
+\end{tabular}
+\end{center}
+
+Where \( C, B, D \) are constants consisting of sums of other \( f(s) \). Note we
+do not arrow constributions to \( f(r+1) \) as these are the source of the
+contributions and we need to keep these "atomic". We can observe from this diagram
+that:
+
+\[ A_r = f(n - r) \]
+
+This also works for the base row, as we can just rewrite 1 = f(1) (thus all 
+constants are 0), and hence:
+
+\[ f(n) = \sum_{r=1}^{n - 1} f(r)*f(n - r) \]
+
+
+* To Closed Form
+
+First of all lets let \( f(0) = 0 \) which will make things a little simpler, now
+let's define the generating function:
+
+\[ F(x) = \sum_{n=0} f(n)x^n \]
+
+And now sum our recursion over all \( n \) where it's valid (\( n > 2 \)):
+
+\[ \sum_{n=2} f(n)x^n = \sum_{n=2}\sum_{r=0}^{n} f(r)*f(n - r)x^n \]
+
+Simplifying the LHS and using the definition of multiplication in the ring of 
+formal power series on the RHS:
+
+\[ F(x) - x = \sum_{n=0}f(n)x^n \sum_{n=0}f(n)x^n \]
+
+Simplifying and collecting terms:
+
+\[ F(x)^2 - F(x) + x = 0 \]
+
+Quadratic formula (neglecting + sign, this will give us \( f(0) = 1 \) ):
+
+\[ F(x) = \frac{1 - \sqrt{1 - 4x}}{2} \]
+
+Attempt to extract \( x \) coefficients using binomial expansion:
+
+\[ F(x) = \frac{-1}{2}\left( \frac{\frac{1}{2}}{1!}\left(-4x\right) + \frac{\frac{1}{2}\frac{-1}{2}}{2!}\left(-4x\right)^2 + ... \right) \]
+
+After some arduous simplifications, we find the general \( x \) coefficient is given
+by:
+
+\[ \frac{(2n - 2)!}{n! * (n - 1)!} \]
+
+Which is the (n - 1)th Catalan number, ie \( f(n) = C_{n - 1} \).
