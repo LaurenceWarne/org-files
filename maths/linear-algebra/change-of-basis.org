@@ -1,0 +1,50 @@
+#+TITLE: Change of Basis
+#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+
+Suppose for some finite dimensional K-space \( V \) we are given two bases:
+
+\[ B = \{v_1, ..., v_n \} \]
+\[ C = \{u_1, ..., u_n \} \]
+
+And we have some \( w \in V \) whose column vector WRT \( B \) is:
+
+\[ [w]_B = c_1 \]
+
+Then there is an easy way to obtain \( [w]_C \) from \( [w]_B \), define the following matrix:
+
+\[ P_{B \to C} = ( [v_1]_C \ [v_2]_C \ ... \ [v_n]_C ) \]
+
+Ie the columns of \( P_{B \to C} \) are given by the coordinate vectors of the elements in the basis \( B \) WRT \( C \).
+
+We claim \( \forall w \in V \):
+
+\[ P_{B \to C} \ [w]_C = [w]_B \]
+
+* Proof
+
+Clearly \( P_{B \to C} \) is an \( n * n \) matrix, so the multiplication is defined. Consider:
+
+\[ P_{B \to C} \ [v_i]_B \]
+
+Where \( [v_i]_B \) is the coordinate vector of the ith vector in the basis \( B \) WRT to \( B \), and is thus 1 in the ith row and 0 everywhere else.
+
+We can see this multiplication will extract the ith column of \( P_{B \to C} \), and thus by the definition of \( P_{B \to C} \):
+
+\[ P_{B \to C} \ [v_i]_B = [v_i]_C \]
+
+Hence our claim holds for all basis vectors in \( B \). \( B \) spans \( V \), hence we can write any \( w \in V \) as:
+
+\[ w = a_1v_1 + ... + a_nv_n \]
+
+For some \( a_1, ... a_n \in K \). So:
+
+\begin{align} 
+[w]_C &= [a_1v_1 + ... + a_nv_n]_C \\
+&= a_1[v_1]_C + ... + a_n[v_n]_C \\
+&= P_{B \to C} \ a_1[v_1]_B + ... + P_{B \to C} \ a_n[v_n]_B \\
+&= P_{B \to C} (a_1[v_1]_B + ... + a_n[v_n]_B) \\
+&= P_{B \to C} ([a_1v_1 + ... + a_nv_n]_B) \\
+&= P_{B \to C} [w]_B
+\end{align}

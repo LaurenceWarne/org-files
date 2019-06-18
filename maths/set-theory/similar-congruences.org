@@ -1,0 +1,26 @@
+* Similar Congruences
+Consider solutions to the simultaneous congruences:
+
+\begin{align}
+x \equiv a_1 \mod n^{p} \\
+x \equiv a_2 \mod n^{q}
+\end{align}
+
+with \( p >= q \). Now from (1):
+
+\begin{align*}
+& x - a_1 = \lambda n^{p}               & \text{For some \( \lambda \in Z \).} \\
+& \Rightarrow x \equiv a_1 \mod n^{q}   & \text{using n^{q} | n^{p}} \\
+& \Rightarrow a_1 \equiv a_2 \mod n^{q} & \text{} \\ 
+\end{align*}
+
+Hence \( a_1 = a_2 \mod n^{q} \) is a necessary condition for solutions to exist.
+Suppose this is true, ie:
+
+\begin{align}
+x \equiv a_1 \mod n^{p} \\
+x \equiv a_1 \mod n^{q}
+\end{align}
+
+Then the set of solutions to (3) are a subset of the set of solutions to (4), hence we
+need only consider \( x \equiv a_1 \mod n^{p} \).
