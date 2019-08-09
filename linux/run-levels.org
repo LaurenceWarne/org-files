@@ -1,0 +1,56 @@
+#+TITLE: Run Levels
+
+* Levels
+
+A runlevel is a preset operating state on a Unix-like operating system.
+
+A system can be booted into (i.e., started up into) any of several runlevels, 
+each of which is represented by a single digit integer. Each runlevel
+designates a different system configuration and allows access to a different 
+combination of processes (i.e., instances of executing programs).
+
+The are differences in the runlevels according to the operating system. Seven 
+runlevels are supported in the standard Linux kernel (i.e., core of the 
+operating system). They are:
+
+0 - System halt; no activity, the system can be safely powered down.
+1 - Single user; rarely used.
+2 - Multiple users, no NFS (network filesystem); also used rarely.
+3 - Multiple users, command line (i.e., all-text mode) interface; the standard 
+    runlevel for most Linux-based server hardware.
+4 - User-definable
+5 - Multiple users, GUI (graphical user interface); the standard runlevel for 
+    most Linux-based desktop systems.
+6 - Reboot; used when restarting the system.
+
+By default Linux boots either to runlevel 3 or to runlevel 5. The former 
+permits the system to run all services except for a GUI. The latter allows 
+all services including a GUI. 
+
+* Checking Level
+
+We can check with who:
+#+BEGIN_SRC bash
+who -r
+#+END_SRC
+
+Or with systemd:
+
+#+BEGIN_SRC bash
+systemctl get-default
+#+END_SRC
+
+Run level 0 is matched by poweroff.target
+Run level 1 is matched by rescue.target
+Run level 3 is emulated by multi-user.target
+Run level 5 is emulated by graphical.target
+Run level 6 is emulated by reboot.target
+
+* Changing levels
+
+We can change levels with the call:
+
+#+BEGIN_SRC bash
+
+systemctl set-default multi-user.target
+#+END_SRC

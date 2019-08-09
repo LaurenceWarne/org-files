@@ -28,13 +28,11 @@ configured correctly).
 An X session is usually started by either the *startx* command or a daemon X display manager
 daemon program started by systemd based on the dependency of *graphical.target*.
 
-1. Running startx basically runs xinit.
+1. Running startx basically runs xinit (startx is a user-friendly wrapper).
 
-2. startx first looks for ~/.xinitrc which, unless there is a very good
-reason, should not be on a Debian system.
+2. startx first looks for ~/.xinitrc which, unless there is a very good reason, should not be on a Debian system (use .xsession instead - see the startx manpage for why you should do this).
 
-3. startx now searches for the system xinitrc in /etc/X11/xinit/. This
-contains the line ". /etc/X11/Xsession" and Xsession will use ~/.xsession if it exists.
+3. startx now searches for the system xinitrc in /etc/X11/xinit/. This contains the line ". /etc/X11/Xsession" and Xsession will use ~/.xsession if it exists.
 
 See [[https://unix.stackexchange.com/questions/281858/difference-between-xinitrc-xsession-and-xsessionrc][this]] stackexchange post for more details.
 
