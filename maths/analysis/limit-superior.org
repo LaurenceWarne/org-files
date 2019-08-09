@@ -1,0 +1,5 @@
+#+TITLE: The Limit Superior
+
+* Introduction
+We can think of the limit superior of a sequence \( a_n \) intuitively as the the maximum
+possible limit of some convergent subsequence of \( a_n \).

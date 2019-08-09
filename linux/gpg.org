@@ -1,4 +1,4 @@
-#+TITLE: gpg
+#+TITLE: GPG
 
 * Introduction
 
@@ -6,7 +6,7 @@
 features a versatile key management system. At its core, gpg is a *command line tool*, 
 it can be used with the *gpg* command.
 
-A public key consists of the public portion of the master signing key, the public portions
+A *public key* consists of the public portion of the master signing key, the public portions
 of the subordinate signing and encryption subkeys, and a set of user IDs used to associate
 the public key with a real person.
 
@@ -27,9 +27,10 @@ gpg --list-keys
 gpg --list-public-keys
 #+END_SRC
 
-We will be met with something along these lines, which show information about keys on
+We will be met with something along the following lines, which show information about keys on
 your *public keyring*:
 
+#+BEGIN_SRC bash
 /home/laurencewarne/.gnupg/pubring.gpg
 --------------------------------------
 pub   rsa3072 2019-02-13 [SC] [expires: 2021-02-12]
@@ -41,6 +42,7 @@ pub   rsa2048 2018-11-09 [SC]
       9129AB98125EAC18C65DBF2964D3012D80EE3190
 uid           [ unknown] John Smith <ragnarok89@yahoo.com>
 sub   rsa2048 2018-11-09 [E]
+#+END_SRC
 
 Note only public keys are listed here. The first column here denotes the type of the key.
 
@@ -57,7 +59,7 @@ Note only public keys are listed here. The first column here denotes the type of
    64 bits of the key's fingerprint.
 
 ** Subkeys
-   In the first column 'sub', defines the described key to be a *subkey*, of the 
+   In the first column of the cmd output, 'sub' indicates the described key is a *subkey*, of the 
    *master signing key pair* displayed in the 'pub' column. Note to display the fingerprints
    of subkeys,
    call:
@@ -90,11 +92,11 @@ gpg --edit-key foo@bar.com
 This will open a little interpreter from which we can add a key to our public key (We will
 then be prompted to describe what the subkey will be used for):
 
+#+BEGIN_SRC bash
 gpg> addkey
-
 State how much we 'trust' a key:
-
 gpg> trust
+#+END_SRC
 
 * Digital Signatures
 
