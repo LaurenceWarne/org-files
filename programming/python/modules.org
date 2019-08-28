@@ -4,7 +4,7 @@
 
 1. *Module* An object that serves as a unit of python code.
 2. *Package* Analogous to directories in a file system, they are special kinds of modules which contain submodules or subpackages. Any module with a ~__path__~ attribute is a package.
-3. *Namespace* A place where a variable is stored. Namespaces are implemented as dictionaries. There are the local, global and built-in namespaces as well as nested namespaces in objects.
+3. *Namespace* A place where a variable is stored. Namespaces are implemented as dictionaries. There are the local, global and built-in namespaces as well as nested namespaces in objects. Namespaces are used to implement scope.
 
 * The Import Statement
 
@@ -12,7 +12,7 @@ We can use the ~import~ statement to use code from other modules in our module.
 
 #+BEGIN_SRC python
 import numpy as np
-import matplotlib.pyplot  # Not this also imports maplotlib
+import matplotlib.pyplot  # Note this also imports maplotlib
 
 x = np.linspace(0, 10, 1000)
 matplotlib.pyplot.plot(x, x**2)
@@ -24,7 +24,7 @@ When a module is first imported, Python searches for the module and if found, it
 Importing a module does automatically import all of its submodules, but a package may choose to do this in its ~__init__.py~. For more info see [[https://stackoverflow.com/questions/22840671/what-is-the-difference-between-importing-python-sub-modules-from-numpy-matplotl?noredirect=1&lq=1][this]] post.
 
 ** From
-   We can use the ~from~ statement to import subpackages, classes and functions into our package.
+   We can use the ~from~ statement to import subpackages, classes and functions into our script.
 
 #+BEGIN_SRC python
 from numpy.random import standard_normal  # Import function standard_normal
