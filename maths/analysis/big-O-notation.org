@@ -1,0 +1,45 @@
+#+TITLE: Big O notation
+
+* Definition
+
+For some functions of the reals \( f(x) \) and \( g(x) \), we say \( f(x) = O(g(x)) \) for some strictly positive \( g(x) \) iff:
+
+\[
+ \exists c, x_0 \in R \ s.t. \ \forall x \ge x_0,\ |f(x)| \le cg(x)
+\]
+
+* Extension
+
+Whilst the above describes the behaviour of \( f(x) \) as \( x \to \infty \), we can also use the notation to describe the behaviour of \( f(x) \) locally, ie as \( x \to a \in R \):
+
+\[
+f(x) = O(g(x)) \text{ as } x \to a \iff \exists c, \delta \in R \ s.t. \ \forall x \le |a - \delta|, \ |f(x)| \le cg(x)
+\]
+
+* Little o Notation
+
+With \( f(x) \) and \( g(x) \) predicated as above, we say:
+
+\[
+f(x) = o(g(x)) \iff \forall c \in R \ \exists x_0 \in R \ s.t. \ |f(x)| \le cg(x) \ \forall x \ge x_0
+\]
+
+This is equivalent to:
+
+\[
+f(x) = o(g(x)) \iff \lim_{x \to \infty}{\frac{f(x)}{g(x)}} = 0
+\]
+
+Which is a stronger condition to the similar formulation for Big-O:
+
+\[
+f(x) = O(g(x)) \iff \limsup_{x \to \infty}{\frac{f(x)}{g(x)}} < \infty
+\]
+
+Intuitively, we say \( f(x) = O(g(x)) \) if \( f(x) \le g(x) \) and \( f(x) = o(g(x)) \) if \( f(x) < g(x) \).
+
+* Examples
+
+1. \( sin(x) = O(1) \)
+2. \( x^2 = o(x^3) \)
+3. \(\arctan{x} = o(x) \)

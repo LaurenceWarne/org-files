@@ -2,9 +2,11 @@
 
 * First Principles
 
-The *derivative* of \( f(x) \) is defined as:
+The *derivative* of \( f\colon A \subset R \to B : x\mapsto f(x) \) is defined as:
 
 \[ f'(x) = \lim_{h \to 0} \left(\frac{f(x + h) - f(x)}{(x + h) - x}\right) \]
+
+Note that \( f'(x) \) may not exist \( \forall x \in A \) even for continuous functions.
 
 We will now prove some important identities using this definition.
 \pagebreak

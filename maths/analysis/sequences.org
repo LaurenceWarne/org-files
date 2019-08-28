@@ -1,0 +1,66 @@
+#+TITLE: Sequences
+#+LATEX_HEADER: \usepackage{mathtools}
+
+* Definition
+
+Formally we can define a sequence \( (a_n)_n \) as a mapping from the natural numbers to the reals or more generally the complex numbers. Informally a sequence is an ordered collection of numbers.
+
+We make common use of the notation:
+
+\[
+(\overbrace{a_n}^{\mathclap{\text{Denotes the sequence function}}})_\underbrace{n \in S}_{\mathclap{\text{domain of the function}}}
+\]
+
+The domain of the function \( a_n \) is almost always the natural numbers which is abbreviated to just \( n \), as above. It is also common to forgo the brackets and domain subscript and refer to the sequence simply as \( a_n \).
+
+* Convergence
+
+We say a sequence \( (a_n)_n \) *converges* to a limit \( L \) iff:
+
+\[
+\forall \epsilon \in \mathbb{R} > 0 \ \exists N \in \mathbb{N} \ s.t. \ \forall n \ge N, \ |a_n - L| < \epsilon
+\]
+
+* Algebra of Limits
+
+Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with limit \( a \) and \( b \) respectively, then:
+
+1. \( (|a_n|)_n \) converges with limit \( |a| \)
+2. \( (ka_n)_n \) converges with limit \( ka \)
+3. \( (a_n + b_n)_n \) converges with limit \( a + b \)
+4. \( (a_nb_n)_n \) converges with limit \( ab \)
+5. If \( b_n \ne 0 \ \forall n \) and \( b \ne 0 \) then \( (\frac{a_n}{b_n})_n \) converges to \( \frac{a}{b} \)
+6. If \( b_n \ne 0 \ \forall n \) and \( b \ne 0 \) then \( (\frac{1}{b})_n \) converges to \( \frac{1}{b} \)
+
+* Sandwich Theorem
+
+Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with the same limit \( L \). The sandwich theorem states that:
+
+\[
+\exists k \in \mathbb{N} \ s.t. \ b_n \le c_n \le a_n \forall n \ge k \implies c_n \to L
+\]
+
+* Monotone Convergence Theorem
+
+The *MCT* states that if a sequence \( a_n \) is bounded above and monotonically increasing (\( a_{n + 1} \ge a_n \ \forall n \)), then it is convergent. It can be shown that the limit is the supremum of the sequence.
+
+** Proof
+   Suppose \( a_n \) is monotone increasing and bounded with supremum \( L \). Since \( L \) is the supremum:
+
+\[
+\forall \epsilon > 0 \ \exists N \ s.t. \ a_N > L - \epsilon
+\]
+
+   Now since the sequence is monotone increasing:
+
+\[
+\forall \epsilon > 0 \ \exists N \ s.t. \ \forall n \ge N, \ a_n > L - \epsilon
+\]
+
+   Rearranging the last part:
+
+\[
+\forall \epsilon > 0 \ \exists N \ s.t. \ \forall n \ge N, \ |a_n - L| < \epsilon
+\]
+
+   Which is the definition of convergence.

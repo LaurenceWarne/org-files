@@ -6,3 +6,6 @@
 # emacs backups
 *~
 *#
+
+# org latex image caches
+*ltximg*

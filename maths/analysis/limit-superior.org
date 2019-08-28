@@ -1,5 +1,44 @@
 #+TITLE: The Limit Superior
 
-* Introduction
-We can think of the limit superior of a sequence \( a_n \) intuitively as the the maximum
-possible limit of some convergent subsequence of \( a_n \).
+* Definition
+We define the *limit superior* of a sequence \( a_n \) as follows:
+
+\[
+\limsup_{n \to \infty}{a_n} = \lim_{n \to \infty}{\left( \sup_{m \geq n}{a_m} \right)}
+\]
+
+An equivalent but perhaps more intuitive definition is:
+
+\[
+    \limsup_{n \to \infty}{a_n} = \sup{S}
+\]
+
+Where \( S \) is the set of limits of all *convergent* subsequences of \( a_n \).  The *limit inferior* is defined similarly:
+
+\[
+\liminf_{n \to \infty}{a_n} = \lim_{n \to \infty}{\left( \inf_{m \geq n}{a_m} \right)}
+\]
+
+* Interpretation
+Consider some sequence \( a_n \) where the limit superior is not infinite. Then the limit superior \( b \) is the smallest real number s.t. \( \forall \epsilon > 0 \), there exist only a finite \( n \) s.t. \( a_n > b + \epsilon \).
+
+* Examples
+
+Define \( a_n = \sin{n\pi} \) 
+
+* Questions
+
+Show that a sequence \( a_n \) converges iff:
+
+\[
+ \limsup_{n \to \infty}{a_n} = \liminf_{n \to \infty}{a_n} 
+\]
+
+
+Show that if the sequences \( a_n \) and \( b_n \) are bounded above then:
+
+   \[ 
+\limsup_{n \to \infty}{\left(a_n + b_n\right)} \le \limsup_{n \to \infty}{a_n} + \limsup_{n \to \infty}{b_n}
+\]
+
+and find a similar relation for the limit inferior.

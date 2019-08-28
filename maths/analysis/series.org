@@ -1,0 +1,103 @@
+#+TITLE: Series
+#+LATEX_HEADER: \usepackage{mathtools}
+
+* Definition
+
+Given some (infinite) sequence \( (a_n)_n \) we can consider its *infinite series*, denoted:
+
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+
+We say the *series* converges iff the sequence of partial sums of the sequence converges.
+
+\[
+S_n = \sum_{i=1}^n a_i
+\]
+
+If \( S_n \) converges we say the series is *convergent*, else we say the series is *divergent*.
+
+* Tests
+
+There is no general process for checking if a series converges, but we can apply tests which provide definitive statements for some series.
+
+** Nth Term Test
+
+   If a series converges then its corresponding sequence must be null.
+
+*** Proof
+    Suppose \( S_n \) converges to some \( L \) then by the shifted sequence rule, \( S_{n + 1} \) also converges to the same \( L \). By the algebra of limits theorem:
+
+    \[
+    (S_{n + 1} - S_n)_n
+    \]
+
+    converges to \( L - L = 0 \), but 
+
+    \[
+    (S_{n + 1} - S_n)_n = (a_n)_n \implies a_n \text{ converges to } 0
+    \]
+
+** Integral Test
+
+   Let the sequence \( (a_n)_n \) be defined by \( a_n = f(n) \) then if the following are true for \( f \): 
+
+   1. \( f \) is defined on the interval \( I = [1, \infty) \)
+   2. \( f \) is monotonically decresing on \( I \)
+   3. \( f \) is positive on n\( I \)
+
+   Then the integral test states that: 
+
+   \[
+\sum_{n=1}^{\infty} a_n \text{ converges } \iff \int^{\infty}_{1} f(x) \ dx\text{ exists }
+\]
+
+** Comparison Test
+
+   Given two sequences \( a_n \) and \( b_n \), for which
+
+   1. \( a_n, b_n > 0 \ \forall n \)
+   2. \( a_n \le b_n \ \forall n \)
+   
+   The comparison test states that:
+
+   \[
+\sum_{n=1}^{\infty} b_n \text{ converges } \implies \sum_{n=1}^{\infty} a_n \text{ converges}
+   \]
+
+   And
+
+   \[
+\sum_{n=1}^{\infty} a_n \text{ diverges } \implies \sum_{n=1}^{\infty} b_n \text{ diverges}
+   \]
+
+*** Proof
+    
+    Consider the sequence of partial sums: \( S_n = \sum_{k=1}^n a_k, \ R_n = \sum_{k=1}^n b_k \). Given the convergence of \( R_n \) we know that it must have an upper bound \( B \).
+
+    \[
+    \implies S_n \le R_n < B \ \forall n
+    \]
+    \[
+    \implies S_n < B \ \forall n
+    \]
+
+    And we also have from (1) that \( S_n \) is monotone increasing. Hence since \( S_n \) is monotone increasing and bounded above, it must converge by the MCT.
+
+** Ratio Test
+
+   Let 
+
+   \[
+   L = \frac{|a_{n + 1}|}{|a_n|}
+   \]
+
+   Then the ratio test asserts that if:
+   
+   1. \( L < 1 \implies a_n \text{ converges absolutely} \)
+   2. \( L > 1 \implies \text{ the series is divergent} \)
+   3. And if \( L = 1 \) or the limit does not exist, then the test is inconclusive
+
+*** Proof
+
+    
