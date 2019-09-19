@@ -1,0 +1,41 @@
+#+TITLE: Power Series
+#+LATEX_HEADER: \usepackage{mathtools}
+
+* Definition
+
+Let \( (a_n)_n \) be some sequence, then a series of the form:
+
+\[
+\sum_{n=1}^{\infty} a_n x^n
+\]
+
+Is called a power series (in \( x \)), where \( x \in \mathbb{R} \).
+
+We make the statement that one of the following must be true:
+
+\[
+S = \sum_{n=1}^{\infty} a_n x^n
+\]
+
+Converges:
+
+1. \( \forall x \in \mathbb{R} \)
+2. Only for \( x = 0 \)
+3. \( \forall |x| \le R \text{, and diverges } \forall |x| > R \ where \( R \) is some real. We this \( R \) *The Radius of Convergence* of the power series
+
+** Proof
+   
+   Suppose \( S \) converges for some \( x = r \), then we know that the sequence \( (a_n r^n)_n \) is null and hence that \( \exists M \ s.t. \ |a_n r^n| \le M \ \forall n \).
+   Now consider some \( |u| < |r| \), and let \( t = \frac{|u|}{|r|} \). So that \( 0 < t < 1 \) and
+
+   \[
+      \mid a_n u^n \mid \  = \ \mid a_n r^n \mid t^n \le M t^n \ \forall n
+   \]
+
+   Summing over infinity:
+
+   \[
+   \implies 0 \le \sum_{n=1}^{\infty} |a_n u^n| \le M\sum_{n=1}^{\infty} t^n
+   \]
+
+   Then the series on the right is a convergent geometric series by the predicate on \( t \), and hence we can conclude by the sandwich rule that \( S \) converges absolutely for \( x = u \).
