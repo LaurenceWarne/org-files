@@ -44,7 +44,7 @@ There is no general process for checking if a series converges, but we can apply
 
    1. \( f \) is defined on the interval \( I = [1, \infty) \)
    2. \( f \) is monotonically decresing on \( I \)
-   3. \( f \) is positive on n\( I \)
+   3. \( f \) is positive on  \( I \)
 
    Then the integral test states that: 
 
@@ -98,6 +98,55 @@ There is no general process for checking if a series converges, but we can apply
    2. \( L > 1 \implies \text{ the series is divergent} \)
    3. And if \( L = 1 \) or the limit does not exist, then the test is inconclusive
 
-*** Proof
+   The proof of this statement follows via construction of an appropriate geometric series and the comparison test.
 
+** Root Test    
+
+   Let
+
+   \[
+   L = \limsup_{n \to \infty} |a_n|^{\frac{1}{n}}
+   \]
+
+   Then similar to the ratio test, the root test asserts that:
+
+   1. \( L < 1 \implies a_n \text{ converges absolutely} \)
+   2. \( L > 1 \implies \text{ the series is divergent} \)
+   3. And if \( L = 1 \) or the limit does not exist, then the test is inconclusive
+
+   Note that if \( \lim_{n \to \infty } |a_n|^{\frac{1}{n}} \) exists then by the properties of the limit superior \( L =  \lim_{n \to \infty } |a_n|^{\frac{1}{n}} \).
+   We can also use this test to define the RoC as:
+
+   \[
+   R = \frac{1}{\limsup_{n \to \infty} |a_n|^{\frac{1}{n}}}
+   \]
+
+   This works as the RoC makes no claims on the convergence at the boundaries, we can also substitute in \( \infty \) for the limit superior if \( (|a_n|^\frac{1}{n})_n \) does not have a convergent subsequence.
+
+*** Proof
     
+    Suppose \( L < 1 \), then by the properties of the limit superior:
+
+    \[
+    \exists N \in \mathbb{N}, \ k \ s.t. \ |a_n|^\frac{1}{n} < k < 1, \ \forall n \ge N
+    \]
+
+    Since \( f(x) = x^n \) is strictly increasing on the interval \( [0, \infty) \):
+
+    \[
+    \ |a_n| < k^n < 1, \ \forall n \ge N
+    \]
+
+    Summing from \( N \) to \( \infty \):
+
+    \[
+    \sum_{n=N}^{\infty} |a_n| < \sum_{n=N}^{\infty} k^n
+    \]
+
+    But \( \sum_{n=N}^{\infty} k^n \) is a convergent geometric series, hence \( \sum_{n=N}^{\infty} |a_n| \) converges by the comparison test.
+
+    \[
+    \implies \sum_{n=1}^{\infty} |a_n| \text{ converges}
+    \]
+
+    Hence if property 1. above is satisfied, \( a_n \) not only converges, but converges *absolutely*. A similar argument can be applied to prove 3.

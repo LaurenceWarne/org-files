@@ -2,8 +2,7 @@
 #+REVEAL_PREAMBLE: \usepackage[normalem]{ulem}
 #+REVEAL_PREAMBLE: \usepackage{multirow}
 
-
-* Definition
+* Question
 
 Define the sequence \( (a_n)_n = 1 \). Now consider taking the first 4 elements of
 the sequence:
@@ -109,7 +108,6 @@ This also works for the base row, as we can just rewrite 1 = f(1) (thus all
 constants are 0), and hence:
 
 \[ f(n) = \sum_{r=1}^{n - 1} f(r)*f(n - r) \]
-
 
 * To Closed Form
 

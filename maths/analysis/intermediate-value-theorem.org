@@ -1,0 +1,84 @@
+#+TITLE: Intermediate Value Theorem
+#+LATEX_HEADER: \usepackage{mathtools}
+
+* Definition
+
+The Intermediate Value Theorem (IVT) states the following:
+
+Let \( f: [a, b] \to \mathbb{R} \) be some function continuous on the interval \( [a, b] \), with \( f(a) = A \) and \( f(b) = B \). Let \( C \in \mathbb{R} \) be such that \( min\{A, \ B\} < C < max\{A, \ B\} \), then:
+
+\[
+\exists c \in [a, b] \ s.t. \ f(c) = C
+\]
+
+And:
+
+\[
+S = \{x : x \in [a, b], f(z) \le C \ \forall z \in [a, x] \}
+\]
+\[
+c = \sup\{S\}
+\]
+
+* Proof
+
+Suppose WLOG that \( f(a) < f(b) \). Note since \( S \) is bounded above by \( b \) and nonempty, it must have a supremum by the completeness property of the reals, hence \( c \) is defined.
+
+** Case 1
+
+   Now suppose \( f(c) < C \implies C - f(c) = \epsilon > 0 \). Now since \( f \) is continuous on \( [a, b] \):
+
+   \[
+   \exists \delta > 0 \ s.t. \ x \in (c - \delta, c + \delta) \implies \ |f(c) - f(x)| < \epsilon
+   \]
+
+   Now consider any :
+
+   \[
+   c^* \in (c, c + \delta) 
+   \]
+
+   Note since \( |f(c^*) - f(x)| < \epsilon \implies f(c^*) < f(c) + \epsilon = C \) there is no \( c^* \) such that \( f(c^*) > C \), hence all \( c^* \) are in \( S \), but this is a contradiction as their memebership in the set would mean
+
+   \[
+   c \ne sup\{S\}
+   \]
+
+   So we can conclude that our assumption: \( f(c) < C \) is false.
+
+** Case 2
+   Alternatively, suppose \( f(c) > C \implies f(c) - C = \epsilon > 0 \). By continuity:
+
+   \[
+   \exists \delta > 0 \ s.t. \ x \in (c - \delta, c + \delta) \implies \ |f(c) - f(x)| < \epsilon
+   \]
+
+   Now choose \( c' = c - \frac{\epsilon}{2} \). We prove the above supposition to be false by considering the membership of \( c' \) to \( S \). We know from the membership predicates of \( S \) that \( c \) cannot be in \( S \). Suppose:
+
+   \[
+   c' \not \in S \implies \forall x \ge c', \ x \not \in C \implies c' \text{ is an upper bound of } S
+   \]
+
+   But that would contradict the definition of \( c \) being the least upper bound of \( S \), hence we must have \( c' \in S \).
+
+   \[ 
+   c' \in S \implies f(c') \le C
+   \]
+
+   But we know from continuity: \( f(c) - f(c') \le \epsilon \)
+
+   \begin{align}
+   & \implies f(c) - f(c') \le f(c) - C\\
+   & \implies C \le f(c')\\
+   & \implies c' \not \in S
+   \end{align}
+
+   Which again arrives us at a contradiction, hence the statement \( f(c) > C \) is false.
+
+** Synthesis
+
+   Given that the statements \( f(c) > C \) and \( f(c) < C \) are both false, we deduce that \( f(c) = C \) which proves the theorem.
+
+
+
+
