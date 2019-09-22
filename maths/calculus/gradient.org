@@ -3,7 +3,7 @@
 
 * Introduction
 
-The *gradient* is a [[./vector-function.org][vector valued function]] \( f\colon \mathbb{R}^n \to \mathbb{R}^n \) defined as the *unique* vector field whose *dot product* with any unit vector \( \vec{v} \) at each \( x, y \) is the *directional derivative* of \( f \) along \( \vec{v} \). In \( \mathbb{R}^2 \) it is given by:
+The *gradient* is a [[./vector-function.org][vector valued function]] \( \nabla f\colon \mathbb{R}^n \to \mathbb{R}^n \) defined as the *unique* vector field whose *dot product* with any unit vector \( \vec{v} \) at each \( x, y \) is the *directional derivative* of \( f \) along \( \vec{v} \). In \( \mathbb{R}^2 \) it can be shown the gradient of a scalar function of two variables is given by:
 
 \[ \nabla f(x, y) = \langle \frac{\partial f}{\partial x}, \ \frac{\partial f}{\partial y} \rangle \]
 

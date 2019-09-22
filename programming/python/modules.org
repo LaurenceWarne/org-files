@@ -21,7 +21,7 @@ matplotlib.pyplot.show()
 
 When a module is first imported, Python searches for the module and if found, it creates a *module object*. We can now access the module's global namespace from within our module using ~mymodule.var~.
 
-Importing a module does automatically import all of its submodules, but a package may choose to do this in its ~__init__.py~. For more info see [[https://stackoverflow.com/questions/22840671/what-is-the-difference-between-importing-python-sub-modules-from-numpy-matplotl?noredirect=1&lq=1][this]] post.
+Importing a module doesn't automatically import all of its submodules, but a package may choose to do this in its ~__init__.py~. For more info see [[https://stackoverflow.com/questions/22840671/what-is-the-difference-between-importing-python-sub-modules-from-numpy-matplotl?noredirect=1&lq=1][this]] post.
 
 ** From
    We can use the ~from~ statement to import subpackages, classes and functions into our script.
@@ -51,7 +51,7 @@ In ~__init__.py~:
 
 #+BEGIN_SRC python
 from .my_module import Foo
-from .my_module import foo
+from .my_other_module import foo
 #+END_SRC
 
 In ~my_script.py~:
