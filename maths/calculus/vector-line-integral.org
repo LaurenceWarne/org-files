@@ -1,0 +1,46 @@
+#+TITLE: Scalar Line Integral
+
+* Definition
+
+Given a vector field \( F : R^n \to R^m \), and a parametric curve \( r : R \to R^n \), we define the vector line integral:
+
+\[ \int_C F \cdot dr = \int_a^b F(r(t)) \cdot r'(t) dt \]
+
+Intuitively, it can be thought of being a measure of how much the curve *agrees* with the vector field: at each point on the curve we are taking the dot product of the *tangent* vector and the vector defined by the vector field at that point.
+
+We show another common notation for a vector line integral:
+
+\begin{align}
+\int_C F \cdot dr &= \int_C \langle P(x, y), \ Q(x, y) \rangle  \cdot dr = \int_C \langle P(x, y), Q(x, y) \rangle  \cdot \langle dx, dy \rangle  \\
+&= \int_C P(x, y)dx + Q(x, y)dy
+\end{align}
+
+
+We show another common way of representing a vector line integral:
+
+
+\begin{align}
+\int_C F \cdot dr &= \int_C \langle P(x, y), \ Q(x, y) \rangle  \cdot dr = \int_C \langle P(x, y), Q(x, y) \rangle  \cdot \langle dx, dy \rangle  \\
+&= \int_C P(x, y)dx + Q(x, y)dy
+\end{align}
+
+* Relation to Scalar Line Integral
+
+Let \( \theta (t) \) denote the angle between \( F(t) \) and \( r(t) \) at \( t \), now rewriting using dot products:
+
+
+
+\[
+\int_a^b F(r(t)) \cdot r'(t) dt = \int_a^b |F(r(t))| \ |r'(t)| \cos{(\theta(t))} \ dt
+\]
+
+Now suppose \( r(t) \) is always tangent to \( F(r(t)) \), leaving \( \theta (t) = 1 \) for all \( t \):
+
+\begin{align}
+\int_a^b F(r(t)) \cdot r'(t) dt &= \int_a^b |F(r(t))| \ |r'(t)| \ dt \\
+&= \int_a^b g(r(t)) \ |r'(t)| \ dt \\
+&= \int_C g(r) ds
+\end{align}
+
+With \( g(r) = |f(r)| \). Hence we can conclude that the *scalar line integral* is just a special case of the vector line integral.
+
