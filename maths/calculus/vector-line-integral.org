@@ -1,4 +1,4 @@
-#+TITLE: Scalar Line Integral
+#+TITLE: Vector Line Integral
 
 * Definition
 
@@ -11,18 +11,31 @@ Intuitively, it can be thought of being a measure of how much the curve *agrees*
 We show another common notation for a vector line integral:
 
 \begin{align}
-\int_C F \cdot dr &= \int_C \langle P(x, y), \ Q(x, y) \rangle  \cdot dr = \int_C \langle P(x, y), Q(x, y) \rangle  \cdot \langle dx, dy \rangle  \\
+\int_C F \cdot dr &= \int_C \langle P(x, y), \ Q(x, y) \rangle  \cdot dr = \int_C \langle P(x, y), Q(x, y) \rangle  \cdot \langle \frac{dx}{dt}, \frac{dy}{dt} \rangle \ dt \\
 &= \int_C P(x, y)dx + Q(x, y)dy
 \end{align}
 
+However, note the endpoints of the curve \( C \) are given in \( t \) values, so conversion of \( x \) and \( y \) may be necessary to evaluate the integral (alternatively we can apply the Gradient theorem if \( F \) is nice enough or Green's theorem if the curve is closed).
 
-We show another common way of representing a vector line integral:
+* The Fundamental Theorem of Calculus for Line Integrals
 
+The FTC for line integrals, also known as the *Gradient Theorem*, states that the line integral through a vector field which is the *Gradient* of some scalar function is simply that scalar function evaluated at the lines endpoints.
+
+Ie, if \( \vec{F} : R^n \to R^n \) and \( \vec{r} : R \to R^n \), and further \( \vec{F} = \nabla G \) for some scalar function \( G:R^n \to R \), then:
 
 \begin{align}
-\int_C F \cdot dr &= \int_C \langle P(x, y), \ Q(x, y) \rangle  \cdot dr = \int_C \langle P(x, y), Q(x, y) \rangle  \cdot \langle dx, dy \rangle  \\
-&= \int_C P(x, y)dx + Q(x, y)dy
+\int_a^b \vec{F}(r(t)) \cdot \vec{dr} &= \int_a^b \nabla G(r(t)) \cdot \vec{dr}\\
+&= \int_a^b \nabla G(r(t)) \cdot r'(t) \ dt\\
+&= G(b) - G(a)
 \end{align}
+
+We call vector fields which have this property *conservative*.
+
+The proof of theorem relies on the *multivariate chain rule* from which we deduce:
+
+\[
+\frac{d}{dt} G(r(t)) = \nabla G(r(t)) \cdot r'(t)
+\]
 
 * Relation to Scalar Line Integral
 
@@ -34,7 +47,7 @@ Let \( \theta (t) \) denote the angle between \( F(t) \) and \( r(t) \) at \( t 
 \int_a^b F(r(t)) \cdot r'(t) dt = \int_a^b |F(r(t))| \ |r'(t)| \cos{(\theta(t))} \ dt
 \]
 
-Now suppose \( r(t) \) is always tangent to \( F(r(t)) \), leaving \( \theta (t) = 1 \) for all \( t \):
+Now suppose \( r(t) \) is always tangent to \( F(r(t)) \), leaving \( \theta (t) = 1 \) ,for all \( t \):
 
 \begin{align}
 \int_a^b F(r(t)) \cdot r'(t) dt &= \int_a^b |F(r(t))| \ |r'(t)| \ dt \\
