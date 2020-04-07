@@ -150,3 +150,7 @@ There is no general process for checking if a series converges, but we can apply
     \]
 
     Hence if property 1. above is satisfied, \( a_n \) not only converges, but converges *absolutely*. A similar argument can be applied to prove 3.
+
+* Problems
+
+1. Show \( \sum_{n=1}^{\infty} \frac{1}{n} \) does not converge and hence show that \( \sum_{n=1}^{\infty} \frac{1}{2n + 1} \) does not converge.

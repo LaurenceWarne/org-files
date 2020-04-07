@@ -29,18 +29,28 @@ Now we prove:
 \[
 (1)\ x \equiv a \pmod n \iff \forall k \in U, x \equiv a \pmod k
 \]
+
 where
+
 \[
 U = \{ N^p : N \text{ prime },\ N | n,\ N^{p + 1} \not{|} n \}
 \]
 
+ie \( U \) is the prime number decomposition of \( n \).
+
 The forward case is trivial:
+
+
 \begin{align}
 &x \equiv a \pmod n \nonumber \\
-\Rightarrow& \exists \lambda \in Z \ s.t. \ x - a = \lambda n \nonumber \\
-\intertext{ Applying modulo k, since k | n} \nonumber
-\Rightarrow& x - a \equiv 0 \pmod{k} \nonumber
+\Rightarrow& \exists \lambda \in Z \ s.t. \ x - a = \lambda n \nonumber
 \end{align}
+
+Now applying modulo \( k \), since \( k | n \):
+
+\[
+\Rightarrow& x - a \equiv 0 \pmod{k} \nonumber
+\]
 
 For the backward case, note that the distinct elements of \( U \) form the prime
 decomposition of \( n \), hence their product is \( n \). All of the distinct elements

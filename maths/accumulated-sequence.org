@@ -1,4 +1,10 @@
-#+TITLE: Accumulated sequence
+#+LAYOUT: post
+#+TITLE: An Accumulated Sequence
+#+AUTHOR: Laurence Warne
+#+DATE: 2020-04-06 Mon 11:53
+#+TAGS: Question
+#+CATEGORIES: Maths Combinatorics
+#+DESCRIPTION: A question on the all ones sequence
 #+REVEAL_PREAMBLE: \usepackage[normalem]{ulem}
 #+REVEAL_PREAMBLE: \usepackage{multirow}
 
@@ -17,21 +23,20 @@ If we then apply the same process to this new sequence we get:
 \[ 2 \ \ 5 \]
 And so if we apply the process until we are left with one element we get 5. This can
 easily be generalised to starting with n lots of ones, and applying the process n - 1
-times to be left with 1 element, \( f(n) \). Can we find a closed form for \( f(n) \)?
+times to be left with one element, \( f(n) \). Can we find a closed form for \( f(n) \)?
 
 * Recursions
 
 If we stack each pass of the process on top of one another, we obtain the diagram:
-\begin{center}
-\begin{tabular}{l c c c}
-  \hline
-  1 & 1 & 1 & 1 \\
-    & 1 & 2 & 3 \\
-    &   & 2 & 5 \\
-    &   &   & 5 \\
-  \hline
-\end{tabular}
-\end{center}
+
+\begin{array}{|c|c|c|c|}
+\hline
+  1 & 1 & 1 & 1 \\\hline
+    & 1 & 2 & 3 \\\hline
+    &   & 2 & 5 \\\hline
+    &   &   & 5 \\\hline
+\end{array}
+
 Note starting with more 1s in the first row simply extends the diagram to the right
 and does not change the triangle left of the new column. It can be seen from
 our definition above, each element in the diagram (above the first row) is equal to
@@ -42,43 +47,28 @@ them.
 However, we can incorporate these elements into
 the relation by making the following edit to our diagram:
 
-\begin{center}
-\begin{tabular}{l c c c c}
+\begin{array}{|c|c|c|c|}
   \hline
-  1 & 1 & 1 & 1 \\
-  0 & 1 & 2 & 3 \\
-    & 0 & 2 & 5 \\
-    &   & 0 & 5 \\
-  \hline
-\end{tabular}
-\end{center}
+  1 & 1 & 1 & 1 \\\hline
+  0 & 1 & 2 & 3 \\\hline
+    & 0 & 2 & 5 \\\hline
+    &   & 0 & 5 \\\hline
+\end{array}
 
-Lets label the axes:
-
-\begin{center}
-\begin{tabular}{l |c c c c}
-  & \multicolumn{4}{c}{n \rightarrow } \\
-  \hline
-  \multirow{4}{*}{k} & 1 & 1 & 1 & 1 \\
-  & 0 & 1 & 2 & 3 \\
-  &   & 0 & 2 & 5 \\
-  &   &   & 0 & 5 \\
-  \hline
-\end{tabular}
-\end{center}
+Let \( n \) span accross the columns, and \( k \) span accross the rows (like Pascal's triangle), ie so that \( f(3, 1) = 3 \) and consider the diagram again. We obtain:
 
 Formally:
 
 \begin{align*}
 &f(n, 0)       = 1                          &\forall n     \\
 &f(n, k=n + 1) = 0                          &\forall n > 0 \\
-&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 <= k <= n \\
+&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 \le k \le n \\
 \end{align*}
 
 We can reason from the above recursion that each number in the diagram can be written
 as some sum of the leftmost nonzero elements on each row, added to some sum of
 elements in the first row (\( k = 0 \)), which also happen to be equal to the leftmost
-element of the first row ( \( f(0, 0) = 1 \)). These are the numbers we are interested
+element of the first row (\( f(0, 0) = 1 \)). These are the numbers we are interested
 in. ie:
 
 \[ f(n) = \sum_{r=1}^{n-1} A_r * f(r) \]
@@ -86,16 +76,12 @@ in. ie:
 Where \( A_r \) is some constant to be determined. Now we can consider how each 
 \( f(r) \) contributes to \( f(n) \) via the following diagram:
 
-\begin{center}
-\begin{tabular}{l l l l l}
-  & \multicolumn{5}{c}{n \rightarrow } \\
+\begin{array}{|c|c|c|c|}
   \hline
-  f(r) \rightarrow  & f(r) + B_1  \rightarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow & ...\\
-  0                 & f(r + 1)                & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow &  ...\\
-                    & 0                       & f(r + 2)   & 2f(r) + B_3 \rightarrow        & ...\\
-  \hline
-\end{tabular}
-\end{center}
+  f(r) \rightarrow & f(r) + B_1 \rightarrow \downarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow  \\\hline
+  0  & f(r + 1) & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow \\\hline
+  & 0 & f(r + 2) & 2f(r) + B_3 \rightarrow \\\hline
+\end{array}
 
 Where \( C, B, D \) are constants consisting of sums of other \( f(s) \). Note we
 do not arrow constributions to \( f(r+1) \) as these are the source of the
