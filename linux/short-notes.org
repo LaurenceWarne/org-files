@@ -1,0 +1,8 @@
+* Collection of Smaller Information Tidbits
+
+** Auto updating Debian systems
+   It might not always be a good idea!
+   https://debian-administration.org/article/162/A_short_introduction_to_cron-apt
+
+** apt upgrade vs apt full-upgrade
+   https://unix.stackexchange.com/questions/304837/how-do-i-upgrade-everything-on-ubuntu
