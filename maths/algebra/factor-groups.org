@@ -1,0 +1,138 @@
+#+TITLE: Factor Groups
+#+LATEX_HEADER: \usepackage{mdframed}
+
+* Cosets and Groups
+
+Let \( (G , \ *) \) be a group and consider some subgroup \( H \le G \), we start by defining:
+
+\[
+g + H = \{ g h : \forall h \in H \} \text{ for some } g \in G
+\]
+
+We say \( g + H \) is a left coset of \( H \) in \( G \), right cosets are defined similarly.
+
+\begin{mdframed}
+  \textbf{Lemma 1}: The function \( f: H \to G, \ h \mapsto g + h \) is injective
+\end{mdframed}
+
+This follows immediately from the cancellation property of groups. From this it is apparent that (in both the finite and infinite cases):
+
+\[
+\left|H\right| = |g + H| \ \forall g \in G
+\]
+
+Also note we use \( + \) instead of \( * \), this is to distinguish it from applications of the group binary operations, other texts will probably not do this.
+
+** Disjointedness
+   
+   We now prove an extremely important property of cosets. If \( g_1, \ g_2 \in G \) then exactly one of the following is true:
+
+   \begin{align*}
+   1) \ &g_1 + H = g_2 + H \\
+   2) \ &g_1 + H \cap g_2 + H = \emptyset 
+   \end{align*}
+
+Ie two cosets are either equal or disjoint. From this we can deduce that the cosets of \( H \) partition \( G \), and thus arrive at Lagrange's Theorem in the finite case.
+
+*** Proof
+    
+    Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 h_3 \) for some \( h_3 \in H \). Then:
+
+    \begin{align*}
+    \exists h_1, h_2 \in H \ s.t. \ k &= g_1 h_1 \\
+    k &= g_2 h_2 \\
+    \end{align*}
+
+Equating these gives:
+
+    \begin{align*}
+    &\mplies g_1 = g_2 h_2 h^{-1}_1 & \\
+    &\implies q = g_2 h_2  h^{-1}_1 h_3 & \\
+    &\implies q \in g_2 + H &\text{ since } h_2 h^{-1}_1 h_3 \in H
+    \end{align*}
+
+
+    Which is a contradiction, hence there exists no such element \( q \). From this it is apparent that if the two cosets share an element, they must be subsets of one another. This completes the proof.
+
+** Cosets as Groups
+
+   Suppose we want to create a group whose elements are the cosets of \( H \), and which operate under the "same" binary operation as \( G \), ie
+
+   \[
+   (a + H)*(b + H) = ab + H
+   \]
+
+   The problem here is that one coset \( g + H \) may have many representations, so the operator may not be well defined, 
+
+*** example \( S_3 \) 
+    Let \( G = S_3 \), \( H = <(1 \ 2)> = \{ (1 \ 2), \ I_3 \} \) then our cosets are as follows:
+
+    \[
+    \{(1 \ 2), \ I_3 \}, \ \{ (1 \ 3), \ (1 \ 2 \ 3) \}, \ \{ (2 \ 3), \ (3 \ 2 \ 1)\}
+    \]
+
+    If we follow our definition of the binary operation, then:
+
+    \[
+    \left( (1 \ 2 \ 3) + H \right) * \left( (3 \ 2 \ 1) + H \right) = I_3 + H
+    \]
+
+    But 
+
+    \[
+    \left( (1 \ 3) + H \right) * \left( (3 \ 2 \ 1) + H \right) = (2 \ 3) + H
+    \]
+
+    Hence in this case the result of the operation on the cosets depends on the element we use to generate it. 
+
+    We now find conditions in which multiplication of cosets is independent of the element we use to generate the coset.
+
+*** Independent of Choice
+
+Suppose \( a, \ b, \ x, \ y \in G \) are such that the following is true:
+
+   \begin{align*}
+   a + H &= b + H \\
+   x + H &= y + H
+   \end{align*}
+
+   We want \( (a + H)(x + H) = (b + H)(y + H) \) (ie \( ax + H = by + H \) by our definition of the group operation), so that our choice of generator does not affect the product. We have:
+
+\begin{align*}
+a &= b h_1 \\
+x &= y h_2
+\end{align*}
+
+Recall \( ax + H = by + H \iff ax \in by + H \), now rearranging:
+
+\begin{align*}
+ax &= bh_1yh_2 \\
+   &= byy^{-1}h_1yh_2 \\
+\end{align*}
+
+Hence \( y^{-1}h_1y \in H \implies ax \in by + H \) ie \( H \) is closed under *conjugation*, a similar, but weaker condition than commutativity.
+
+We call a group *normal* if it is closed under conjugation.
+
+* Normal Subgroups
+
+  We can now claim if \( H \) is normal, the cosets (we will see that whether they are left or right cosets is not important) form a group under the "same" binary operation of \( H \). 
+
+  Invertability and existence of an identity all follow by virtue of \( G \) and independence of generator.
+
+*** Proposition
+    
+    \( N\triangleleft G \) iff \( g + N = N + g \ \ \ \forall g \in G \). Ie the right and left cosets of \( N \) in \( G \) are identical.
+
+*** Proof
+
+    Suppose \( k \in g + N \) then:
+
+    \begin{align*}
+    \exists h \in N \ s.t. \ k = gh \\
+    \implies k = (ghg^{-1})g \\
+    \end{align*}
+
+    But \( ghg^{-1} \in N \) hence \( k \in N + g \). And similarly \( k \in N + g \implies k \in g + N \).
+
+    
