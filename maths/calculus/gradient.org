@@ -1,5 +1,4 @@
 #+TITLE: Gradient
-#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
 
 * Introduction
 

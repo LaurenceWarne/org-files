@@ -1,0 +1,35 @@
+#+TITLE: Questions
+
+* Questions
+
+** Analysis
+
+1. Find all (complex) solutions to the equation \( 6z^5 + 15z^4 + 20z^3 + 15z^2 + 6z + 1= 0 \).
+
+2. Consider the function \( f : \mathcal{P}(\mathbb{N}) \to \mathbb{N} \) defined by:
+
+let \( p_n \) be the nth prime number, and let \( S = \{n_1, n_2, n_3, ...\} \) then \( f \) is given by:
+
+\( f(S) = p_1^{n_1} * p_2^{n_2} * ... \) 
+
+We claim this implies there is a injection from the powerset of naturals to the naturals and so we provide a counterexample to Cantor's Theorem. Where is the mistake?
+
+3. Find a closed form for \( \sum^n_{k=1} k \cos(kx) \).
+
+** Algebra
+
+1. Show that the Fundamental Theorem of Algebra and the statement that a polynomial of degree \( n \) has exactly \( n \) complex roots (including multiplicity), are equivalent.
+
+2. Show that if \( G \) and \( H \) are groups of cardinality \( p \) where \( p \) is prime, then \( G \) and \( H \) are isomorphic.
+
+3. Show that if \( R \) is a finite integral domain, then it is also a field (Wedderburn's little theorem).
+
+4. Given any prime \( p \), show that \( \mathbb{F}_{p} \) is not algebraically closed.
+
+** Number Theory
+
+1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.
+
+** Computation
+
+1. Find the smallest integer \( n \) such that \( n\ln{n} + n > 3^{197} \) 

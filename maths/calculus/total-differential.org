@@ -1,0 +1,11 @@
+#+TITLE: Total Differential
+
+* Definition
+
+The *total differential* (not to be confused with the total derivative) of a scalar function \( u(x, y, z) \) is defined as:
+
+\[
+du = \frac{\partial u}{\partial x}dx + \frac{\partial u}{\partial y}dy + \frac{\partial u}{\partial z}dz
+\]
+
+With the natural extension to functions of more than 3 variables. It gives an insight on how \( u \) changes (\( du \)) with respect to *small* changes in \( x, y \text{ and } z \) given by \( dx, dy \text{ and } dz \) respectively.

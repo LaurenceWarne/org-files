@@ -1,5 +1,10 @@
 #+TITLE: Splitting Up a Number
-#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+#+AUTHOR: Laurence Warne
+#+DATE: 2020-04-08 Wed 22:08
+#+LAYOUT: post
+#+DESCRIPTION: A question on number partitions.
+#+TAGS: Question
+#+CATEGORIES: Maths Optimisation
 
 * Question
 

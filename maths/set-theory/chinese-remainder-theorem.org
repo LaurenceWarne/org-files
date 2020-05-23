@@ -8,7 +8,7 @@ Given a system with \( a_i, n_i \in Z \):
 &... \\
 &x \equiv a_k \pmod{n_j}
 \end{align*}
-If \( n_j \) are pairwise coprime, then \textbf{Chinese Remainder Theorem} asserts that
+If \( n_j \) are pairwise coprime, then the *Chinese Remainder Theorem* asserts that
 the system has a unique solution modulo \( N = n_1 * n_2 * ... * n_j \).
 
 A proof can be found [[https://brilliant.org/wiki/chinese-remainder-theorem/#theorem-and-proof][here]].
@@ -49,7 +49,7 @@ The forward case is trivial:
 Now applying modulo \( k \), since \( k | n \):
 
 \[
-\Rightarrow& x - a \equiv 0 \pmod{k} \nonumber
+\Rightarrow& x - a \equiv 0 \pmod{k}
 \]
 
 For the backward case, note that the distinct elements of \( U \) form the prime
