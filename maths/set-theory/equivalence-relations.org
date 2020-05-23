@@ -34,7 +34,7 @@ A relation is transitive iff:
 For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
 
 
-* Equivalence Classes</h1>
+* Equivalence Classes
 
 For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
 

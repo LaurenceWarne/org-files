@@ -1,5 +1,4 @@
 #+TITLE: Partial Differentiation
-#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
 
 * Definition
 

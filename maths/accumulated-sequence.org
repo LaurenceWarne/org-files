@@ -1,7 +1,7 @@
-#+LAYOUT: post
 #+TITLE: An Accumulated Sequence
 #+AUTHOR: Laurence Warne
 #+DATE: 2020-04-06 Mon 11:53
+#+LAYOUT: post
 #+TAGS: Question
 #+CATEGORIES: Maths Combinatorics
 #+DESCRIPTION: A question on the all ones sequence

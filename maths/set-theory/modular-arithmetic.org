@@ -26,9 +26,10 @@ To show (1) it is sufficient to show \( f \) is a surjection (\( 1 \in S \ \fora
 Suppose \( f \) is not injective,  ie
 
 \[ \exists \text{ distinct } k_1 < k_2 \in S \ s.t. \  f(k_1) = f(k_2)\]
-\begin{align}
+
+\begin{align*}
 &\Rightarrow ak_2 \equiv ak_1 \pmod{n} \\
 &\Rightarrow a(k_2 - k_1) = \lambda n \\
-\end{align}
+\end{align*}
 
 But \( lcm(a, n) = an \) because \( a \) and \( n \) are coprime. This is hence a contradiction as the supposition implies there is nonzero some common multiple of \( a \) and \( n \) less than this, equal to \( a(k_2 - k_1) \)  (\( n > k_2 > k_1 > 0 \)). Hence we have \( f \) is a injection and thus statement (1).

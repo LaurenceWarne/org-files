@@ -1,5 +1,5 @@
 #+TITLE: Double Integrals
-#+SETUPFILE: ~/Documents/misc-repos/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: ~/repos/org-html-themes/setup/theme-readtheorg.setup
 
 * Introduction
 

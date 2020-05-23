@@ -1,0 +1,10 @@
+#+TITLE: Wiki
+
+* Wiki
+
+** [[./maths/maths.html][Maths]]
+
+** [[./linux/linux.html][Linux]]
+
+** [[./programming/programming.html][Programming]]
+

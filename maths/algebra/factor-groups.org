@@ -1,5 +1,4 @@
 #+TITLE: Factor Groups
-#+LATEX_HEADER: \usepackage{mdframed}
 
 * Cosets and Groups
 
@@ -11,9 +10,7 @@ g + H = \{ g h : \forall h \in H \} \text{ for some } g \in G
 
 We say \( g + H \) is a left coset of \( H \) in \( G \), right cosets are defined similarly.
 
-\begin{mdframed}
-  \textbf{Lemma 1}: The function \( f: H \to G, \ h \mapsto g + h \) is injective
-\end{mdframed}
+*Lemma 1:* The function \( f: H \to G, \ h \mapsto g + h \) is injective
 
 This follows immediately from the cancellation property of groups. From this it is apparent that (in both the finite and infinite cases):
 
@@ -46,7 +43,7 @@ Ie two cosets are either equal or disjoint. From this we can deduce that the cos
 Equating these gives:
 
     \begin{align*}
-    &\mplies g_1 = g_2 h_2 h^{-1}_1 & \\
+    &\implies g_1 = g_2 h_2 h^{-1}_1 & \\
     &\implies q = g_2 h_2  h^{-1}_1 h_3 & \\
     &\implies q \in g_2 + H &\text{ since } h_2 h^{-1}_1 h_3 \in H
     \end{align*}
@@ -118,7 +115,7 @@ We call a group *normal* if it is closed under conjugation.
 
   We can now claim if \( H \) is normal, the cosets (we will see that whether they are left or right cosets is not important) form a group under the "same" binary operation of \( H \). 
 
-  Invertability and existence of an identity all follow by virtue of \( G \) and independence of generator.
+  Invertability and existence of an identity all follow by virtue of \( G \) (to be more specific, using the coset definition: \( a + H = \{ ah : h \in H \} \) readily proves these claims).
 
 *** Proposition
     

@@ -1,0 +1,92 @@
+#+TITLE: Ideals
+
+* Definition
+
+* Special Ideals
+
+We specify \( R \) as a commutative ring.
+
+** Maximal Ideals
+
+*** *Definition* 
+    We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
+
+*** *Theorem* 
+    The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
+
+*** *Proof* 
+
+    *(forward case)*: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
+
+   \[
+   K = J \backslash I
+   \]
+
+   Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
+
+   \[
+   S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
+   \]
+
+   Now suppose for some \( r \in R \):
+
+   \begin{align*}
+   (rb) + I = 1 + I & \implies b' + I = 1 + I \\
+   	      	    & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
+   \end{align*}
+
+   Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
+
+   *(backward case)*: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
+
+\begin{align*}
+J &= \{ b_1 + I, \ b_2 + I, ... \}\\
+  &= \{ \{ b_1 + a : a \in I \}, \ \{b_2 + a : a \in I \}, ... \}
+\end{align*}
+
+We claim the following is a proper ideal of \( R \) containing \( I \):
+
+\[
+J' = \bigcup\limits_{\forall i} (b_i + J)
+\]
+
+We already know \( J' \) contains all elements of \( I \) (including \( 0 \)) as \( J \) contains \( 0 + I = I \). So we first show \( J' \) is closed under multiplication from \( R \). since \( J \) is an ideal of \( R/I \) we know that for all  \(r \in R, \ b_i + I \in J \):
+
+\[
+(r + I)*(b_i + I) = b_j + I
+\]
+
+For some \( b_j + I \in J \). So then:
+
+\[
+\implies rb_i \in b_j + I \subset J'
+\]
+
+Hence \( J' \) is closed under multiplication from \( R \). We show \( J' \) is closed under addition. Let \( b_i, b_j \in J \), and consider: 
+
+\[
+b_i + b_j \in (b_i + I) + (b_j + I)
+\]
+
+But since \( J \) is an ideal, it is closed under addition and so:
+
+\[
+(b_i + I) + (b_j + I) = (b_k + I) \subset J' \\
+\implies b_i + b_j \in J'
+\]
+
+For some \( k \). It remains to show \( J' \) is proper, suppose it's not for a contradiction:
+
+\begin{align*}
+J' = R &\implies 1 \in J' \\
+&\implies (1 + I) \in J \\
+&\implies J = R/I
+\end{align*}
+
+Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a proper ideal containing \( I \), which is therefore not maximal. This concludes the backward case.
+
+** Prime Ideals
+
+*** *Definition
+
+    We say an *proper* ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
