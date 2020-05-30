@@ -1,3 +1,5 @@
+#+TITLE: Similar Congruences
+
 * Similar Congruences
 Consider solutions to the simultaneous congruences:
 

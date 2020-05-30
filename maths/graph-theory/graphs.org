@@ -1,0 +1,53 @@
+#+TITLE: Graphs
+
+* Introduction
+
+We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
+\( E = \{ (v_a, v_b) ... (v_c, v_d) \} \) as the edge set of the graph.
+
+If \( G \) is a *directed graph* then the elements of \( E \) will be ordered (ie \( (v_1, v_2) \) is distinct from \( (v_2, v_1) \)), otherwise \( G \) is *undirected*.
+
+We also say \( G \) is *simple* if there is at most on edge connecting any pair of vertices, and no edges connecting a vertex to itself.
+
+* Vertex Sequences
+
+** *Definition* 
+   
+   A *walk* in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
+
+** *Definition*
+
+   A *trail* is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with *Eulerian trails* (which much visit every edge exactly once).
+
+** *Definition*
+
+   A *path* is a trail in which a vertex occurs occurs only once in the edge sequence.
+
+** *Definition*
+
+   A *cycle* is a trail in which all the vertices are distinct, except for the first and last which are the same.
+
+* Adjacency Matrices
+
+Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the *adjacency matrix*, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
+
+\[
+A_{i, j} = \begin{cases} 
+   1 & \text{if } (v_i, v_j) \in E \\
+   0 & \text{otherwise}
+  \end{cases}
+\]
+
+This is always symmetric if \( G \) is undirected, and zeroes always fill the main diagonal if \( G \) is *simple*.
+
+** Applications
+
+   Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
+
+   We can extends this to find the number of paths of length \( 1 \le x \le k \) starting at \( v_i \) and ending at \( v_j \), by noting this is equal to:
+
+\[
+(A + A^2 + ... + A^k)_{i, j} = \left( A(A^k - I_n)(A - I_n)^{-1} \right)_{i, j}
+\]
+
+Which can be computed in the same time complexity.
