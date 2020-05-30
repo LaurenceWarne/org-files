@@ -1,0 +1,58 @@
+#+TITLE: Graph Colouring
+
+* Definition
+
+We define a k-colouring of an undirected graph \( G(V, E) \) as a function \( f: V \to \mathbb{Z}_k = \{ 1 ... k\} \) such that:
+
+\[
+(u, v) \in E \implies f(u) \ne f(v)
+\]
+
+Ie no neighbouring vertices have the same colour. Additionally, if \( G \) admits a k-colouring, we say \( G \) is *k-colourable*.
+
+* Chromatic Number
+
+We define \( \chi(G) \) as the smallest k such that \( G \) is k-colourable. Clearly such a k must always exist as a graph on \( n \) vertices is always n-colourable (assign all the vertices different colours).
+
+However determining \( \chi(G) \) for an arbitrary graph is nontrivial and is in fact NP-complete.
+
+** Bounds
+   
+   Using a greedy algorithm we can deduce that:
+
+   \[
+   \chi(G) \le \max_{v \in V}{(deg(v))} + 1
+   \]
+
+   And if \( G \) is connected, simple and is not a complete or odd cycle graph, then [[https://en.wikipedia.org/wiki/Brooks%27_theorem][Brook's Theorem]] offers the slight improvement of:
+
+   \[
+   \chi(G) \le \max_{v \in V}{(deg(v))}
+   \]
+
+   Clearly if \( G \) has *k-clique* then:
+
+   \[
+   \chi(G) > k
+   \]
+
+* Chromatic Polynomial
+
+Given some simple graph \( G \) we define the *Chromatic Function* \( P_G: \mathbb{Z}^+ \to \mathbb{Z}^+ \) as the number of ways we can colour \( G \) using \( k \) or fewer colours. Hence if \( k < \chi(G) \) then \( P_G(k) = 0 \).
+
+** Theorem
+   
+   /The Chromatic Function of a simple graph \( G \) is polynomial/.
+
+   *Proof:*
+
+   We prove the following statement: If \( e = (v, w) \) is some edge in \( G \) then \( P_G(k) = P_{G - e}(k) - P_{G/e}(k) \), where \( G/e \) is the graph produced by contracting \( e \). Let \( G' = G - e \). Now, the number of k-colourings of \( G' \) in which \( v \) and \( w \) are different colours is equal to \( P_G(k) \) since the vertices are adjacent in \( G \).
+
+   The number of k-colouring of \( G' \) in which \( v \) and \( w \) are the same colour is equal to the number of k-colourings of \( G/e \). Combining these statements gives:
+
+\begin{alignat*}{2}
+P_{G'}(k) = &&P_{G - e}(k) &= P_G(k) + P_{G/e} \\
+\implies    &&P_G(k)       &= P_{G - e}(k) - P_{G/e}(k)
+\end{alignat*}
+
+We can apply this procedure to the two new graphs \( G - e \) and \( G/ e \), and so on until we eventually end up with only *null graphs* whose chromatic number is \( k^n \) for \( N_n \), a polynomial in \( k \). Hence since polynomials are closed under addition we can conclude that \( P_G(k) \) is also polynomial.

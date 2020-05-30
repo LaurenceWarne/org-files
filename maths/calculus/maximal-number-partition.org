@@ -40,11 +40,11 @@ Proof:
 
 Hence if:
 
-\[ P_a_1 = (2, 2, ..., 3, 3, ...) \]
+\[ P_{a_1} = (2, 2, ..., 3, 3, ...) \]
 
 Then
 
-\[ ka_1 \leq k f(P_a_1) \ \forall k \in R+ \]
+\[ ka_1 \leq k f(P_{a_1}) \ \forall k \in R+ \]
 
 With equality holding iff \( a_1 < 5 \). From this it is clear that the optimal
 partition will consist of some sequence of 2s and 3s. For most numbers however 
