@@ -1,6 +1,58 @@
 #+TITLE: Relations
-#+SETUPFILE: ~/repos/org-html-themes/setup/theme-readtheorg.setup
 
-* Equivalence Class
+* Definition
+A binary relation \( R \) on some set \( S \) can be defined as:
 
-If \( R \) is an equivalence relation on a set \( A \), and \( a \in A \). Then the *Equivalence class* of \( A \) is defined as 
+\[ T = \{ (a, b) : a, b \in S, aRb \} \]
+
+For example, the relation "=" over the reals:
+\[ aRb \iff a - b = 0 \]
+
+Any reference to a relation will be taken as binary unless stated otherwise.
+
+* Equivalence Relations
+
+A relation is said to be an equivalence relation if it is *reflexive*, *symmetric* and *transitive*. 
+
+** Reflexive
+A relation is reflexive iff:
+
+\[ \forall a \in S, \ aRa \]
+
+
+** Symmetric
+A relation is symmetric iff:
+
+\[ \forall a, b \in S, \ aRb \Rightarrow bRa \]
+
+
+** transitive
+A relation is transitive iff:
+
+\[ \forall a, b, c \in S, \ (aRb \wedge bRc) \Rightarrow aRc \]
+
+
+For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
+
+
+* Equivalence Classes
+
+For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
+
+\[ \{ x \in S : aRx \} \]
+
+The set of all equivalence classes forms a *partition* of \( S \): a collection of disjoint sets whose union is equal to \( S \). The converse is also true, all unique partitions of \( S \) denote a unique equivalence relation on \( S \).
+
+* Total Orders
+
+A *total order* or *full order* is a relation, \( \le \) on some set \( S \) which is *transitive* and also the following hold \( \forall a, b \in S \):
+
+** Antisymmetric
+
+   \( a \le b \land b \le a \implies a = b \)
+
+** Connex
+
+   \( a \le b \) or \( b \le a \) 
+
+A set paired with a total order, \( (S, \le) \) is called a *totally ordered set* or *chain*. For example \( (\mathbb{R}, \le) \) forms a totally ordered set but \( (\mathbb{R}, <) \) does not (not connex).
