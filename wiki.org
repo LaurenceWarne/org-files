@@ -1,10 +1,17 @@
 #+TITLE: Wiki
-
 * Wiki
-
-** [[./maths/maths.html][Maths]]
-
 ** [[./linux/linux.html][Linux]]
-
+*** [[./linux/gpg.html][Gpg]]
+*** [[./linux/run-levels.html][Run Levels]]
+*** [[./linux/short-notes.html][Short Notes]]
+** [[./maths/maths.html][Maths]]
+*** [[./maths/algebra/algebra.html][Algebra]]
+*** [[./maths/analysis/analysis.html][Analysis]]
+*** [[./maths/calculus/calculus.html][Calculus]]
+*** [[./maths/graph-theory/graph-theory.html][Graph Theory]]
+*** [[./maths/linear-algebra/linear-algebra.html][Linear Algebra]]
+*** [[./maths/logic/logic.html][Logic]]
+*** [[./maths/number-theory/number-theory.html][Number Theory]]
+*** [[./maths/questions.html][Questions]]
 ** [[./programming/programming.html][Programming]]
-
+*** [[./programming/python/python.html][Python]]

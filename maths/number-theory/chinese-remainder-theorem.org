@@ -15,6 +15,37 @@ A proof can be found [[https://brilliant.org/wiki/chinese-remainder-theorem/#the
 
 They can also be solved in [[https://docs.sympy.org/0.7.5/modules/ntheory.html#sympy.ntheory.modular.crt][sympy]].
 
+* Applications
+
+Note if we are given \( a \equiv b \pmod{n} \), and \( \{q_1 ... q_k \} \) is some pairwise coprime set whose product is \( n \) then the Chinese Remainder Theorem asserts that:
+
+\[
+a \equiv b \pmod{n} \iff a \equiv b \pmod{q_i} \ \forall i = 1...k
+\]
+
+ie \( x \equiv 7 \pmod{30} \iff x \equiv 7 \pmod{3}, \ x \equiv 7 \pmod{5}, \ x \equiv 7 \pmod{2} \)
+
+/There exist an arbitrarily large number of consecutive integers, none of which is squarefree./
+
+Let \( \{p_1 \ ... \ p_n\} \) be the set of the first \( n \) primes. Then the statement true if a solution exists for the set of simultaneous congruences:
+
+\begin{align*}
+x &\equiv 0 \pmod{p_1^2} \\
+x + 1 &\equiv 0 \pmod{p_2^2}\\
+... \\
+x + (n - 1) &\equiv 0 \pmod{p_n^2}
+\end{align*}
+
+ie
+
+\begin{align*}
+x &\equiv 0 \pmod{p_1^2} \\
+x &\equiv -1 \pmod{p_2^2}\\
+... \\
+x &\equiv -n + 1 \pmod{p_n^2}
+\end{align*}
+
+Of which a unique solution is guarenteed by the Chinese Remainder Theorem.
 
 * Extension
 

@@ -1,0 +1,13 @@
+#+TITLE: Partial Ordering
+
+* Definition
+
+We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a *partially ordered set* if the following hold \( \forall a, b, c \in S \):
+
+1. \( R \) is *reflexive*, ie \( a \le a \ \forall a \in S \)
+
+3. \( R \) is *transitive*, ie if \( a \le b \) and \( b \le c \) then \( a \le c \)
+
+2. \( R \) is *antisymmetric*, ie if \( a \le b \) and \( b \le a \) then \( a = b \)
+
+
