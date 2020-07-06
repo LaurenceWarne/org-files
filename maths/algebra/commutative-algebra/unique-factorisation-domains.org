@@ -1,0 +1,47 @@
+#+TITLE: Unique Factorisation Domains
+
+* Introduction
+
+*Definition* We say a nonzero non-unit element in a *integral domain* is *irreducible* if it cannot be written as the product of two non-units.
+
+*Definition* We say a nonzero element, \( p \), in a *commutative ring* \( R \), is *prime* if \( \forall a, b \in R \):
+
+\[
+p | ab \implies p | a \text{ or } p | b
+\]
+
+*Theorem* /All prime elements in an integral domain are irreducible/.
+
+*Proof* By contradiction, suppose a prime element \( p\in R \) is not irreducible, ie there exist non-units \( x, y \in R \ s.t. \ p= xy \). By the definition of prime elements, we must have:
+
+\[
+p | x \text{ or } p | y
+\]
+
+WLOG suppose \( x = p*r \) for some \( r \in R \). So then:
+
+\begin{align*}
+&\implies pry = p       &\\
+&\implies p(ry - 1) = 0 &\\
+&\implies ry = 1        & \text{ Since p is nonzero and R is an integral domain}\\
+&\implies y \text{ is invertible }
+\end{align*}
+
+A contradiction, hence \( p \) is irreducible.
+
+The converse however is *not true* in general, for example in \( Z[\sqrt{-5}] \), 3 is irreducible but \( 9 = (2 + \sqrt{-5})(2 - \sqrt{-5}) \), and 3 does not divide either of these elements. The converse is true if \( R \) is a *UFD* (or more generally a GCD domain).
+
+*Definition* We say an integral domain, \( R \), is a *unique factorisation domain* if:
+
+1. Every nonzero non-unit is a product of irreducibles.
+2. The decomposition from 1. is unique up to order and multiplication by units.
+
+Equivalently, since uniqueness is hard to verify, an ID is a UFD if every nonzero element can be written as a product of a unit and prime elements of \( R \).
+
+Intuitively, an integral domain is a UFD if a statement analagous to the *fundamental theorem of arithmetic* holds.
+
+* UFDs and PIDs
+
+*Theorem* /If \( R \) is a PID, then \( R \) is a UFD./
+
+*Proof* 

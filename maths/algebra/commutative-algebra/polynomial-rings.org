@@ -1,0 +1,23 @@
+#+TITLE: Polynomial Rings
+
+* Introduction
+
+*Theorem* Any polynomial ring \( R[X] \) is not a field.
+
+*Proof* Take \( P(X) = X \) in \( R[X] \). Suppose this has some inverse \( Q(X) \), then:
+
+\[
+X * Q(X) = 1
+\]
+
+But then evaluation at \( X = 0 \) gives \( 1 = 0 \), a contradiction, hence it cannot be the case \( P(X) \) has an inverse, thus \( R[X] \) is not a field.
+
+This indicates the "nicest" a polynomial ring can be is a *Euclidean domain*.
+
+* Properties
+
+1. If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial).
+
+2. If \( R \) is a PID then it does *not* imply \( R[X] \) is a PID.
+
+3. If \( R \) is a field, then \( R[X] \) is a Euclidean domain (take the Euclidean function as the degree of the polynomial).

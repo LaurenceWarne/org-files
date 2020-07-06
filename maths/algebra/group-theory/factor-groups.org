@@ -2,10 +2,10 @@
 
 * Cosets and Groups
 
-Let \( (G , \ *) \) be a group and consider some subgroup \( H \le G \), we start by defining:
+Let \( (G , \ +) \) be a group and consider some subgroup \( H \le G \), we start by defining:
 
 \[
-g + H = \{ g h : \forall h \in H \} \text{ for some } g \in G
+g + H = \{ g + h : \forall h \in H \} \text{ for some } g \in G
 \]
 
 We say \( g + H \) is a left coset of \( H \) in \( G \), right cosets are defined similarly.
@@ -18,8 +18,6 @@ This follows immediately from the cancellation property of groups. From this it 
 \left|H\right| = |g + H| \ \forall g \in G
 \]
 
-Also note we use \( + \) instead of \( * \), this is to distinguish it from applications of the group binary operations, other texts will probably not do this.
-
 ** Disjointedness
    
    We now prove an extremely important property of cosets. If \( g_1, \ g_2 \in G \) then exactly one of the following is true:
@@ -29,23 +27,23 @@ Also note we use \( + \) instead of \( * \), this is to distinguish it from appl
    2) \ &g_1 + H \cap g_2 + H = \emptyset 
    \end{align*}
 
-Ie two cosets are either equal or disjoint. From this we can deduce that the cosets of \( H \) partition \( G \), and thus arrive at Lagrange's Theorem in the finite case.
+Ie two cosets are either equal or disjoint. From this we can deduce that the cosets of \( H \) partition \( G \), and thus arrive at *Lagrange's Theorem* in the finite case.
 
 *** Proof
     
-    Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 h_3 \) for some \( h_3 \in H \). Then:
+    Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 + h_3 \) for some \( h_3 \in H \). Then:
 
     \begin{align*}
-    \exists h_1, h_2 \in H \ s.t. \ k &= g_1 h_1 \\
-    k &= g_2 h_2 \\
+    \exists h_1, h_2 \in H \ s.t. \ k &= g_1 + h_1 \\
+    k &= g_2 + h_2 \\
     \end{align*}
 
 Equating these gives:
 
     \begin{align*}
-    &\implies g_1 = g_2 h_2 h^{-1}_1 & \\
-    &\implies q = g_2 h_2  h^{-1}_1 h_3 & \\
-    &\implies q \in g_2 + H &\text{ since } h_2 h^{-1}_1 h_3 \in H
+    &\implies g_1 = g_2 + h_2 + (-h_1) & \\
+    &\implies q = g_2 + h_2 +  (-h_1) + h_3 & \\
+    &\implies q \in g_2 + H &\text{ since } h_2 + (-h_1) + h_3 \in H
     \end{align*}
 
 
@@ -56,7 +54,7 @@ Equating these gives:
    Suppose we want to create a group whose elements are the cosets of \( H \), and which operate under the "same" binary operation as \( G \), ie
 
    \[
-   (a + H)*(b + H) = ab + H
+   (a + H) + (b + H) = (a + b) + H
    \]
 
    The problem here is that one coset \( g + H \) may have many representations, so the operator may not be well defined, 
@@ -71,13 +69,13 @@ Equating these gives:
     If we follow our definition of the binary operation, then:
 
     \[
-    \left( (1 \ 2 \ 3) + H \right) * \left( (3 \ 2 \ 1) + H \right) = I_3 + H
+    \left( (1 \ 2 \ 3) * H \right) * \left( (3 \ 2 \ 1) * H \right) = I_3 * H
     \]
 
     But 
 
     \[
-    \left( (1 \ 3) + H \right) * \left( (3 \ 2 \ 1) + H \right) = (2 \ 3) + H
+    \left( (1 \ 3) * H \right) * \left( (3 \ 2 \ 1) * H \right) = (2 \ 3) * H
     \]
 
     Hence in this case the result of the operation on the cosets depends on the element we use to generate it. 
@@ -86,6 +84,8 @@ Equating these gives:
 
 *** Independent of Choice
 
+Let \( y \in G \), \( h_1 \in H \), and take any \( x, b \in G \) s.t.
+
 Suppose \( a, \ b, \ x, \ y \in G \) are such that the following is true:
 
    \begin{align*}
@@ -93,23 +93,41 @@ Suppose \( a, \ b, \ x, \ y \in G \) are such that the following is true:
    x + H &= y + H
    \end{align*}
 
-   We want \( (a + H)(x + H) = (b + H)(y + H) \) (ie \( ax + H = by + H \) by our definition of the group operation), so that our choice of generator does not affect the product. We have:
+   We want \( (a + H) + (x + H) = (b + H) + (y + H) \) (ie \( (a + x) + H = (b + y) + H \) by our definition of the group operation), so that our choice of generator does not affect the product. We have:
 
 \begin{align*}
-a &= b h_1 \\
-x &= y h_2
+a &= b + h_1 \\
+x &= y + h_2
 \end{align*}
 
-Recall \( ax + H = by + H \iff ax \in by + H \), now rearranging:
+Recall \( (a + x) + H = (b + y) + H \iff (a + x) \in (b + y) + H \) now rearranging:
 
 \begin{align*}
-ax &= bh_1yh_2 \\
-   &= byy^{-1}h_1yh_2 \\
+(a + x) &= b + h_1 + y + h_2 \\
+   &= b + y + (-y) + h_1 + y + h_2 \\
 \end{align*}
 
-Hence \( y^{-1}h_1y \in H \implies ax \in by + H \) ie \( H \) is closed under *conjugation*, a similar, but weaker condition than commutativity.
 
-We call a group *normal* if it is closed under conjugation.
+Hence \( (-y) + h_1 + y \in H \implies (a + x) \in (b + y) + H \). Thus we have if \( H \) is closed under *conjugation* ( a similar, but weaker condition than commutativity) independence of choice holds.
+
+We show by contrapositive the converse also holds, namely if independence of choice holds, then \( H \) is normal.
+
+Suppose \( H \) is not closed under conjugation, ie there exists \( y \in G, \ h \in H \) s.t. \( (-y) + h + y \not \in H \).
+
+   \begin{align*}
+   0 + H &= (0 + h_1) + H \\
+   y + H &= y + H
+   \end{align*}
+
+Suppose also that \( (y + 0) + H = (h_1 + y) + H \).
+
+\[
+\implies y \in (h_1 + y) + H \\
+\implies \exists h_2 \ s.t. \ y + h_2 = h_1 + y \\
+\implies h_2 = (-y) + h1 + y
+\]
+
+A contradiction. Thus independence of choice holds iff \( H \) is normal in \( G \).
 
 * Normal Subgroups
 
@@ -130,6 +148,6 @@ We call a group *normal* if it is closed under conjugation.
     \implies k = (ghg^{-1})g \\
     \end{align*}
 
-    But \( ghg^{-1} \in N \) hence \( k \in N + g \). And similarly \( k \in N + g \implies k \in g + N \).
+    But \( g + h + (-g) \in N \) hence \( k \in N + g \). And similarly \( k \in N + g \implies k \in g + N \).
 
     

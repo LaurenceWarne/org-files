@@ -1,0 +1,48 @@
+#+TITLE: Integral Domains
+
+* Euclidean Domains
+
+*Definition* Let \( R \) be an integral domain, then \( R \) is a Euclidean domain if there exists some function \( d: R \backslash \{0\} \to \mathbb{Z}^{\ge 0} \) which satisfies:
+
+1. If \( a \in R, \ b \ne 0 \in R \) then \( \exists q, r \in R \) such that \( a = qb + r \) and either \( r = 0 \) or \( d(r) < d(b) \)
+
+2. For all \( a, b \in R \ne 0 \) we have \( d(a) \le d(ab) \) 
+
+So Euclidean Domains generalise the *Division Theorem* to (commutative) rings. We will see for an integral domain, having the property that it is a Euclidean domain is a fairly strong condition.
+
+** Examples
+   
+   1. The Gaussian integers \( \mathbb{Z}[i] \) are a Euclidean domain. This can be seen by taking \( d(a + bi) = |a + bi| = \sqrt{a^2 + b^2} \).
+
+   2. Any field \( F \) is a Euclidean domain since we can take \( d(0) = 0 \) and \( d(x) = 1 \) for \( x \ne 0 \). To see this satisfies (1), given some \( a, b \in R \) we can choose \( r = 0, \ q = ab^{-1} \) or \( r = a \) and \( q \) arbitrary if \( b = 0 \), and have \( a = qb + r \) in either case as required. (2) is trivially satisfied.
+
+   3. If \( K \) is a field, then the polynomial ring \( K[X] \) is a Euclidean domain, with \( d(P(x)) = deg(P(x)) \).
+      
+
+* Principle Ideal Domains
+
+*Definition* Let \( R \) be an integral domain, then \( R \) is a PID if for all ideals \( I \) in \( R \exists a \in R \) such that \( I = \langle a \rangle \).
+
+*Theorem* All Euclidean domains are *Principle Ideal Domains*.
+
+*Proof* Let \( R \) be a Euclidean domain with Euclidean function \( d \), and let \( I \ne {0} \) be some ideal of \( R \). To prove the Theorem we show this must be principle.
+
+Let \( b \) be any nonzero element in \( R \) such that \( d(b) \) is minimal (there always exists such a \( b \) since the codomain of \( d \) is the nonnegative integers). We claim:
+
+\[
+\left< b \right> = I
+\]
+
+Let \( s \in R \) and suppose for a contradiction that \( s \not \in \left< b \right> \). By (2) we can write:
+
+\[
+a = bq + r
+\]
+
+For some \( q, r \in R \) such that \( d(r) < d(b) \). Now rearranging the above equation we get:
+
+\[
+r = a - bq
+\]
+
+Which implies \( r \in I \) since ideals are closed under addition. But then since \( d(b) \) is minimal in \( I \) we must have \( d(b) \le d(r) \), a contradiction. Hence we must conclude that \( a \in \left< b \right> \) and thus \( I \) is principle.

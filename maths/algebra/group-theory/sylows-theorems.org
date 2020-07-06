@@ -1,0 +1,25 @@
+#+TITLE: Sylow's Theorems
+
+* Definitions
+
+*Definition* A *p-group* is a group in which the order of all of the elements in the group are powers of \( p \). For a finite group this is equivalent to \( |G| \) is a power of \( p \).
+
+* Sylow's Theorems
+
+The first of Sylow's Theorems gives a *partial converse* of Lagrange's Theorem.
+
+** Theorem 1 
+
+Let \( G \) be a finite group, with \( |G| = p^k * m \) where \( p \not | m \), then \( \exists H \le G \) such that \( |H| = p^k \). We call \( H \) a *Sylow p-subgroup*.
+
+** Theorem 2
+
+If \( H \) and \( K \) are p-subgroups of \( G \), then they are *conjugate*.
+
+** Theorem 3
+
+Let \( n_p \) be the number of Sylow p-subgroups of \( G \), then the following hold:
+
+1. \( n_p | m \)
+2. \( n_p \equiv 1 \pmod p \)
+3. \( n_p = [G : N_G(P)] \) where \( P \) is any Sylow p-subgroup of \( G \).

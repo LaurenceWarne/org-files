@@ -1,0 +1,88 @@
+#+TITLE: Group Actions
+
+* Definition
+
+Let \( G \) be a group and \( X \) a set, then we say a function \( F: G \times X \to X \), \( F(g, x) = g \cdot x \), is an *action of \( G \) on \( X \)* if it satisfies:
+
+1. \( \forall g_1, g_2 \in G, \ x \in X \) we have that \( g_1 \cdot (g_2 \cdot x) = \left( g_2g_1 \right) \cdot x \)
+2. \( \forall x \in X, \ 1 \cdot x = x \)
+
+We also say \( X \) is a *G-set*.
+
+* Examples
+
+* Orbits and Stablizers
+
+*Definition* Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the *stabilizer of \( x \) in \( G \)*, \( stab_G(x) \) as:
+
+\[
+stab_G(x) = \{ g \in G : g \cdot x = x \}
+\]
+
+*Definition* Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the *orbit of \( x \) in \( G \)*, \( orb_G(x) \) as:
+
+\[
+orb_G(x) = \{ g \cdot x : g \in G \}
+\]
+
+** Example
+
+Let \( G = \{ (1), \ (1 \ 2), \ (3 \ 4 \ 6), \ (3 \ 6 \ 4), \ (1 \ 2)(3 \ 4 \ 6), \ (1 \ 2)(3 \ 6 \ 4)\} \), so that \( G \) acts on \( \{ 1,2,3,4,5,6 \} \). Since 5 is fixed by all elements of \( G \) we have that:
+
+\begin{align*}
+stab_G(5) &= G \\
+org_G(5)  &= \{ 5 \}
+\end{align*}
+
+Similarly, we have that:
+
+\begin{align*}
+stab_G(3) &= \{ (1), \ (1 \ 2) \} \\
+org_G(3)  &= \{ 3, \ 4, \ 6 \}
+\end{align*}
+
+** Orbit-Stabilizer Theorem
+
+/Supppose \( G \) is a finite group which acts on the set \( X \). Then for all \( x \in X \) we have:/
+
+\[
+\mid G \mid = \mid stab_G(x) \mid * \mid orb_G(x) \mid
+\]
+
+
+*Proof* Fix \( x \in X \). We first show that \( stab_G(x) \le G \). First we know that \( e \in stab_G(x) \) since \( e \cdot x = x \). Now let \( g, h \in G \). We have:
+
+\begin{align*}
+g^{-1} \cdot (g \cdot x) = g^{-1} \cdot x &\implies (gg^{-1}) \cdot x = g^{-1} * x \\
+&\implies e \cdot x = g^{-1} \cdot x \\
+&\implies g^{-1} \cdot x = x \\
+&\implies g^{-1} \in stab_G(x)
+\end{align*}
+
+Secondly:
+
+\[
+(gh) \cdot x = g \cdot (h \cdot x) = g \cdot x = x
+\]
+
+Hence \( gh \in stab_G(x) \) thus \( stab_G(x) \le G \).
+
+It then follows from Lagrange's Theorem that the number of left cosets of \( stab_G(x) \) in \( G \) is given by \( [G:stab_G(x)] = \mid G \mid / \mid stab_G(x) \mid \). Letting \( x \) be fixed as before, we define:
+
+\[
+f : G \to X \text{ by } f(g) = g \cdot x
+\]
+
+Note the image of \( f \) is given by \( orb_G(x) \) by definition. Now suppose two elements map to the same value:
+
+\[
+f(g) = f(h) \iff g \cdot x = h \cdot x \iff g^{-1}h \cdot x = x \iff g^{-1}h \in stab_G(x)
+\]
+
+Which is equivalent to \( g \) and \( h \) having the same left coset with respect to \( stab_G(x) \). From this it is apparent that there is a bijection between the left cosets of \( stab_G(x) \) and \( orb_G(x) \). Hence:
+
+\[
+\mid G \mid / \mid stab_G(x) \mid = \mid orb_G(x) \mid
+\]
+
+which rearranges to the required equality.
