@@ -25,6 +25,22 @@ stab_G(x) = \{ g \in G : g \cdot x = x \}
 orb_G(x) = \{ g \cdot x : g \in G \}
 \]
 
+The following definitions will also be useful in the next section, they are the flipside of the previous two definitions:
+
+*Definition* Let \( G \) be a group that acts on the set \( X \). Let \( g \in G \), then we define \( X^g \) as:
+
+\[
+X^G = \{ x : g \cdot x = x \}
+\]
+
+ie the set of all fixed points of \( X \) with respect to \( g \).
+
+*Definition* Let \( G \) be a group that acts on the set \( X \). We define the set of orbits of \( G \), \( X / G \) as:
+
+\[
+X / G = \{ orb_G(x) : g \in G \}
+\]
+
 ** Example
 
 Let \( G = \{ (1), \ (1 \ 2), \ (3 \ 4 \ 6), \ (3 \ 6 \ 4), \ (1 \ 2)(3 \ 4 \ 6), \ (1 \ 2)(3 \ 6 \ 4)\} \), so that \( G \) acts on \( \{ 1,2,3,4,5,6 \} \). Since 5 is fixed by all elements of \( G \) we have that:

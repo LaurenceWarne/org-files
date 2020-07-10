@@ -10,4 +10,4 @@ We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a *par
 
 2. \( R \) is *antisymmetric*, ie if \( a \le b \) and \( b \le a \) then \( a = b \)
 
-
+Note *total ordering* is a special type of partial ordering which also requires \( S \) to be *connex* (which implies reflexivity).
