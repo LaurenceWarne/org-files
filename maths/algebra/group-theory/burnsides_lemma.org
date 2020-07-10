@@ -1,0 +1,43 @@
+#+TITLE: Burnside's Lemma
+
+* Theorem
+
+Let \( G \) be a finite group that acts on the set \( X \). Then:
+
+\[
+\mid X / G \mid = \frac{1}{\mid G \mid} \sum_{g \in G} \mid X^g \mid
+\]
+
+Ie the number of unique orbits in \( X \) is equal to the average number of points fixed by an element in \( g \).
+
+* Applications
+
+Burnside's lemma turns out to be a useful tool for some counting problems.
+
+/Find the number of distinct bracelets (ie taking into account reflectional and rotational symmetry) which can be made using five red, blue or green beads./
+
+Without symmetry, there are \( 3^5 =  243 \) total arrangements. If now consider \( X \) as this set of arrangements, and \( G \) as the set of symmetries we can apply Burnside's lemma. It will be useful to visualise each arrangement as a regular pentagon with beads at each vertex, labelled one through five.
+
+\( G \) has a total of 10 elements, namely rotations 0, 72, 144, ... 288 degrees and reflections with lines of symmetry defined by the line joining the centre of the regular pentagon and each bead (it can be shown compositions of these are elements of \( G \) also). We call \( G \) the *Dihedral group of order 10*, \( D_5 \).
+
+Now, two elements of \( X \) are considered to be identical under the symmetries of \( G \) iff they have the *same orbit*. Hence the total number of bracelets is equal to the total number of distinct orbits ie \( \mid X / G \mid \).
+
+Therefore, our problem reduces to the problem of finding the set of fixed points in \( X \) for each \( g \in G \).
+
+1. Rotation 0   degrees: \( (1)(2)(3)(4)(5) \implies \mid X^g \mid = 243 \)
+2. Rotation 72  degrees: \( (12345) \implies \mid X^g \mid = 3 \)
+3. Rotation 144 degrees: \( (13524) \implies \mid X^g \mid = 3 \)
+4. Rotation 216 degrees: \( (14253) \implies \mid X^g \mid = 3 \)
+5. Rotation 288 degrees: \( (15432) \implies \mid X^g \mid = 3 \)
+
+6. Reflection from 1: \( (1)(24)(35) \implies \mid X^g \mid = 81 \)
+7. Reflection from 2: \( (2)(13)(45) \implies \mid X^g \mid = 81 \)
+8. Reflection from 3: \( (3)(24)(15) \implies \mid X^g \mid = 81 \)
+9. Reflection from 4: \( (4)(12)(35) \implies \mid X^g \mid = 81 \)
+10. Reflection from 5: \( (5)(14)(23) \implies \mid X^g \mid = 81 \)
+
+Hence the total number of distinct bracelets is given by:
+
+\[
+\frac{243 + 3*4 + 81*5}{10} = 66
+\]
