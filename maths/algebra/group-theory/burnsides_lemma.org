@@ -20,7 +20,7 @@ Without symmetry, there are \( 3^5 =  243 \) total arrangements. If now consider
 
 \( G \) has a total of 10 elements, namely rotations 0, 72, 144, ... 288 degrees and reflections with lines of symmetry defined by the line joining the centre of the regular pentagon and each bead (it can be shown compositions of these are elements of \( G \) also). We call \( G \) the *Dihedral group of order 10*, \( D_5 \).
 
-Now, two elements of \( X \) are considered to be identical under the symmetries of \( G \) iff they have the *same orbit*. Hence the total number of bracelets is equal to the total number of distinct orbits ie \( \mid X / G \mid \).
+Now, two elements of \( X \) are considered to be identical under the symmetries of \( G \) iff they have the *same orbit* (the best way to see this is to realise two elements having the same orbit is an *equivalence relation* - this is easy to show). Hence the total number of bracelets is equal to the total number of distinct orbits ie \( \mid X / G \mid \).
 
 Therefore, our problem reduces to the problem of finding the set of fixed points in \( X \) for each \( g \in G \).
 
@@ -29,15 +29,14 @@ Therefore, our problem reduces to the problem of finding the set of fixed points
 3. Rotation 144 degrees: \( (13524) \implies \mid X^g \mid = 3 \)
 4. Rotation 216 degrees: \( (14253) \implies \mid X^g \mid = 3 \)
 5. Rotation 288 degrees: \( (15432) \implies \mid X^g \mid = 3 \)
-
-6. Reflection from 1: \( (1)(24)(35) \implies \mid X^g \mid = 81 \)
-7. Reflection from 2: \( (2)(13)(45) \implies \mid X^g \mid = 81 \)
-8. Reflection from 3: \( (3)(24)(15) \implies \mid X^g \mid = 81 \)
-9. Reflection from 4: \( (4)(12)(35) \implies \mid X^g \mid = 81 \)
-10. Reflection from 5: \( (5)(14)(23) \implies \mid X^g \mid = 81 \)
+6. Reflection from 1: \( (1)(24)(35) \implies \mid X^g \mid = 27 \)
+7. Reflection from 2: \( (2)(13)(45) \implies \mid X^g \mid = 27 \)
+8. Reflection from 3: \( (3)(24)(15) \implies \mid X^g \mid = 27 \)
+9. Reflection from 4: \( (4)(12)(35) \implies \mid X^g \mid = 27 \)
+10. Reflection from 5: \( (5)(14)(23) \implies \mid X^g \mid = 27 \)
 
 Hence the total number of distinct bracelets is given by:
 
 \[
-\frac{243 + 3*4 + 81*5}{10} = 66
+\frac{243 + 3*4 + 27*5}{10} = 39
 \]
