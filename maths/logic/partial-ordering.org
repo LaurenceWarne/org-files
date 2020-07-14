@@ -2,7 +2,7 @@
 
 * Definition
 
-We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a *partially ordered set* if the following hold \( \forall a, b, c \in S \):
+We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a *partially ordered set* (poset) if the following hold \( \forall a, b, c \in S \):
 
 1. \( R \) is *reflexive*, ie \( a \le a \ \forall a \in S \)
 
@@ -11,3 +11,9 @@ We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a *par
 2. \( R \) is *antisymmetric*, ie if \( a \le b \) and \( b \le a \) then \( a = b \)
 
 Note *total ordering* is a special type of partial ordering which also requires \( S \) to be *connex* (which implies reflexivity).
+
+* Hasse Diagrams
+
+We can use *Hasse Diagrams* to visualise finite posets. A Hasse Diagram is a graph whose vertices consist of the elements of the poset, and an edge exists between two \( x, y \in S \) iff \( x \le y \) and there is no \( k \) s.t. \( x \le k \le y \). In such a case we say \( y \) *covers* \( x \).
+
+All relations can be deduced from the cover relations and application of the transitivity property.
