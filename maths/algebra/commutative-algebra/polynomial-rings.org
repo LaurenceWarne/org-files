@@ -16,7 +16,7 @@ This indicates the "nicest" a polynomial ring can be is a *Euclidean domain*.
 
 * Properties
 
-1. If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial).
+1. If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial), hence \( \mathbb{R}[X][Y]... \) is a UFD.
 
 2. If \( R \) is a PID then it does *not* imply \( R[X] \) is a PID.
 

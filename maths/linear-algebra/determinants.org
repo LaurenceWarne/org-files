@@ -1,0 +1,15 @@
+#+TITLE: Determinants
+
+* Definition
+
+We define the determinant of an \( n \times n \) square matrix as follows:
+
+\[
+det(A) = \sum_{\sigma \in S_n} sgn(\sigma) \prod_{i=1}^{n} A_{i\sigma(i)}
+\]
+
+* Properties
+
+1. *Multiplicity*: \( det(AB) = det(A)det(B) \)
+2. Invariant under transposition: \( det(A^T) = det(A) \)
+

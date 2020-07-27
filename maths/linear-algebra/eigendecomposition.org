@@ -1,0 +1,19 @@
+#+TITLE: Eigendecomposition
+
+* Introduction
+
+Let \( A \) be an \( n \times n \) matrix with \( n \) *linearly independent* eigenvectors \( v_1 ... v_n \), then we can write \( A \) as:
+
+\[
+A = PDP^{-1}
+\]
+
+Where \( P \) is the matrix whose ith column is \( v_i \) and \( D \) is a diagonal matrix with \( D_{i,i} = \lambda_i \).
+
+*Proof*:
+
+\begin{array}{r l l}
+  &Av_i        &= \lambda_iv_i \\
+  \implies& AP &= PD \\
+  \implies& A  &= PDP^{-1}
+\end{array}
