@@ -1,0 +1,70 @@
+#+TITLE: Eigenvectors
+
+* Definition
+
+Given some matrix \( A \) with entries in some field \( F \), we say a *nonzero* vector \( \underline{v} \) is an *eigenvector* of \( A \) if:
+
+\begin{align}
+A\underline{v} = \lambda \underline{v}
+\end{align}
+
+For some \( \lambda \in F \), in which case we also say \( \lambda \) is an eigenvalue of \( A \) (associated with \( \underline{v} \)).
+
+* Finding Eigenvalues and Eigenvectors
+
+*Theorem* /If \( \lambda \) is an eigenvector of \( A \) then it satisfies \( \text{det}(A - \lambda I) = 0 \)/
+
+*Proof* Suppose there exists some \( \underline{v} \) satisfying (1), then:
+
+\begin{align*}
+A\underline{v} = \lambda \underline{v} & \iff (A - \lambda I)\underline{v} = \underline{0} \\
+               & \iff (A - \lambda I) \text{ is singular (since } \underline{v} \text{ is nonzero)} \\
+               & \iff \text{det}(A - \lambda I) = \underline{0}
+\end{align*}
+
+This theorem shows that the eigenvalues of \( A \) correspond to the roots of the polynomial \( \text{det}(A - \lambda I) \).
+
+* Geometric and Algebraic Multiplicity
+
+The *algebraic multiplicity* of an eigenvalue \( \lambda \) is simply its multiplicity as a root of the polynomial \( \text{det}(A - \lambda I) \).
+
+Defining the *geometric multiplicity* of \( \lambda \) on the other hand will first involve some set up. We define the *eigenspace* of \( A \) corresponding to  as:
+
+\[
+E_\lambda = \{ v : A\underline{v} = \underline{0} \}
+\]
+
+Note this is a subspace of the vector space \( \underline{v} \) resides in. From this we define the *algebraic multiplicity* of \( \lambda \) as the dimension of \( E_\lambda \).
+
+It is important to note that the algebraic and geometric multiplicities of \( \lambda \) may not be the same. For example, the matrix:
+
+\begin{pmatrix}
+1 & 0 \\
+-1 & 1 \\
+\end{pmatrix}
+
+It has characteristic polynomial \( (1 - \lambda)(1 - \lambda) \) and hence one eigenvalue, 1, of *algebraic multiplicity* 2. However, we find that the eigenspace of 1 to be the set:
+
+\[
+S = \{ \alpha \begin{bmatrix}0\\1\\\end{bmatrix} : \alpha \in K \}
+\]
+
+Indicating that the *geometric multiplicity* of the eigenvalue is 1.
+
+*Theorem* /The algebraic multiplicity of \( \lambda \) is at least as large as the geometric multiplicity of \( \lambda \)./
+
+*Proof* First suppose \( \lambda \) has geometric multiplicity \( r \). Let \( S = \{ \underline{v}_1 ... \underline{v}_r \} \) be any set of linearly independent eigenvectors associated with \( \lambda \). 
+
+We can extend \( S \) to form a basis to \( K^n \) with \( n - r \) linearly independent vectors \( \underline{v}_{r + 1} ... \underline{v}_n \). Now let \( G \) be the matrix with with column \( \underline{v}_i \)  (note \( G \) is invertible since its columns are linearly independent vectors), and consider the product \( AG \). 
+
+The first \( r \) columns of \( AG \) will be given by \( \lambda \underline{v}_i \), therefore the first \( r \) columns of \( G^{-1}AG \) will form a diagonal matrix with each diagonal entry given by \( \lambda \). We now claim \( G^{-1}AG \) has the same characteristic polynomial as \( A \):
+
+\begin{align*}
+\text{det}(G^{-1}AG - xI) &= \text{det}(G^{-1}AG - G^{-1}xIG) & \text{ since any multiple of the identity matrix commutes with all matrices}\\ 
+                          &= \text{det}(G^{-1})*\text{det}(A - Ix)*\text{det}(G) \\
+                          &= \text{det}(A - Ix)
+\end{align*}
+
+However, the first \( r \) columns of \( A - Ix \) form a diagonal matrix with entries \( \lambda - x \), hence the characteristic polynomial of \( A \) has a factor of at least \( (\lambda - x)^r \), this completes the proof.
+
+

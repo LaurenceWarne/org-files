@@ -17,7 +17,7 @@ We also say \( G \) is *simple* if there is at most on edge connecting any pair 
 
 ** *Definition*
 
-   A *trail* is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with *Eulerian trails* (which much visit every edge exactly once).
+   A *trail* (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with *Eulerian trails* (which much visit every edge exactly once).
 
 ** *Definition*
 
@@ -26,6 +26,20 @@ We also say \( G \) is *simple* if there is at most on edge connecting any pair 
 ** *Definition*
 
    A *cycle* is a trail in which all the vertices are distinct, except for the first and last which are the same.
+
+* Subgraphs
+
+** *Definition*
+
+   A *clique* is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
+
+** *Definition*
+
+   An *independent set*, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
+
+** *Definition*
+
+   Let \( G(V, E) \) be a graph, then the *graph complement* of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
 
 * Adjacency Matrices
 
