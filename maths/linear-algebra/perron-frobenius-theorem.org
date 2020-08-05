@@ -4,11 +4,13 @@
 
 An \( n \times n \) matrix \( A \) is said to be *irreducible* if for all pairs \( (i, j) \) there exists some \( k \in \mathbb{Z} \) such that \( M_{i, j}^k > 0 \).
 
+We say an \( n \times n \) matrix \( A \) is *primitive* if there exists some \( k \) for which all entries of \( A^k \) are positive. We can see that primitivity is a similar yet stronger condition than irreducibility.
+
 * Perron-Frobenius Theorem
 
 If \( A \) is an irreducible matrix then \( A \) has an eigenvalue \( \lambda_0 \) satisfying:
 
-1. All other eigenvalues of \( A \) satisfy \( \lambda < \lambda_0 \)
+1. All other eigenvalues of \( A \) satisfy \( |\lambda| < \lambda_0 \)
 2. \( \lambda_0 \) has algebraic and geometric multiplicity equal to one
 3. \( \lambda_0 \) has an eigenvector with all entries greater than zero
 4. Further, any non-negative eigenvector of \( A \) is a multiple of this eigenvector
