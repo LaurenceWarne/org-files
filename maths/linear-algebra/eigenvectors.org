@@ -12,7 +12,7 @@ For some \( \lambda \in F \), in which case we also say \( \lambda \) is an eige
 
 * Finding Eigenvalues and Eigenvectors
 
-*Theorem* /If \( \lambda \) is an eigenvector of \( A \) then it satisfies \( \text{det}(A - \lambda I) = 0 \)/
+*Theorem* /\( \lambda \) is an eigenvector of \( A \) iff it satisfies \( \text{det}(A - \lambda I) = 0 \)/
 
 *Proof* Suppose there exists some \( \underline{v} \) satisfying (1), then:
 
