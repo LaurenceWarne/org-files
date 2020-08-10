@@ -1,0 +1,9 @@
+#+TITLE: Inner Product Spaces
+
+* Definition
+
+  An *inner product space* consists of a vector field \( V \) over the field \( F \) endowed with a function \( \langle . , \ . \rangle : V \times V \to  F \) which satisfies the following properties:
+
+1. *Conjugate Symmetry*: \( \langle a, \ b \rangle = \langle b, \ a \rangle \)
+2. *Linearity in the First Argument*: \(  \langle \alpha a, \ b \rangle = \alpha \langle a, \ b \rangle \) and \( \langle a + c, \ b \rangle = \langle a, \ b \rangle + \langle c, \ b \rangle \)
+3. *Positive-Definiteness*: \( \langle a, \ a \rangle \ge 0 \), with equality holding iff \( a = \underline{0} \) 

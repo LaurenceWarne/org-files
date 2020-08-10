@@ -5,10 +5,6 @@ This is a wiki hosting a variety of loosely grouped information on computing and
 
 It's (very) possible there are mistakes, feel free to open a PR or issue at the org file repository if you find one.
 
-** [[./linux/linux.html][Linux]]
-*** [[./linux/gpg.html][Gpg]]
-*** [[./linux/run-levels.html][Run Levels]]
-*** [[./linux/short-notes.html][Short Notes]]
 ** [[./maths/maths.html][Maths]]
 *** [[./maths/algebra/algebra.html][Algebra]]
 *** [[./maths/analysis/analysis.html][Analysis]]
@@ -18,5 +14,9 @@ It's (very) possible there are mistakes, feel free to open a PR or issue at the 
 *** [[./maths/logic/logic.html][Logic]]
 *** [[./maths/number-theory/number-theory.html][Number Theory]]
 *** [[./maths/questions.html][Questions]]
+** [[./linux/linux.html][Linux]]
+*** [[./linux/gpg.html][Gpg]]
+*** [[./linux/run-levels.html][Run Levels]]
+*** [[./linux/short-notes.html][Short Notes]]
 ** [[./programming/programming.html][Programming]]
 *** [[./programming/python/python.html][Python]]
