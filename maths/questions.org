@@ -26,6 +26,10 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 4. Given any prime \( p \), show that \( \mathbb{F}_{p} \) is not algebraically closed.
 
+** Linear Algebra
+
+1. Show that a matrix is singular iff it has 0 as an eigenvalue.
+
 ** Number Theory
 
 1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.

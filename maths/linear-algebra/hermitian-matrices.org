@@ -1,0 +1,70 @@
+#+TITLE: Hermitian Matrices
+
+* Definition
+
+We say a complex square matrix \( A \) is *Hermitian* if it is equal to its own *conjugate transpose*, ie \( \forall i, j \) we have that:
+
+\[
+A_{ij} = \overline{A_{ji}}
+\]
+
+Alternate names for the conjugate transpose of a matrix include the *adjoint* or *transjugate*, and may be referred to by any of the following symbols:
+
+\[
+A^H \equiv A^* \equiv \overline{A^{T}}
+\]
+
+We can view Hermitian matrices as an extension of real symmetric matrices as they share many of the same properties.
+
+* The Spectral Theorem
+
+  We give the Spectral Theorem in the complex case: /If an \( n \times n \) matrix \( A \) is Hermitian, then all eigenvalues of \( A \) are real and there exists a *orthonormal* basis for \( \mathbb{C}^n \) consisting of the eigenvectors of \( A \)./
+
+Since \( A \) has \( n \) orthogonal (and thus linearly independent) eigenvectors, we arrive at the corollary that \( A \) is *unitarily* diagonalizable.
+
+This theorem makes many claims, each of which we will prove in turn. The first two of these claims are straightforward to show, whilst the last is less so.
+
+** All Eigenvalues of \( A \) are Real
+
+   Let \( \lambda \) be an eigenvalue of \( A \), with corresponding eigenvector \( v \) with entries given by \( a_k + ib_k \). Then starting with \( Av = \lambda v \) :
+
+\begin{align*}
+\left(v^*\right)^T Av &= \left(v^*\right)^T \lambda v \\
+                      &= \lambda \left(v^*\right)^T v \\
+                      &= \lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \text{ (a 1} \times \text{1 matrix)}
+\end{align*}
+
+Now taking the conjugate transpose of both sides, (note the LHS is invariant under this operation) gives:
+
+\begin{array}{r l l}
+&(\left(v^*\right)^T Av)^* &= (\lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2])^* \\
+\implies& \left(v^*\right)^T Av &= \lambda^* [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \\
+\implies& \lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] &= \lambda^* [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \\
+\implies& \lambda &= \lambda^* \\
+\implies& \lambda \in \mathbb{R}
+\end{array}
+
+** All Eigenvectors of \( A \) are Orthogonal
+
+Let \( v_1 \) and \( v_2 \) be eigenvectors of \( A \) corresponding to the distinct eigenvalues \( \lambda_1 \) and \( \lambda_2 \). Consider the product \( (Av_1)^*v_2 \). First of all we have that:
+
+\begin{align*}
+(Av_1)^*v_2 &= v_1^*A^*v_2 \\
+            &= v_1^*Av_2 \\
+            &= v_1^*\lambda_2 v_2 \\
+            &= \lambda_2 v_1^* v_2 
+\end{align*}
+
+On the other hand, simplifying inside the bracket first gives:
+
+\begin{align*}
+(Av_1)^*v_2 &= (\lambda_1 v_1)^*v_2 \\
+            &= \lambda_1^* v_1^*v_2\\
+            &= \lambda_1 v_1^* v_2
+\end{align*}
+
+Equating these gives \( (\lambda_1 - \lambda_2)v_1^* v_2 = 0 \) from which we must conclude that \( v_1^* \) and \( v_2 \) are orthogonal since the two eigenvalues are distinct.
+
+
+
+
