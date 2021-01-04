@@ -1,5 +1,4 @@
 #+TITLE: Wiki
-* Wiki
 
 This is a wiki hosting a variety of loosely grouped information on computing and pure mathematics. It was generated using [[https://github.com/LaurenceWarne/ox-yaow.el][ox-yaow.el]] (an Emacs package), using notes from [[https://github.com/LaurenceWarne/org-files][here]] written in the brilliant [[https://orgmode.org/][org mode]].
 
