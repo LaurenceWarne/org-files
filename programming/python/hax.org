@@ -1,0 +1,60 @@
+#+TITLE: Hax
+
+* Python Hax
+
+** Unpacking
+
+#+BEGIN_SRC python
+def is_palindrome(indexable):
+    if len(indexable) > 1:
+        first, *rest, last = indexable
+        return first == last and is_palindrome(rest)
+    else:
+        return True
+#+END_SRC
+
+*** Bonus Hack: Quicksort - the Easiest Sorting Algorithm to Implement
+
+Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
+
+#+BEGIN_SRC python
+def quicksort(ls: list):
+    if ls:
+        pivot, *rest = ls
+        smaller, greater = [], []
+        for item in rest:
+            (smaller if pivot > item else greater).append(item)
+        return quicksort(smaller) + [pivot] + quicksort(greater)
+    else:
+        return []
+#+END_SRC
+
+Of course ~sorted(ls)~ does the job too.
+
+** Poor Man's Cache
+
+#+BEGIN_SRC python
+def fib(n: int, cache={0: 1, 1: 1}):
+    if n not in cache:
+        cache[n] = fib(n - 1, cache) + fib(n - 2, cache)
+    return cache[n]
+#+END_SRC
+   
+** Generator :heart:
+
+#+BEGIN_SRC python
+def triangle_number(n: int):
+    return sum(k for k in range(n + 1))
+#+END_SRC
+
+~sum(k for k in range(n + 1))~ is desugared to ~sum((k for k in range(n + 1)))~, so we're just taking the sum of a generator comprehension. Note this is not equivalent to ~sum([k for k in range(n + 1)])~ as the list comprehension does not use constant memory!
+
+** Poor Man's defaultdict
+
+#+BEGIN_SRC python
+my_dict = {"a": 1, "b": 2}
+my_dict.get("A", -1)
+#---> -1
+#+END_SRC
+
+If we forego the slice syntax, we can specify a default value to ~.get~ in order to avoid a ~KeyError~.
