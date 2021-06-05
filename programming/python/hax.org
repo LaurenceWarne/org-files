@@ -40,7 +40,7 @@ def fib(n: int, cache={0: 1, 1: 1}):
     return cache[n]
 #+END_SRC
    
-** Generator :heart:
+** ♥ Generators ♥
 
 #+BEGIN_SRC python
 def triangle_number(n: int):
@@ -51,7 +51,7 @@ def triangle_number(n: int):
 
 ** Poor Man's defaultdict
 
-#+BEGIN_SRC python :results output (scripting mode)
+#+BEGIN_SRC python :results output (scripting mode) :exports both
 my_dict = {"a": 1, "b": 2}
 print(my_dict.get("A", -1))
 #+END_SRC
