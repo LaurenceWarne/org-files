@@ -45,3 +45,10 @@ We claim this implies there is a injection from the powerset of naturals to the 
 2. How many palindromes are there beneath \( 10^{100} \)? What about \( 100! \) ?
 
 3. Let \( P_n = \{ s \in  "([|])\{2n\}" : \text{s is parenthetically closed} \} \) show that \( P = \cup_{n \in \mathbb{N}} P_n \) is not a regular language.
+
+4. https://en.wikipedia.org/wiki/Littlewood%27s_law
+   https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
+
+We define a "miracle" as an event which has a one in a million chance of happening. If Littlewood the tortoise lives to the ripe old age of 100, what is probability that he experiences at least 1024 miracles in his lifetime? You may assume he is awake for exactly 8 hours a day and can see or hear one event per second. (Note tortoise years do not count the additional day provided by the leap years used in the Gregorian calendar).
+
+   
