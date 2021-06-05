@@ -13,7 +13,7 @@ def is_palindrome(indexable):
         return True
 #+END_SRC
 
-*** Bonus Hack: Quicksort - the Easiest Sorting Algorithm to Implement
+*** Bonus Hack: Quicksort - EZ Sorting
 
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
 
@@ -51,10 +51,13 @@ def triangle_number(n: int):
 
 ** Poor Man's defaultdict
 
-#+BEGIN_SRC python
+#+BEGIN_SRC python :results output (scripting mode)
 my_dict = {"a": 1, "b": 2}
-my_dict.get("A", -1)
-#---> -1
+print(my_dict.get("A", -1))
 #+END_SRC
 
+#+RESULTS:
+: -1
+
 If we forego the slice syntax, we can specify a default value to ~.get~ in order to avoid a ~KeyError~.
+
