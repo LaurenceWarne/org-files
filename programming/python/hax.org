@@ -1,8 +1,8 @@
 #+TITLE: Hax
 
-* Python Hax
+A menagarie of cool python snippets!
 
-** Unpacking
+* Unpacking
 
 #+BEGIN_SRC python
 def is_palindrome(indexable):
@@ -13,7 +13,7 @@ def is_palindrome(indexable):
         return True
 #+END_SRC
 
-*** Bonus Hack: Quicksort - EZ Sorting
+** Bonus Hack: Quicksort - EZ Sorting
 
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
 
@@ -31,7 +31,7 @@ def quicksort(ls: list):
 
 Of course ~sorted(ls)~ does the job too.
 
-** Poor Man's Cache
+* Poor Man's Cache
 
 #+BEGIN_SRC python
 def fib(n: int, cache={0: 1, 1: 1}):
@@ -39,8 +39,12 @@ def fib(n: int, cache={0: 1, 1: 1}):
         cache[n] = fib(n - 1, cache) + fib(n - 2, cache)
     return cache[n]
 #+END_SRC
-   
-** ♥ Generators ♥
+
+The cache object is created when the function is defined, not every time it is called. You can reset the cache (and change the base cases!) by passing in a new cache object.
+
+Bonus points for fixing up this one so it doesn't blow up the stack.
+
+* ♥ Generators ♥
 
 #+BEGIN_SRC python
 def triangle_number(n: int):
@@ -49,7 +53,7 @@ def triangle_number(n: int):
 
 ~sum(k for k in range(n + 1))~ is desugared to ~sum((k for k in range(n + 1)))~, so we're just taking the sum of a generator comprehension. Note this is not equivalent to ~sum([k for k in range(n + 1)])~ as the list comprehension does not use constant memory!
 
-** Poor Man's defaultdict
+* Poor Man's defaultdict
 
 #+BEGIN_SRC python :results output (scripting mode) :exports both
 my_dict = {"a": 1, "b": 2}
@@ -60,4 +64,19 @@ print(my_dict.get("A", -1))
 : -1
 
 If we forego the slice syntax, we can specify a default value to ~.get~ in order to avoid a ~KeyError~.
+
+* Zip is it's own Inverse
+
+#+BEGIN_SRC python :results output (scripting mode) :exports both
+import string
+
+zipped = list(zip(range(10), string.ascii_lowercase, string.ascii_uppercase))
+print("Zipped up: " + str(zipped))
+dezipped = list(zip(*zipped))
+print("Dezipped: " + str(dezipped))
+#+END_SRC
+
+#+RESULTS:
+: Zipped up: [(0, 'a', 'A'), (1, 'b', 'B'), (2, 'c', 'C'), (3, 'd', 'D'), (4, 'e', 'E'), (5, 'f', 'F'), (6, 'g', 'G'), (7, 'h', 'H'), (8, 'i', 'I'), (9, 'j', 'J')]
+: Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'), ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')]
 
