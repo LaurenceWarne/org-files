@@ -12,12 +12,12 @@ So Euclidean Domains generalise the *Division Theorem* to (commutative) rings. W
 
 ** Examples
    
-   1. The Gaussian integers \( \mathbb{Z}[i] \) are a Euclidean domain. This can be seen by taking \( d(a + bi) = |a + bi| = \sqrt{a^2 + b^2} \).
+1. The Gaussian integers \( \mathbb{Z}[i] \) are a Euclidean domain. This can be seen by taking \( d(a + bi) = |a + bi| = a^2 + b^2 \).
 
-   2. Any field \( F \) is a Euclidean domain since we can take \( d(0) = 0 \) and \( d(x) = 1 \) for \( x \ne 0 \). To see this satisfies (1), given some \( a, b \in R \) we can choose \( r = 0, \ q = ab^{-1} \) or \( r = a \) and \( q \) arbitrary if \( b = 0 \), and have \( a = qb + r \) in either case as required. (2) is trivially satisfied.
+2. Any field \( F \) is a Euclidean domain since we can take \( d(0) = 0 \) and \( d(x) = 1 \) for \( x \ne 0 \). To see this satisfies (1), given some \( a, b \in R \) we can choose \( r = 0, \ q = ab^{-1} \) or \( r = a \) and \( q \) arbitrary if \( b = 0 \), and have \( a = qb + r \) in either case as required. (2) is trivially satisfied.
 
-   3. If \( K \) is a field, then the polynomial ring \( K[X] \) is a Euclidean domain, with \( d(P(x)) = deg(P(x)) \).
-      
+3. If \( K \) is a field, then the polynomial ring \( K[X] \) is a Euclidean domain, with \( d(P(x)) = deg(P(x)) \).
+
 
 * Principle Ideal Domains
 
@@ -36,13 +36,13 @@ Let \( b \) be any nonzero element in \( R \) such that \( d(b) \) is minimal (t
 Let \( s \in R \) and suppose for a contradiction that \( s \not \in \left< b \right> \). By (2) we can write:
 
 \[
-a = bq + r
+s = bq + r
 \]
 
 For some \( q, r \in R \) such that \( d(r) < d(b) \). Now rearranging the above equation we get:
 
 \[
-r = a - bq
+r = s - bq
 \]
 
-Which implies \( r \in I \) since ideals are closed under addition. But then since \( d(b) \) is minimal in \( I \) we must have \( d(b) \le d(r) \), a contradiction. Hence we must conclude that \( a \in \left< b \right> \) and thus \( I \) is principle.
+Which implies \( r \in I \) since ideals are closed under addition. But then since \( d(b) \) is minimal in \( I \) we must have \( d(b) \le d(r) \), a contradiction. Hence we must conclude that \( s \in \left< b \right> \) and thus \( I \) is principle.

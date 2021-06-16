@@ -34,6 +34,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.
 
+2. Show that \( \liminf\limits_{n \to \infty} \frac{\phi(n)}{n} = 0 \) 
+
 ** Graph Theory
 
 1. Show that \( \chi(C_{2n + 1}) = 3 \ \forall n \in \mathbb{Z}^+ \).
