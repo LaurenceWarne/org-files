@@ -1,7 +1,5 @@
 #+TITLE: Answers
 
-#+TITLE: Questions
-
 * Questions
 
 ** Analysis

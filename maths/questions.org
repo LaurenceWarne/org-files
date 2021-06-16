@@ -42,6 +42,10 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that \( \chi(C_{2n + 1}) = 3 \ \forall n \in \mathbb{Z}^+ \).
 
+2. How many simple undirected graphs are there of size \( n \) up to isomorphism?
+
+3. How many trees are there of size \( n \) up to isomorphism?
+
 ** Computation
 
 1. Find the smallest integer \( n \) such that \( n\ln{n} + n > 3^{197} \) 
