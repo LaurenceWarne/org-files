@@ -14,35 +14,35 @@ We specify \( R \) as a commutative ring.
 ** Maximal Ideals
 
 *** *Definition* 
-    We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
+We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
 
 *** *Theorem* 
-    The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
+The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
 
 *** *Proof* 
 
-    *(forward case)*: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
+*(forward case)*: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
 
-   \[
-   K = J \backslash I
-   \]
+\[
+K = J \backslash I
+\]
 
-   Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
+Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
 
-   \[
-   S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
-   \]
+\[
+S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
+\]
 
-   Now suppose for some \( r \in R \):
+Now suppose for some \( r \in R \):
 
-   \begin{align*}
-   (rb) + I = 1 + I & \implies b' + I = 1 + I \\
-   	      	    & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
-   \end{align*}
+\begin{align*}
+(rb) + I = 1 + I & \implies b' + I = 1 + I \\
+                 & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
+\end{align*}
 
-   Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
+Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
 
-   *(backward case)*: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
+*(backward case)*: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
 
 \begin{align*}
 J &= \{ b_1 + I, \ b_2 + I, ... \}\\
@@ -94,4 +94,4 @@ Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a 
 
 *** *Definition
 
-    We say an *proper* ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
+We say an *proper* ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
