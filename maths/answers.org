@@ -1,0 +1,47 @@
+#+TITLE: Answers
+
+#+TITLE: Questions
+
+* Questions
+
+** Analysis
+
+1. Add \( z^6 \) to both sides, and the LHS is a binomial expansion. Then take 6th roots taking care to respect roots of unity.
+
+2. The function is not well-defined since it does not define a value for \( \mathbb{N} \in \mathcal{P}(\mathbb{N}) \) (or any other subset of the naturals with infinite cardinality).
+
+3. ?
+
+** Algebra
+
+1. ?
+
+2. ?
+
+3. ?
+
+4. For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.
+
+5. It isn't a group because the operation is not associative.
+
+** Linear Algebra
+
+1. ?
+
+** Number Theory
+
+1. If \( a \) and \( b \) are odd, then \( a^2 + b^2 \equiv 2 \mod 4 \), but all even squares are congruent to \( 0 \mod 4\).
+
+2. Choose the primorials as the subsequence.
+
+** Graph Theory
+
+1. Proceed by infinite descent or induction.
+
+** Computation
+
+1. Binary search
+
+2. ??
+
+3. ??
