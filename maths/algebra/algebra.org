@@ -1,5 +1,4 @@
 #+TITLE: Algebra
-* Algebra
 ** [[./commutative-algebra/commutative-algebra.html][Commutative Algebra]]
 *** [[./commutative-algebra/ideals.html][Ideals]]
 *** [[./commutative-algebra/integral-domains.html][Integral Domains]]
