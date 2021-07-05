@@ -49,10 +49,10 @@ A *total order* or *full order* is a relation, \( \le \) on some set \( S \) whi
 
 ** Antisymmetric
 
-   \( a \le b \land b \le a \implies a = b \)
+\( a \le b \land b \le a \implies a = b \)
 
 ** Connex
 
-   \( a \le b \) or \( b \le a \) 
+\( a \le b \) or \( b \le a \) 
 
 A set paired with a total order, \( (S, \le) \) is called a *totally ordered set* or *chain*. For example \( (\mathbb{R}, \le) \) forms a totally ordered set but \( (\mathbb{R}, <) \) does not (not connex).
