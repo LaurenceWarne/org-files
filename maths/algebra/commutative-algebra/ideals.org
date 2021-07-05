@@ -7,6 +7,8 @@ We say a subset \( I \subseteq R \) of some commutative ring \( R \) is an ideal
 1. \( (I, +) \) is a subgroup of \( (R, +) \)
 2. \( I \) is closed under multiplication from \( R \), ie \( rx \in R \ \forall r \in I,\ x \in R \)
 
+Note by (2) an ideal is a ring iff it is equal to the ring itself.
+
 * Special Ideals
 
 We specify \( R \) as a commutative ring.
@@ -92,6 +94,6 @@ Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a 
 
 ** Prime Ideals
 
-*** *Definition
+*** *Definition*
 
 We say an *proper* ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).

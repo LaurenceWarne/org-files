@@ -36,15 +36,15 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.
 
-2. Show that \( \liminf\limits_{n \to \infty} \frac{\phi(n)}{n} = 0 \) 
+2. Show that \( \liminf\limits_{n \to \infty} \frac{\phi(n)}{n} = 0 \)
+
+3. I choose a positive integer \( n <= 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?
 
 ** Graph Theory
 
 1. Show that \( \chi(C_{2n + 1}) = 3 \ \forall n \in \mathbb{Z}^+ \).
 
-2. How many simple undirected graphs are there of size \( n \) up to isomorphism?
-
-3. How many trees are there of size \( n \) up to isomorphism?
+2. How many trees are there of size \( n \) up to isomorphism?
 
 ** Computation
 

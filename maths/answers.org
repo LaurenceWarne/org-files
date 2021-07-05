@@ -20,7 +20,7 @@
 
 4. For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.
 
-5. It isn't a group because the operation is not associative.
+5. It isn't a group because the operation is not associative. It can be shown they form a [[https://en.wikipedia.org/wiki/Quasigroup#Loops][commutative loop]]
 
 ** Linear Algebra
 
@@ -31,6 +31,8 @@
 1. If \( a \) and \( b \) are odd, then \( a^2 + b^2 \equiv 2 \mod 4 \), but all even squares are congruent to \( 0 \mod 4\).
 
 2. Choose the primorials as the subsequence.
+
+3. \( \pi(10000) \), since if some \( p | n \), then we need to check if no other primes divide it. Note if \( n = 1 \), we "ask" all primes and get "no" for everything.
 
 ** Graph Theory
 
