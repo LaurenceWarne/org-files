@@ -14,7 +14,7 @@ let \( p_n \) be the nth prime number, and let \( S = \{n_1, n_2, n_3, ...\} \) 
 
 We claim this implies there is a injection from the powerset of naturals to the naturals and so we provide a counterexample to Cantor's Theorem. Where is the mistake?
 
-3. Find a closed form for \( \sum^n_{k=1} k \cos(kx) \).
+3. [@3] Find a closed form for \( \sum^n_{k=1} k \cos(kx) \).
 
 ** Algebra
 
@@ -38,7 +38,7 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 2. Show that \( \liminf\limits_{n \to \infty} \frac{\phi(n)}{n} = 0 \)
 
-3. I choose a positive integer \( n <= 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?
+3. I choose a positive integer \( n \le 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?
 
 ** Graph Theory
 
@@ -58,16 +58,3 @@ We claim this implies there is a injection from the powerset of naturals to the 
    https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
 
 We define a "miracle" as an event which has a one in a million chance of happening. If Littlewood the tortoise lives to the ripe old age of 100, what is probability that he experiences at least 1024 miracles in his lifetime? You may assume he is awake for exactly 8 hours a day and can see or hear one event per second. (Note tortoise years do not count the additional day provided by the leap years used in the Gregorian calendar).
-
-#+BEGIN_EXPORT html
-<div id="disqus_thread"></div>
-<script>
-(function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = '{{page_embed}}';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-#+END_EXPORT

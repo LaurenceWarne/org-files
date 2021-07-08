@@ -20,7 +20,7 @@
 
 4. For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.
 
-5. It isn't a group because the operation is not associative. It can be shown they form a [[https://en.wikipedia.org/wiki/Quasigroup#Loops][commutative loop]]
+5. They do not form a group since \( -2^{31} \) does not have an inverse.
 
 ** Linear Algebra
 
