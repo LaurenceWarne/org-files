@@ -32,7 +32,7 @@
 
 2. Choose the primorials as the subsequence.
 
-3. \( \pi(10000) \), since if some \( p | n \), then we need to check if no other primes divide it. Note if \( n = 1 \), we "ask" all primes and get "no" for everything.
+3. \( \pi(10000) \) + \( \pi(\lfloor \sqrt{10000} \rfloor}) \) , since if some \( p | n \), then we need to check if no other primes divide it, and also that it is not a prime power (ie \( p^2 \not | n \)).  Note if \( n = 1 \), we "ask" all primes and get "no" for everything.
 
 ** Graph Theory
 
