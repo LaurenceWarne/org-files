@@ -1,0 +1,73 @@
+#+TITLE: Variance
+
+* Covariance
+
+We say some type ~F~ which takes a type paramater is covariant if \( S \subset T \Rightarrow F[S] \subset F[T] \).  ie we might reasonably claim a ~List[Cat]~ is a subtype of ~List[Animal]~.  However this may cause some problems:
+
+#+begin_src scala
+val myCats: List[Cat]       = List(Cat("Max"), Cat("Felix"))
+val myAnimals: List[Animal] = myCats
+val myDog: Dog              = Dog("Fiedo")
+myAnimals.add(myDog)
+// But now myCats contains a dog!!
+#+end_src
+
+However, we can overcome this problem by making ~List~ immutable, so that we cannot add any new elements to a list.
+
+
+* Contravariance
+
+Sometimes it may also make sense for a particular type \( G \) that if \( S \) is a subtype of \( T \), then \( G[T] \) is a subtype of \( G[S] \) - and we call this *contravariance*.  An example of this could be a JSON encoder.  For example say if we have:
+
+#+begin_src scala
+trait Animal {
+  def name: String
+}
+
+case class Dog(name: String, age: Int) extends Animal
+#+end_src
+
+Then it would make sense that if we had a json encoder for the ~Animal~ type, we could use this to encode ~Dog~ instances also, albeit without the dog's ~age~:
+
+#+begin_src scala
+val animalEncoder: Encoder[Animal] = getEncoder()
+val dog: Dog                       = Dog("Fiedo", 3)
+val dogEncoder: Encoder[Dog]       = animalEncoder
+animalEncoder.encode(dog)
+// {"name": "Fiedo"}
+#+end_src
+
+Hence an ~Animal~ encoder is just one particular type of ~Dog~ encoder, hence the ~Encoder~ type is *contravariant*.  Note that the opposite would hold for a JSON decoder (covariant), and in general data sources can be covariant and data sinks can be contravariant.
+
+
+* Gotchas
+
+Suppose we have some covariant type:
+
+#+begin_src scala
+class MyList[+T] {
+  def contains(e: ???): Boolean
+}
+#+end_src
+
+Then what should be the type of ~e~?  We might reason that we should have ~e: T~ to match our type parameter, but that gives rise to the following:
+
+#+begin_src scala
+val myDogs: List[Dog]    = List(Dog("Fiedo"), Dog("Zeus"))
+val myAnimals: List[Dog] = myDogs
+// Completely fine by our type signature
+myAnimals.contains(Cat("Max"))
+// Not allowed by our type signature!
+myDogs.contains(Cat("Max"))
+#+end_src
+
+So the way we get around this is to make the type of ~e: U >: T~ so that the method can take any supertype of ~T~ (also see [[https://stackoverflow.com/questions/9619121/why-is-parameter-in-contravariant-position][here]] for a great SO link).  This can however lead to some unexpected behaviour:
+
+#+begin_src scala
+// All of the following is valid in scala
+val myInts = List(1, 2, 3)
+myInts.contains("not an int")
+// Boolean = false
+"not an int" :: myInts
+// List[Any] = List("not an int", 1, 2, 3)
+#+end_src
