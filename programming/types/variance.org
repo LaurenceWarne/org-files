@@ -53,15 +53,15 @@ class MyList[+T] {
 Then what should be the type of ~e~?  We might reason that we should have ~e: T~ to match our type parameter, but that gives rise to the following:
 
 #+begin_src scala
-val myDogs: List[Dog]    = List(Dog("Fiedo"), Dog("Zeus"))
-val myAnimals: List[Dog] = myDogs
+val myDogs: List[Dog]       = List(Dog("Fiedo"), Dog("Zeus"))
+val myAnimals: List[Animal] = myDogs
 // Completely fine by our type signature
 myAnimals.contains(Cat("Max"))
 // Not allowed by our type signature!
 myDogs.contains(Cat("Max"))
 #+end_src
 
-So the way we get around this is to make the type of ~e: U >: T~ so that the method can take any supertype of ~T~ (also see [[https://stackoverflow.com/questions/9619121/why-is-parameter-in-contravariant-position][here]] for a great SO link).  This can however lead to some unexpected behaviour:
+So the way we get around this is to make the type of ~e: U~ with the type constraint ~U :> T~ so that the method can take any supertype of ~T~ (also see [[https://stackoverflow.com/questions/9619121/why-is-parameter-in-contravariant-position][here]] for a great SO link).  This can however lead to some unexpected behaviour:
 
 #+begin_src scala
 // All of the following is valid in scala
