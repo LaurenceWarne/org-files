@@ -1,0 +1,11 @@
+#+TITLE: Contour Integration
+
+* Definition
+
+We define:
+
+\[
+\int_{\gamma} f(z) dz = \int_a^b f\left(\gamma\left(t\right)\right)\gamma'(t)dt
+\]
+
+Where \( \gamma(t) : [a, b] \to \mathbb{C} \) is a [[https://en.wikipedia.org/wiki/Contour_integration#Contours][contour]].
