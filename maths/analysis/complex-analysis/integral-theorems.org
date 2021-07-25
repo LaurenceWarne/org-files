@@ -1,0 +1,39 @@
+#+TITLE: Integral Theorems
+
+* Cauchy's Integral Theroem
+
+If \( f \) is *holomorphic* on a simply connected domain \( D \), and \( \gamma \) is a closed curve, then:
+
+\[
+ \oint_\gamma f(z) dz = 0
+\]
+
+* Cauchy's Integral Formula
+
+Let:
+1. \( D \) be the closed disk \( D = \{ z : |z - z_0| \le r \} \) centered at \( z_0 \)
+2. \( f: D \to \mathbb{C} \) be a holomorphic function
+3. \( \gamma \) be the counterclockwise circle forming the boundary of \( D \)
+
+Then:
+
+\[
+f(a) = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a} dz
+\]
+
+Holds for all \( a \) in the interior of \( D \).
+
+* Cauchy's Residue Theorem
+
+Let:
+1. \( a_n \in U \) be some finite set of points
+2. \( D = U \backslash a_n \) be a simply connected domain
+3. \( f: D \to \mathbb{C} \) a holomorphic function
+4. \( \gamma \) a closed contour in \( D \)
+
+Then:
+
+\[
+\frac{1}{2\pi i}\oint_\gamma \frac{f(z)} dz = 2\pi i \sum Res(f, a_k)
+\]
+
