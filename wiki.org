@@ -17,5 +17,7 @@ It's (very) possible there are mistakes, feel free to open a PR or issue at the 
 *** [[./linux/gpg.html][Gpg]]
 *** [[./linux/run-levels.html][Run Levels]]
 *** [[./linux/short-notes.html][Short Notes]]
+*** [[./linux/xorg.html][Xorg]]
 ** [[./programming/programming.html][Programming]]
 *** [[./programming/python/python.html][Python]]
+*** [[./programming/types/types.html][Types]]
