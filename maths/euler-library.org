@@ -1,0 +1,58 @@
+#+TITLE: Euler Library
+
+
+* Power Modulo
+
+If \( a \) and \( p \) are coprime then:
+
+\[
+a^x \pmod p = a^{x \pmod{\phi (p)}} \pmod p
+\]
+
+We can also reduce \( \phi (p) \) to \( |\langle a \rangle | \) if necessary.  More generally if no restrictions are placed on \( a \) and \( p \) then:
+
+\[
+a^x \pmod p =
+\left\{\begin{array}{lr}
+        a^{\left(x \pmod{\phi (p)}\right) + \phi(p)} \pmod p, & \text{for } x \ge \phi(p) \\
+        a^x \pmod p, & \text{for } x < \phi(p)\\
+        \end{array}
+\]
+
+*Proof* (first condition): Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
+
+\[
+a^{\phi(n)} \pmod{p_i^{e_i}} = (\lambda p_i^{e_i'})^{\phi(n)} \pmod{p_i^{e_i}}
+\]
+
+Where \( \lambda \) is coprime to \( p \).  Now if \( \phi(n) > e_i \) then 
+
+\[
+(\lambda p_i^{e_i'})^{\phi(n)} \equiv 0 \pmod{p_i^{e_i}}
+\]
+
+For all nonzero \( e_i' \), ie if \( a \) is \( p \)-free.  We have:
+
+\[
+e_i < p^{e_i}(p - 1) = \phi(p^{e_i}) \le \phi(n)
+\]
+
+Now consider the simultaneous congruences we have for \( a^{q\phi(n) + r} \), with \( q > 0 \) :
+
+\[
+a^{q\phi(n) + r} = \ m_i \pmod{p_i^{e_i}}
+\]
+
+For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q > 0 \), and applying Euler's Theorem for \( p_i \not | a \), we arrive at the conclusion that the simultaneous congruences do not depend on \( q > 0 \).  From here, applying The Chinese remainder theorem gets us our claim.
+
+
+
+
+
+
+* Linear Recurrence Closure
+
+If \( a_n \) and \( b_n \) are linear recurrences, then:
+
+1. \( s_n = a_n + b_n \) is a linear recurrence
+2. \( p_n = a_nb_n \) is a linear recurrence

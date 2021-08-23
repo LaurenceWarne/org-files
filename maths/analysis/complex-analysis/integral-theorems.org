@@ -34,6 +34,12 @@ Let:
 Then:
 
 \[
-\frac{1}{2\pi i}\oint_\gamma \frac{f(z)} dz = 2\pi i \sum Res(f, a_k)
+\oint_\gamma f(z) dz = 2\pi i \sum Res(f, a_k)
 \]
 
+It is worth noting that CRT is a generalisation of both of the theorems above, the first follows by noting \( a_n \) is empty.  For the second:
+
+\begin{align*}
+\oint_\gamma \frac{f(z)}{z - a} dz &= 2\pi i \ Res\left(\frac{f(z)}{z - a}, a\right) \\
+&= 2\pi i \ f(a)
+\end{align*}
