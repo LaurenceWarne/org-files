@@ -1,5 +1,44 @@
 #+TITLE: Euler Library
 
+* Linear Recurrence Closure
+
+If \( a_n \) and \( b_n \) are linear recurrences, then:
+
+1. \( s_n = a_n + b_n \) is a linear recurrence
+2. \( p_n = a_nb_n \) is a linear recurrence
+
+** Proof (1)
+
+Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
+
+\[
+C_s(x) = \frac{C_a(x)C_b(x)}{hcf\left(C_a(x), C_b(x)\right)}
+\]
+
+We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \) (the solution of \( s_n \) as a sum of exponential powers, minus the constant coefficients).  Now consider:
+
+\begin{pmatrix}
+\lambda_1^n       & n\lambda_1^n           & \cdots    & \lambda_n^n \\
+\lambda_1^{n - 1} & (n - 1)\lambda_1^{n-1} & \cdots    & \lambda_n^{n-1} \\
+\vdots            & \vdots                 & \ddots    & \vdots \\
+\lambda_1         & \lambda_1              & \cdots    & \lambda_n
+\end{pmatrix}
+\begin{pmatrix}
+   c_n \\
+   c_{n - 1} \\
+   \vdots \\
+   c_1
+\end{pmatrix}
+= 
+\begin{pmatrix}
+   s_n \\
+   s_{n - 1} \\
+   \vdots \\
+   s_1
+\end{pmatrix}
+
+
+Where \( c_i \) are the components of the IC vector.  Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
 * Power Modulo
 
@@ -19,7 +58,9 @@ a^x \pmod p =
         \end{array}
 \]
 
-*Proof* (first condition): Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
+** Proof (first condition):
+
+Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
 
 \[
 a^{\phi(n)} \pmod{p_i^{e_i}} = (\lambda p_i^{e_i'})^{\phi(n)} \pmod{p_i^{e_i}}
@@ -45,14 +86,3 @@ a^{q\phi(n) + r} = \ m_i \pmod{p_i^{e_i}}
 
 For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q > 0 \), and applying Euler's Theorem for \( p_i \not | a \), we arrive at the conclusion that the simultaneous congruences do not depend on \( q > 0 \).  From here, applying The Chinese remainder theorem gets us our claim.
 
-
-
-
-
-
-* Linear Recurrence Closure
-
-If \( a_n \) and \( b_n \) are linear recurrences, then:
-
-1. \( s_n = a_n + b_n \) is a linear recurrence
-2. \( p_n = a_nb_n \) is a linear recurrence
