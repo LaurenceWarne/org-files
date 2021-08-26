@@ -40,6 +40,56 @@ We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \
 
 Where \( c_i \) are the components of the IC vector.  Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
+#+begin_src python :results output (scripting mode) :exports both
+import sympy as sp
+from sympy import Matrix, Poly
+
+# The base cases
+ics1 = [1, 1]
+ics2 = [1, 2, 5]
+
+# The recurrences we want to add, defined here for clarity
+def a_n(n, ics=ics1):
+    if n <= len(ics):
+        return ics[n - 1]
+    else:
+        return a_n(n - 1) + 2*a_n(n - 2)
+
+def b_n(n, ics=ics2):
+    if n <= len(ics):
+        return ics[n - 1]
+    else:
+        return 4*b_n(n - 1) - 5*b_n(n - 2) + 2*b_n(n - 3)
+
+x = sp.Symbol("x")
+# x_n = x_{n - 1} + 2*x_{n - 2}
+char_poly1 = x**2 - x - 2 
+# x_n = 4*x_{n - 1} - 5*x{n - 2} + 2*x{n - 3}
+char_poly2 = x**3 - 4*x**2 + 5*x - 2
+
+p = Poly(
+    sp.simplify(char_poly1 * char_poly2 / sp.gcd(char_poly1, char_poly2))
+)
+print(p)
+coeffs = p.all_coeffs()
+
+mat = Matrix.diag([1]*(len(coeffs) - 1))
+mat.row_del(-1)
+mat = mat.row_insert(0, Matrix([[-c for c in coeffs[1:]]]))
+ics = Matrix([[a_n(n) + b_n(n)] for n in range(1, len(coeffs))][::-1])
+print(mat)
+
+arr = list(ics)[::-1] + [(mat**n * ics)[0] for n in range(1, 10)]
+print(arr)
+print([a_n(n) + b_n(n) for n in range(1, 14)])
+#+end_src
+
+#+RESULTS:
+: Poly(x**4 - 3*x**3 + x**2 + 3*x - 2, x, domain='ZZ')
+: Matrix([[3, -1, -3, 2], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])
+: [2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
+: [2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
+
 * Power Modulo
 
 If \( a \) and \( p \) are coprime then:
