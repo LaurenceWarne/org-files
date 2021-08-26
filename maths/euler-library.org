@@ -17,26 +17,33 @@ C_s(x) = \frac{C_a(x)C_b(x)}{hcf\left(C_a(x), C_b(x)\right)}
 
 We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \) (the solution of \( s_n \) as a sum of exponential powers, minus the constant coefficients).  Now consider:
 
-\begin{pmatrix}
-\lambda_1^n       & n\lambda_1^n           & \cdots    & \lambda_n^n \\
-\lambda_1^{n - 1} & (n - 1)\lambda_1^{n-1} & \cdots    & \lambda_n^{n-1} \\
-\vdots            & \vdots                 & \ddots    & \vdots \\
-\lambda_1         & \lambda_1              & \cdots    & \lambda_n
-\end{pmatrix}
-\begin{pmatrix}
+\begin{align*}
+\left(
+  \begin{array}{cccc}
+  \lambda_1^n       & n\lambda_1^n           & \cdots    & \lambda_n^n \\
+  \lambda_1^{n - 1} & (n - 1)\lambda_1^{n-1} & \cdots    & \lambda_n^{n-1} \\
+  \vdots            & \vdots                 & \ddots    & \vdots \\
+  \lambda_1         & \lambda_1              & \cdots    & \lambda_n
+  \end{array}
+\right)
+\left(
+\begin{array}{c}
    c_n \\
    c_{n - 1} \\
    \vdots \\
    c_1
-\end{pmatrix}
+\end{array}
+\right)
 = 
-\begin{pmatrix}
+\left(
+\begin{array}{c}
    s_n \\
    s_{n - 1} \\
    \vdots \\
    s_1
-\end{pmatrix}
-
+\end{array}
+\right)
+\end{align*}
 
 Where \( c_i \) are the components of the IC vector.  Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
@@ -70,15 +77,17 @@ char_poly2 = x**3 - 4*x**2 + 5*x - 2
 p = Poly(
     sp.simplify(char_poly1 * char_poly2 / sp.gcd(char_poly1, char_poly2))
 )
-print(p)
 coeffs = p.all_coeffs()
+print(p)
 
+# We create the companion matrix of our polynomial
 mat = Matrix.diag([1]*(len(coeffs) - 1))
 mat.row_del(-1)
 mat = mat.row_insert(0, Matrix([[-c for c in coeffs[1:]]]))
-ics = Matrix([[a_n(n) + b_n(n)] for n in range(1, len(coeffs))][::-1])
 print(mat)
 
+# Finally we show n applications of our matrix gives what we expect
+ics = Matrix([[a_n(n) + b_n(n)] for n in range(1, len(coeffs))][::-1])
 arr = list(ics)[::-1] + [(mat**n * ics)[0] for n in range(1, 10)]
 print(arr)
 print([a_n(n) + b_n(n) for n in range(1, 14)])
@@ -95,17 +104,16 @@ print([a_n(n) + b_n(n) for n in range(1, 14)])
 If \( a \) and \( p \) are coprime then:
 
 \[
-a^x \pmod p = a^{x \pmod{\phi (p)}} \pmod p
+a^x \pmod p = a^{x \pmod{\phi (p)}}\pmod p
 \]
 
 We can also reduce \( \phi (p) \) to \( |\langle a \rangle | \) if necessary.  More generally if no restrictions are placed on \( a \) and \( p \) then:
 
 \[
-a^x \pmod p =
-\left\{\begin{array}{lr}
-        a^{\left(x \pmod{\phi (p)}\right) + \phi(p)} \pmod p, & \text{for } x \ge \phi(p) \\
-        a^x \pmod p, & \text{for } x < \phi(p)\\
-        \end{array}
+a^x \pmod p = \begin{cases}
+a^{\left(x\pmod{\phi (p)}\right) + \phi(p)} \pmod p  & \text{for } x \ge \phi(n) \\
+a^x \pmod p & \text{for } x < \phi(p)\\
+\end{cases}
 \]
 
 ** Proof (first condition):
