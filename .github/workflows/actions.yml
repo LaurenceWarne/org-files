@@ -12,5 +12,23 @@ jobs:
         run: docker pull silex/emacs:27.2
       - name: Run
         run: docker run -v $(pwd)/wiki-html:/wiki -v $(pwd):/org silex/emacs:27.2 emacs --script /org/ox-yaow-publish.el
-      - name: debug
-        run: ls -la $(pwd)/wiki-html
+      - name: Clone
+        run: git clone https://github.com/LaurenceWarne/LaurenceWarne.github.io
+      - name: Copy Files
+        run: |
+          rm -rf LaurenceWarne.github.io/_wiki/*
+          find $(pwd)/wiki-html/ | grep "~$" | xargs -r rm
+          rm -f $(pwd)/wiki-html/steam.html
+          cp -r $(pwd)/wiki-html/* LaurenceWarne.github.io/_wiki
+      - name: Set Environment
+        run: echo "MSG=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+      - name: Commit
+        run: |
+          cd LaurenceWarne.github.io/
+          git add .
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "GH actions bot"
+          git commit -m "$MSG"
+          git log
+      # - name: Push
+      #   run: git push origin master
