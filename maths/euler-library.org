@@ -8,14 +8,13 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 2. \( p_n = a_nb_n \) is a linear recurrence
 
 ** Proof (1)
-
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
 
 \[
 C_s(x) = \frac{C_a(x)C_b(x)}{hcf\left(C_a(x), C_b(x)\right)}
 \]
 
-We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \) (the solution of \( s_n \) as a sum of exponential powers, minus the constant coefficients).  Now consider:
+We've selected \( C_s(x) \) so that it has the same "solution equation" as \( s_n \) minus the constant coefficients.  Now consider:
 
 \begin{align*}
 \left(
@@ -45,7 +44,13 @@ We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \
 \right)
 \end{align*}
 
-Where \( c_i \) are the components of the IC vector.  Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
+Where \( c_i \) are the components of the IC vector, and \( \lambda_k \) form the solution equation of \( s_n \):
+
+\[
+s_n = \lambda_1^n + n\lambda_1^n + \cdots + \lambda_n^n
+\]
+
+Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
 #+begin_src python :results output (scripting mode) :exports both
 import sympy as sp
@@ -144,3 +149,6 @@ a^{q\phi(n) + r} = \ m_i \pmod{p_i^{e_i}}
 
 For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q > 0 \), and applying Euler's Theorem for \( p_i \not | a \), we arrive at the conclusion that the simultaneous congruences do not depend on \( q > 0 \).  From here, applying The Chinese remainder theorem gets us our claim.
 
+* Assorted
+
+- \( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \) 
