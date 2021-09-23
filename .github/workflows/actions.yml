@@ -10,9 +10,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Pull
         run: docker pull silex/emacs:27.2
-      - name: Run
+      - name: Export org Files to html
         run: docker run -v $(pwd)/wiki-html:/wiki -v $(pwd):/org silex/emacs:27.2 emacs --script /org/ox-yaow-publish.el
-      - name: Clone
+      - name: Clone Site Repo
         run: git clone https://laurencewarne:${{ secrets.API_TOKEN_GITHUB }}@github.com/LaurenceWarne/LaurenceWarne.github.io.git
       - name: Copy Files
         run: |
@@ -28,8 +28,7 @@ jobs:
           git add -A
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "GH-actions-bot"
-          git commit -m "$MSG"
-          git log
+          git commit -m "Sync from org repo: $MSG"
       - name: Push
         working-directory: ./LaurenceWarne.github.io/
         run: |
