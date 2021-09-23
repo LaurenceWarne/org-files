@@ -22,11 +22,44 @@
   (package-install 'use-package)
   (require 'use-package))
 
-(use-package htmlize
-  :ensure t)
+(setq use-package-always-ensure t)
+
+(use-package dash)
+
+(use-package elpy
+  ;; Enable Elpy in all future Python buffers.
+  :init (elpy-enable)
+  :config (setq elpy-rpc-python-command "python3")
+  ;; Fix python does not support readline warning
+  (setq python-shell-completion-native-enable nil))
+
+(use-package org
+  :after dash
+  :ensure org-plus-contrib
+  :config
+  (setq org-confirm-babel-evaluate nil)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (shell . t)
+     (emacs-lisp . t)))
+  ;; Horrfic hack to disable highlight-indent-mode in python snippets
+  ;; which are exported to html using org export.
+  ;; See the defintion of `org-html-fontify-code' for why this works
+  (defun python-no-elpy-mode ()
+    (interactive)
+    (let (python-mode-hook)
+      (python-mode)))
+  (add-to-list 'org-src-lang-modes '("python" . python-no-elpy))
+  :pin org)
+
+(use-package scala-mode
+  :mode "\\.s\\(c\\|cala\\|bt\\)$")
+
+(use-package htmlize)
 
 (use-package ox-yaow
-  :ensure t
+  :after org
   :config
   ;; Stolen from https://github.com/fniessen/org-html-themes
   (setq rto-css '("https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"
@@ -54,6 +87,10 @@
                                      :ox-yaow-file-blacklist ("org/maths/answers.org")
                                      :ox-yaow-depth 2)
                                    org-publish-project-alist)))
+
+(require 'org)
+(require 'ox-yaow)
+(require 'htmlize)
 
 (message "Running publish...")
 (org-publish-project "wiki")
