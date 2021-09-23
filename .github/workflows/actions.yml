@@ -11,6 +11,6 @@ jobs:
       - name: Pull
         run: docker pull silex/emacs:27.2
       - name: Run
-        run: docker run emacs -v ox-yaow-publish.el:.ox-yaow-publish.el -v wiki/:wiki/ -v $(pwd):org/ "emacs --script ox-yaow-publish.el"
+        run: docker run -v $(pwd)/wiki-html:/wiki -v $(pwd):/org silex/emacs:27.2 emacs --script /org/ox-yaow-publish.el
       - name: debug
-        run: ls wiki/
+        run: ls -la $(pwd)/wiki-html

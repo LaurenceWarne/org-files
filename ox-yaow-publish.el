@@ -1,5 +1,6 @@
-;; Add melpa repository
 (require 'package)
+(require 'org)
+
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
@@ -19,11 +20,13 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package)
-  (eval-when-compile (require 'use-package)))
+  (require 'use-package))
 
-(use-package htmlize)
+(use-package htmlize
+  :ensure t)
 
 (use-package ox-yaow
+  :ensure t
   :config
   ;; Stolen from https://github.com/fniessen/org-html-themes
   (setq rto-css '("https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"
@@ -36,9 +39,9 @@
                                   (mapconcat (lambda (url) (concat "<script src=\"" url "\"></script>\n")) (append rto-js extra-js) ""))
         org-publish-project-alist (cons
                                    `("wiki"
-                                     :base-directory "~/org/"
+                                     :base-directory "/org/"
                                      :base-extension "org"
-                                     :publishing-directory "~/wiki/"
+                                     :publishing-directory "/wiki/"
                                      :html-head ,ox-yaow-html-head
                                      :html-preamble t
                                      :recursive t
@@ -46,9 +49,9 @@
                                      :publishing-function ox-yaow-publish-to-html
                                      :preparation-function ox-yaow-preparation-fn
                                      :completion-function ox-yaow-completion-fn
-                                     :ox-yaow-wiki-home-file "~/org/wiki.org"
+                                     :ox-yaow-wiki-home-file "/org/wiki.org"
 
-                                     :ox-yaow-file-blacklist ("~/org/maths/answers.org")
+                                     :ox-yaow-file-blacklist ("org/maths/answers.org")
                                      :ox-yaow-depth 2)
                                    org-publish-project-alist)))
 
