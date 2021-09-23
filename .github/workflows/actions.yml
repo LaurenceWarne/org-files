@@ -13,7 +13,7 @@ jobs:
       - name: Run
         run: docker run -v $(pwd)/wiki-html:/wiki -v $(pwd):/org silex/emacs:27.2 emacs --script /org/ox-yaow-publish.el
       - name: Clone
-        run: git clone https://github.com/LaurenceWarne/LaurenceWarne.github.io
+        run: git clone https://laurencewarne:${{ secrets.API_TOKEN_GITHUB }}@github.com/LaurenceWarne/LaurenceWarne.github.io.git
       - name: Copy Files
         run: |
           rm -rf LaurenceWarne.github.io/_wiki/*
@@ -25,9 +25,9 @@ jobs:
       - name: Commit
         working-directory: ./LaurenceWarne.github.io/
         run: |
-          git add .
+          git add -A
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config user.name "GH actions bot"
+          git config user.name "GH-actions-bot"
           git commit -m "$MSG"
           git log
       - name: Push
