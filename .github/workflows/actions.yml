@@ -23,12 +23,14 @@ jobs:
       - name: Set Environment
         run: echo "MSG=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
       - name: Commit
+        working-directory: ./LaurenceWarne.github.io/
         run: |
-          cd LaurenceWarne.github.io/
           git add .
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "GH actions bot"
           git commit -m "$MSG"
           git log
-      # - name: Push
-      #   run: git push origin master
+      - name: Push
+        working-directory: ./LaurenceWarne.github.io/
+        run: |
+          git push origin master
