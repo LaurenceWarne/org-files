@@ -68,8 +68,20 @@
                  "https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js")
         extra-js '("https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
                    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" )
-        ox-yaow-html-head (concat (mapconcat (lambda (url) (concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"" url "\"/>\n")) rto-css "")
-                                  (mapconcat (lambda (url) (concat "<script src=\"" url "\"></script>\n")) (append rto-js extra-js) ""))
+        ox-yaow-html-head
+        (concat
+         (mapconcat
+          (lambda (url)
+            (concat "<link rel=\"stylesheet\" type=\"text/css\" href=\""
+                    url
+                    "\"/>\n"))
+          rto-css
+          "")
+         (mapconcat
+          (lambda (url)
+            (concat "<script src=\"" url "\"></script>\n"))
+          (append rto-js extra-js) "")
+         "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://raw.githubusercontent.com/LaurenceWarne/org-files/master/style-sheets.css\" />")
         org-publish-project-alist (cons
                                    `("wiki"
                                      :base-directory "/org/"
@@ -77,6 +89,7 @@
                                      :publishing-directory "/wiki/"
                                      :html-head ,ox-yaow-html-head
                                      :html-preamble t
+                                     :htmlized-source t
                                      :recursive t
                                      :exlude ".*steam\.org"
                                      :publishing-function ox-yaow-publish-to-html
@@ -89,8 +102,12 @@
                                    org-publish-project-alist)))
 
 (require 'org)
+(require 'scala-mode)
+(require 'python)
 (require 'ox-yaow)
 (require 'htmlize)
 
+;; https://emacs.stackexchange.com/questions/31439/how-to-get-colored-syntax-highlighting-of-code-blocks-in-asynchronous-org-mode-e
+(setq org-html-htmlize-output-type 'css)
 (message "Running publish...")
 (org-publish-project "wiki")
