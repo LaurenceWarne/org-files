@@ -8,12 +8,9 @@
 2. *Linearity in the First Argument*: \(  \langle \alpha a, \ b \rangle = \alpha \langle a, \ b \rangle \) and \( \langle a + c, \ b \rangle = \langle a, \ b \rangle + \langle c, \ b \rangle \)
 3. *Positive-Definiteness*: \( \langle a, \ a \rangle \ge 0 \), with equality holding iff \( a = \underline{0} \) 
 
-Note linearity in the second argument is implied by (1) and (2).
-
 These properties imply many important properties such as the *Triangle Inequality* and the *Cauchy Schwarz Inequality*. The mapping is also an example of a *sesquilinear form*.
 
 * Examples
 
 1. In \( \mathbb{R}^n \) we have \( \langle v_1, \ v_2 \rangle = a_1b_1 + a_2b_2 + ... + a_nb_n \)
 2. For \( \mathbb{C}^n \) in order to preserve positive definiteness we take \( \langle v_1, \ v_2 \rangle = a_1\overline{b_1} + a_2\overline{b_2} + ... + a_n\overline{b_n} \)
-3. 

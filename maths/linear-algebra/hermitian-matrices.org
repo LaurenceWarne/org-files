@@ -64,7 +64,3 @@ On the other hand, simplifying inside the bracket first gives:
 \end{align*}
 
 Equating these gives \( (\lambda_1 - \lambda_2)v_1^* v_2 = 0 \) from which we must conclude that \( v_1^* \) and \( v_2 \) are orthogonal since the two eigenvalues are distinct.
-
-
-
-

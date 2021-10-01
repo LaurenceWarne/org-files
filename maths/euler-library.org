@@ -50,7 +50,7 @@ Where \( c_i \) are the components of the IC vector, and \( \lambda_k \) form th
 s_n = \lambda_1^n + n\lambda_1^n + \cdots + \lambda_n^n
 \]
 
-Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
+Since the matrix in nonsingular (it is a confluent Vandermonde matrix), its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
 #+begin_src python :results output (scripting mode) :exports both
 import sympy as sp
