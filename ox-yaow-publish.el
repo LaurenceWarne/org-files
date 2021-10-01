@@ -81,7 +81,7 @@
           (lambda (url)
             (concat "<script src=\"" url "\"></script>\n"))
           (append rto-js extra-js) "")
-         "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://raw.githubusercontent.com/LaurenceWarne/org-files/master/style-sheets.css\" />")
+         "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css\" />")
         org-publish-project-alist (cons
                                    `("wiki"
                                      :base-directory "/org/"

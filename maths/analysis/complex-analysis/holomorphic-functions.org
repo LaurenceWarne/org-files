@@ -16,4 +16,3 @@ Holomorphic functions are quite special.  Here are some of their properties:
 
 1. All holomorphic functions are *analytic*, ie equal to their Taylor series
 3. If a holomorphic function is bounded and entire, then it is constant (Liouville's theorem)
-4. All holomorphic functions are uniformly continuous
