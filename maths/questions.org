@@ -40,6 +40,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 3. I choose a positive integer \( n \le 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?
 
+4. The powers of two \( \{ 2^0, 2^1, 2^2, ...\} \) are a very special sequence, any positive integer can be written as a sum of unique powers of two in exactly one way.  Prove the powers of two are the only strictly increasing positive integer sequence with this property.
+
 ** Graph Theory
 
 1. Show that \( \chi(C_{2n + 1}) = 3 \ \forall n \in \mathbb{Z}^+ \).
