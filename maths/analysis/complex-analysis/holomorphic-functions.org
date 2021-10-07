@@ -15,4 +15,5 @@ Further, \( f \) is said to be *holomorphic* on \( U \) if it is differentiable 
 Holomorphic functions are quite special.  Here are some of their properties:
 
 1. All holomorphic functions are *analytic*, ie equal to their Taylor series
-3. If a holomorphic function is bounded and entire, then it is constant (Liouville's theorem)
+2. If a holomorphic function is bounded and entire, then it is constant (Liouville's theorem)
+3. If \( f \) is entire as well as holomorphic, then it can be represented as a (possibly infinite) product of its zeros ([[https://en.wikipedia.org/wiki/Weierstrass_factorization_theorem][Weierstrass Factorization Theorem]])

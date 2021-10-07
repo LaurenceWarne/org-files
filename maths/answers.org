@@ -34,7 +34,7 @@
 
 3. \( \pi(10000) \) + \( \pi(\lfloor \sqrt{10000} \rfloor}) \) , since if some \( p | n \), then we need to check if no other primes divide it, and also that it is not a prime power (ie \( p^2 \not | n \)).  Note if \( n = 1 \), we "ask" all primes and get "no" for everything.
 
-4. Suppose for a contradiction there is some such sequence \( a_n \) not equal to the powers of two sequence.  Note \( a_1 = 1 \).  Let \( k \) be the smallest integer such that \( a_k \not = 2^k \). Then either \( a_k > 2^k \), in which case \( 2^{k} -1 \) is not representable as a sum of unique terms.  Otherwise \( a_k < 2^k \) in which case \( a_k \) can be written as the sum of unique terms in more than one way.
+4. Suppose for a contradiction there is some such sequence \( a_n \) not equal to the powers of two sequence.  Note \( a_1 = 1 \).  Let \( k \) be the smallest integer such that \( a_k \not = 2^k \). Then either \( a_k > 2^k \), in which case \( a_k -1 \) is not representable as a sum of unique terms.  Otherwise \( a_k < 2^k \) in which case \( a_k \) can be written as the sum of unique terms in more than one way.
 
 ** Graph Theory
 
