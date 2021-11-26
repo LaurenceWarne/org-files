@@ -26,13 +26,6 @@
 
 (use-package dash)
 
-(use-package elpy
-  ;; Enable Elpy in all future Python buffers.
-  :init (elpy-enable)
-  :config (setq elpy-rpc-python-command "python3")
-  ;; Fix python does not support readline warning
-  (setq python-shell-completion-native-enable nil))
-
 (use-package org
   :after dash
   :ensure org-plus-contrib
@@ -43,13 +36,6 @@
    '((python . t)
      (shell . t)
      (emacs-lisp . t)))
-  ;; Horrfic hack to disable highlight-indent-mode in python snippets
-  ;; which are exported to html using org export.
-  ;; See the defintion of `org-html-fontify-code' for why this works
-  (defun python-no-elpy-mode ()
-    (interactive)
-    (let (python-mode-hook)
-      (python-mode)))
   (add-to-list 'org-src-lang-modes '("python" . python-no-elpy))
   :pin org)
 
