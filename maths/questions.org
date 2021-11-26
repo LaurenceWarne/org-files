@@ -32,6 +32,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that a matrix is singular iff it has 0 as an eigenvalue.
 
+2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).
+
 ** Number Theory
 
 1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.
@@ -40,7 +42,7 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 3. I choose a positive integer \( n \le 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?
 
-4. The powers of two \( \{ 2^0, 2^1, 2^2 \hdots \} \) are a very special sequence, any positive integer can be written as a sum of unique powers of two in exactly one way.  Prove the powers of two are the only strictly increasing positive integer sequence with this property.
+4. The powers of two \( \{ 2^0, 2^1, 2^2... \} \) are a very special sequence, any positive integer can be written as a sum of unique powers of two in exactly one way.  Prove the powers of two are the only strictly increasing positive integer sequence with this property.
 
 ** Graph Theory
 
