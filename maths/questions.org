@@ -28,6 +28,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 5. Do the 32 bit integers under two's complement form a group under addition? If not what structure do they form?
 
+6. Show the algebraic numbers form a subring of \( \mathbb{C} \).  Do they form a field?
+
 ** Linear Algebra
 
 1. Show that a matrix is singular iff it has 0 as an eigenvalue.
