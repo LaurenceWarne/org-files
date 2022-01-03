@@ -21,3 +21,5 @@ It's (very) possible there are mistakes, feel free to open a PR or issue at the 
 ** [[./programming/programming.html][Programming]]
 *** [[./programming/python/python.html][Python]]
 *** [[./programming/types/types.html][Types]]
+
+[[file:bernie-meme.jpg]]
