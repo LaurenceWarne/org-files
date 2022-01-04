@@ -11,14 +11,13 @@ jobs:
       - name: Pull
         run: docker pull silex/emacs:27.2
       - name: Export org Files to html
-        run: docker run -v $(pwd)/wiki-html:/wiki -v $(pwd):/org silex/emacs:27.2 emacs --script /org/ox-yaow-publish.el
+        run: docker run -v $(pwd)/wiki-html:/root/wiki -v $(pwd):/root/org silex/emacs:27.2 emacs --script /root/org/ox-yaow-publish.el
       - name: Clone Site Repo
         run: git clone https://laurencewarne:${{ secrets.API_TOKEN_GITHUB }}@github.com/LaurenceWarne/LaurenceWarne.github.io.git
       - name: Copy Files
         run: |
           rm -rf LaurenceWarne.github.io/_wiki/*
           find $(pwd)/wiki-html/ | grep "~$" | xargs -r rm
-          rm -f $(pwd)/wiki-html/steam.html
           cp -r $(pwd)/wiki-html/* LaurenceWarne.github.io/_wiki
       - name: Set Environment
         run: echo "MSG=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
