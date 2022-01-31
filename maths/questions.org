@@ -34,7 +34,7 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that a matrix is singular iff it has 0 as an eigenvalue.
 
-2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).
+2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).  What if \( K \) is not a field?
 
 ** Number Theory
 
@@ -60,7 +60,9 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 3. Let \( P_n = \{ s \in  "([|])\{2n\}" : \text{s is parenthetically closed} \} \) show that \( P = \cup_{n \in \mathbb{N}} P_n \) is not a regular language.
 
-4. https://en.wikipedia.org/wiki/Littlewood%27s_law
+4. Describe a list implementation (\( \text{append}(e: E): \text{unit}, \ \text{get}(idx): E, \ \text{remove}(idx): \text{unit} \)) with \( O(1) \) appends and removals.
+
+5. https://en.wikipedia.org/wiki/Littlewood%27s_law
    https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
 
 We define a "miracle" as an event which has a one in a million chance of happening. If Littlewood the tortoise lives to the ripe old age of 100, what is probability that he experiences at least 1024 miracles in his lifetime? You may assume he is awake for exactly 8 hours a day and can see or hear one event per second. (Note tortoise years do not count the additional day provided by the leap years used in the Gregorian calendar).
