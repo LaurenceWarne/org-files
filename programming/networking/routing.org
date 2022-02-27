@@ -1,0 +1,27 @@
+#+TITLE: Routing
+
+* Locally
+
+You can find the route table of your machine using the command:
+
+#+begin_src bash
+$ route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.0.1     0.0.0.0         UG    600    0        0 wlo1
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 wlo1
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.0.0     0.0.0.0         255.255.255.0   U     600    0        0 wlo1
+#+end_src
+
+- We see the ip ~0.0.0.0~ used in both the ~Destination~ and ~Gateway~ columns.  When used in the ~Destination~ column it means 'Any IPv4 address at all', so any packet not addressed to a host on the local network or another gateway on the route table is sent here.
+
+- ~0.0.0.0~ in gateway terms means *there is none*, ie no hops are needed to get to the host.
+
+- ~169.254.0.0~ is a special address space (the *link local* block): if a DHCP client attempts to get an address, but fails to find a DHCP server after the timeout and retries period it will randomly assume an address from this network. This allows communication with hosts that have failed to obtain a DHCP address.
+
+- *Genmask* is the subnet mask: the 32 bit integer which when ~AND~ ed with an IP address gives the network address.  When deciding where to send a packet, all the rows for which ~(destIp & netmask) == destination~ are noted, and the most specific one is chosen (ie the one with the most ones in the netmask).  For example the destination ip ~192.168.0.5~ matches both the first and last entries, but the last one will be selected since that route has 24 leading ones in its bitmask compared to the default route which has only one.
+
+- Iface is the outbound NIC.
+
+- The local loopback interface ~lo~ is omitted in the output (but can be seen through ~ip addr show lo~).  It has address range ~127.0.0.1/8~.  It can be useful to bind servers to sockets with ips in this range in order that the server only serves clients on the same host (alternatively for example binding to ~0.0.0.0~ would result in the server listening on every available network interface).

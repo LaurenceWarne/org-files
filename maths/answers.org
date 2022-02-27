@@ -53,4 +53,4 @@
 
 3. ??
 
-4. Note the return types of \( \text{append} \) and \( \text{remove} \) are both \( \text{unit} \) so in the implementation of those methods we can append the method call to a linked list and return, and then whenever \( \text{get} \) is called we iterate through the list and actually perform the appends and removals before completing the \( \text{get}  \).
+4. Note the return types of \( \text{append} \) and \( \text{remove} \) are both \( \text{unit} \) so in the implementation of those methods we can append the method call to a linked list and return, and then whenever \( \text{get} \) is called we iterate through the list and actually perform the appends and removals before completing the \( \text{get}  \).  Note we can also check the validity of \( \text{remove}  \)s by keeping a counter of how many elements there are in the list.
