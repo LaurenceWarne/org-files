@@ -22,6 +22,19 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
 - *Genmask* is the subnet mask: the 32 bit integer which when ~AND~ ed with an IP address gives the network address.  When deciding where to send a packet, all the rows for which ~(destIp & netmask) == destination~ are noted, and the most specific one is chosen (ie the one with the most ones in the netmask).  For example the destination ip ~192.168.0.5~ matches both the first and last entries, but the last one will be selected since that route has 24 leading ones in its bitmask compared to the default route which has only one.
 
-- Iface is the outbound NIC.
-
 - The local loopback interface ~lo~ is omitted in the output (but can be seen through ~ip addr show lo~).  It has address range ~127.0.0.1/8~.  It can be useful to bind servers to sockets with ips in this range in order that the server only serves clients on the same host (alternatively for example binding to ~0.0.0.0~ would result in the server listening on every available network interface).
+
+- Iface is the outbound NIC.
+  
+  
+* Docker Bridge
+
+On the route table above is also the ~docker0~ virtual network interface, created by docker.  This is reference to the default bridge network, which all containers are attached to by default:
+
+#+begin_src bash
+docker network inspect bridge
+#+end_src
+
+You can hit container endpoints on this bridge without port forwarding in ~docker run~, for example ~docker run --rm -it nginx~ and then visit [[http://172.17.0.2:80]] (or whatever the container address is - use ~docker inspect bridge~ to find out).
+
+We can create our own networks via ~docker network create my-net~ which will create a new virtual network interface and bridge.
