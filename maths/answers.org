@@ -54,3 +54,12 @@
 3. ??
 
 4. Note the return types of \( \text{append} \) and \( \text{remove} \) are both \( \text{unit} \) so in the implementation of those methods we can append the method call to a linked list and return, and then whenever \( \text{get} \) is called we iterate through the list and actually perform the appends and removals before completing the \( \text{get}  \).  Note we can also check the validity of \( \text{remove}  \)s by keeping a counter of how many elements there are in the list.
+
+5. We're not interested in the fact that ~x~ will be changed in place by the second function since we only care about outputs.  In most cases the functions return exactly the same value, but we can use the second function to append a list to itself and get the [[https://docs.python.org/dev/library/constants.html#Ellipsis][ellipses]] of doom:
+   #+begin_src python
+   >>> x = y = [1]
+   >>> append1(x, y)
+   [3, [3]]
+   >>> append2(x, y)
+   [3, [...]]
+   #+end_src

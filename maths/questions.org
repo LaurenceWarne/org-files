@@ -62,7 +62,19 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 4. Describe a list implementation (\( \text{append}(e: E): \text{unit}, \ \text{get}(idx): E, \ \text{remove}(idx): \text{unit} \)) with \( O(1) \) appends and removals.
 
-5. https://en.wikipedia.org/wiki/Littlewood%27s_law
+5. What are the differences (if any) between the return values of these two functions:
+
+#+begin_src python
+def append1(x: List, y: List):
+    x = x + [y]
+    return x
+
+def append2(x: List, y: List):
+    x.append(y)
+    return x
+#+end_src
+
+6. [@6] https://en.wikipedia.org/wiki/Littlewood%27s_law
    https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
 
 We define a "miracle" as an event which has a one in a million chance of happening. If Littlewood the tortoise lives to the ripe old age of 100, what is probability that he experiences at least 1024 miracles in his lifetime? You may assume he is awake for exactly 8 hours a day and can see or hear one event per second. (Note tortoise years do not count the additional day provided by the leap years used in the Gregorian calendar).
