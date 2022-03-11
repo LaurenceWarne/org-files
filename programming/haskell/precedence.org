@@ -8,7 +8,7 @@ Consider the following:
 strSum :: [Int] -> String
 strSum xs = show $ sum xs
 -- equivalent to
--- strSum xs = ($) show (sum xs)
+strSum xs = ($) show (sum xs)
 #+end_src
 
 This seems strange but it's exactly the same as:
@@ -17,5 +17,5 @@ This seems strange but it's exactly the same as:
 minMax :: [Int] -> Int
 minMax xs = minimum xs + maximum xs
 -- equivalent to
--- minMax xs = (+) (min xs) (max xs)
+minMax xs = (+) (min xs) (max xs)
 #+end_src
