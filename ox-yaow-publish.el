@@ -23,6 +23,18 @@
 
 (setq use-package-always-ensure t)
 
+;; git executable location
+(add-to-list 'exec-path "/usr/bin")
+
+(use-package quelpa
+  :config
+  ;; https://github.com/quelpa/quelpa-use-package
+  (quelpa
+   '(quelpa-use-package
+     :fetcher git
+     :url "https://github.com/quelpa/quelpa-use-package.git"))
+  (require 'quelpa-use-package))
+
 (use-package dash
   :demand t)
 
@@ -35,7 +47,10 @@
    'org-babel-load-languages
    '((python . t)
      (shell . t)
-     (emacs-lisp . t))))
+     (dot . t)
+     (emacs-lisp . t)
+     (haskell . t)))
+  (add-to-list 'org-src-lang-modes '("haskell" . haskell-tng)))
 
 (use-package org-contrib
   :after org
@@ -43,6 +58,24 @@
 
 (use-package scala-mode
   :mode "\\.s\\(c\\|cala\\|bt\\)$")
+
+(use-package haskell-tng-mode
+  :ensure nil
+  :quelpa (haskell-tng-mode :fetcher gitlab :repo "tseenshe/haskell-tng.el")
+  :mode ((rx ".hs" eos) . haskell-tng-mode)
+  :bind
+  (:map
+   haskell-tng-mode-map
+   ("RET" . haskell-tng-newline)
+   ("C-c c" . haskell-tng-compile)
+   ("C-c e" . next-error))
+  :config
+  (require 'haskell-tng-hsinspect)
+  (require 'haskell-tng-extra)
+  (require 'haskell-tng-extra-hideshow)
+  (require 'haskell-tng-extra-company)
+  (require 'haskell-tng-extra-projectile)
+  (require 'haskell-tng-extra-smartparens))
 
 (use-package htmlize)
 
@@ -88,6 +121,7 @@
 
 (require 'org)
 (require 'scala-mode)
+(require 'haskell-tng-mode)
 (require 'python)
 (require 'ox-yaow)
 (require 'htmlize)
