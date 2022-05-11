@@ -10,6 +10,10 @@
 
 3. ?
 
+4. False, a counterexample is given [[https://en.wikipedia.org/wiki/Non-analytic_smooth_function#An_example_function][here]].
+
+5. A proof is given [[https://zwurc.blogspot.com/2015/10/gamma-function-proof-that-factorial-is.html][here]].
+
 ** Algebra
 
 1. ?

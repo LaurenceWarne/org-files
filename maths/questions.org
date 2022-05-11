@@ -16,6 +16,10 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 3. [@3] Find a closed form for \( \sum^n_{k=1} k \cos(kx) \).
 
+4. Prove or give a counterexample: if a function \( f: \mathbb{R} \to \mathbb{R} \) is infinitely differentiable, and is nonzero somewhere on its domain, then it has countably many roots.
+
+5. Show \( n! \) is not elementary.
+
 ** Algebra
 
 1. Show that the Fundamental Theorem of Algebra and the statement that a polynomial of degree \( n \) has exactly \( n \) complex roots (including multiplicity), are equivalent.
@@ -34,7 +38,7 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 1. Show that a matrix is singular iff it has 0 as an eigenvalue.
 
-2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).  What if \( K \) is not a field?
+2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).  What if \( J \) is not a field?
 
 ** Number Theory
 
