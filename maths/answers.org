@@ -22,9 +22,9 @@
 
 3. ?
 
-4. For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.
+4. For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.  A more general result is that no finite field is algebraically closed.
 
-5. They do not form a group since \( -2^{31} \) does not have an inverse.
+5. They do form a group.  Every element has an inverse, equal to \( -x \) for all \( x \) except \( -2^{31} \) which is its own inverse (ie adding it to itself in two's complement gives 0).
 
 ** Linear Algebra
 
@@ -63,7 +63,7 @@
    #+begin_src python
    >>> x = y = [1]
    >>> append1(x, y)
-   [3, [3]]
+   [1, [1]]
    >>> append2(x, y)
-   [3, [...]]
+   [1, [...]]
    #+end_src

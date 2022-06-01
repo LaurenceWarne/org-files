@@ -1,4 +1,5 @@
 #+TITLE: Questions
+#+EXCLUDE_TAGS: noexport
 
 * Questions
 
@@ -77,6 +78,8 @@ def append2(x: List, y: List):
     x.append(y)
     return x
 #+end_src
+
+* Misc :noexport:
 
 6. [@6] https://en.wikipedia.org/wiki/Littlewood%27s_law
    https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
