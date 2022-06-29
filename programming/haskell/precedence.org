@@ -19,3 +19,5 @@ minMax xs = minimum xs + maximum xs
 -- equivalent to
 minMax xs = (+) (min xs) (max xs)
 #+end_src
+
+This because function application has higher precedence than any operator, so ~f a `op` g b~ is always equivalent to ~(f a) `op` (g b)~.
