@@ -7,7 +7,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 1. \( s_n = a_n + b_n \) is a linear recurrence
 2. \( p_n = a_nb_n \) is a linear recurrence
 
-** Proof (1)
+** Proof (1) :collapsible:
+
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
 
 \[
@@ -52,7 +53,7 @@ s_n = \lambda_1^n + n\lambda_1^n + \cdots + \lambda_n^n
 
 Since the matrix in nonsingular (it is a confluent Vandermonde matrix), its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 
-#+begin_src python :results output (scripting mode) :exports both
+#+BEGIN_SRC python
 import sympy as sp
 from sympy import Matrix, Poly
 
@@ -63,15 +64,15 @@ ics2 = [1, 2, 5]
 # The recurrences we want to add, defined here for clarity
 def a_n(n, ics=ics1):
     if n <= len(ics):
-        return ics[n - 1]
+	return ics[n - 1]
     else:
-        return a_n(n - 1) + 2*a_n(n - 2)
+	return a_n(n - 1) + 2*a_n(n - 2)
 
 def b_n(n, ics=ics2):
     if n <= len(ics):
-        return ics[n - 1]
+	return ics[n - 1]
     else:
-        return 4*b_n(n - 1) - 5*b_n(n - 2) + 2*b_n(n - 3)
+	return 4*b_n(n - 1) - 5*b_n(n - 2) + 2*b_n(n - 3)
 
 x = sp.Symbol("x")
 # x_n = x_{n - 1} + 2*x_{n - 2}
@@ -96,13 +97,9 @@ ics = Matrix([[a_n(n) + b_n(n)] for n in range(1, len(coeffs))][::-1])
 arr = list(ics)[::-1] + [(mat**n * ics)[0] for n in range(1, 10)]
 print(arr)
 print([a_n(n) + b_n(n) for n in range(1, 14)])
-#+end_src
+#+END_SRC
 
 #+RESULTS:
-: Poly(x**4 - 3*x**3 + x**2 + 3*x - 2, x, domain='ZZ')
-: Matrix([[3, -1, -3, 2], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])
-: [2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
-: [2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
 
 * Power Modulo
 
@@ -121,7 +118,7 @@ a^x \pmod p & \text{for } x < \phi(p)\\
 \end{cases}
 \]
 
-** Proof (first condition):
+** Proof (first condition): :collapsible:
 
 Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
 
