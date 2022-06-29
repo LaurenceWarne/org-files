@@ -146,6 +146,21 @@ a^{q\phi(n) + r} = \ m_i \pmod{p_i^{e_i}}
 
 For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q > 0 \), and applying Euler's Theorem for \( p_i \not | a \), we arrive at the conclusion that the simultaneous congruences do not depend on \( q > 0 \).  From here, applying The Chinese remainder theorem gets us our claim.
 
+* Factorisation in Quadratic Integer Rings
+
+** Gaussian Integers
+
+\( a + bi \in \mathbb{Z}[i]  \) is prime iff one of the components is zero and the other is an associate of a (normal) prime of the form \( 3 \pmod 4 \), or its norm is (a normal) prime.  This follows from the fact that \( p \) can be written as the sum of two squares iff -1 is a quadratic residue modulo \( p \).  Note by [[https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares][Fermat's Two Square Theorem]] we can always write \( p \equiv 1 \pmod 4 \) as a sum of two squares.
+
+It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taking its normal factorisation and further decomposing primes of the form \( 1 \pmod 4 \).  Solving \( p = (a + bi)(a - bi) = a^2 + b^2 \) can be done efficiently by first solving for \( x^2 \equiv -1 \pmod p \) (using Tonelli Shanks), we then find \( a + bi = gcd(p, \ x + i) \).
+*** Proof :collapsible:
+If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), then note \( p \) cannot be a Gaussian prime since applying the definition implies \( p \) is a unit.  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)).  This completes the proof.
+
+
+*** Sum of Squares
+
+This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: https://mathoverflow.net/a/319809/332110.
+
 * Assorted
 
 - \( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \) 
