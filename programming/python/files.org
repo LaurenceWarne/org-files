@@ -1,0 +1,21 @@
+#+TITLE: Files
+
+* Working with Files
+
+The builtin [[https://docs.python.org/3/library/functions.html#open][open]] function returns either a text stream or bytes stream depending on the ~mode~ argument.  These are analogous to structures in the ~IO~ module:
+
+#+begin_src python
+import io
+
+f_str = io.StringIO("some initial text data")
+f_byt = io.BytesIO(b"some initial binary data: \x00\x01")
+#+end_src
+
+These objects support methods like ~readline()~, ~read(n)~ which reads ~n~ characters (or bytes) from the stream and perhaps most importantly, they implement ~__next__~ (ie they are iterators) which emits the stream contents line by line:
+
+#+begin_src python
+for line in f_str:
+    print(line)
+#+end_src
+
+Unlike ~readlines()~ this does not pour the whole file contents into main memory, so we can feel a little bit more secure reading larger files.
