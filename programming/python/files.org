@@ -19,3 +19,17 @@ for line in f_str:
 #+end_src
 
 Unlike ~readlines()~ this does not pour the whole file contents into main memory, so we can feel a little bit more secure reading larger files.
+
+Most streams (those for which ~seekable()~ returns ~True~) support random access via ~seek(offset)~ ([[https://docs.python.org/3/library/io.html#io.IOBase.seek][link]]- changing the stream position may be from the start of stream, current position or end of stream, so note offset can also be negative), and we can get the current stream position using ~tell()~.
+
+** Asyncio
+
+Local file IO is blocking, but we can use [[https://github.com/Tinche/aiofiles][aiofiles]] in asyncio applications which uses a dedicated thread pool to avoid blocking IO:
+
+#+begin_src python
+async with aiofiles.open("filename", mode="r") as f:
+    async for line in f:
+        print(f)
+    #+end_src
+
+The file object returned supports many of the methods available on standard streams.  Note aiofiles also supports some async alternatives to functions in the stdlib ~os~ module.
