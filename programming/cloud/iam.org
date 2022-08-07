@@ -21,19 +21,41 @@ A principal is an individual or application which can make requests for an actio
 Here's a Cloudformation snippet which sets up an ~AWS::IAM::Role~ for use as the execution role of an ~AWS::ECS::TaskDefinition~ (ie the ~ExecutionRoleArn~ property):
 
 #+begin_src yaml
-  ECSTaskExecutionRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service:
-                - 'ecs-tasks.amazonaws.com'
-            Action:
-              - 'sts:AssumeRole'
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+ECSTaskExecutionRole:
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              - 'ecs-tasks.amazonaws.com'
+          Action:
+            - 'sts:AssumeRole'
+    ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
 #+end_src
 
 The ~AssumeRolePolicyDocument~ property defines the *trust policy* assigned to the role, a special policy which specifies which entities can assume the role.  Here we are setting the ~Principal~ to be Amazon ECS tasks (ie a [[https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services][service principal]]).  Other values such as ~Principal: {AWS: arn:aws:sts::AWS-account-ID:role/role-name}~ could also be used here, the aforementioned would have the effect of allowing the role ~role-name~ to assume our new role.
+
+Here's a similar snippet, but in terraform:
+#+begin_src terraform
+resource "aws_iam_role" "ecs_task_execution_role" {
+  name = "ecs_task_execution_role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "ecs-tasks.amazonaws.com"
+        }
+	   Action = "sts:AssumeRole"
+      },
+    ]
+  })
+
+  managed_policy_arns = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
+}
+#+end_src
