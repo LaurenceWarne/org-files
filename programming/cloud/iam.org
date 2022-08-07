@@ -2,7 +2,7 @@
 
 * Users and Roles
 
-An AWS account is first associated with one root user who has complete access over AWS services and accounts.  It is [[https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users][best practice]] to create an IAM user using the root user and lock away the root user credentials.
+An AWS account is first associated with one root user who has complete access over AWS services and accounts.  It's [[https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users][best practice]] to create an IAM user using the root user and lock away the root user credentials.
 
 *** IAM Users
 An *IAM User* consists of a name, a password for accessing the AWS console and up to two access keys that can be used with the AWS API or CLI.  It's granted permissions by either making it a member of a user group (recommended) or directly adding policies.
@@ -15,3 +15,25 @@ An *IAM policy* describes which entities can access particular resources.  Many 
 
 *** Principals
 A principal is an individual or application which can make requests for an action on an AWS resource.  The principal is authenticated as the AWS account root user or an IAM entity (a user or role) to make requests to AWS.
+
+** Examples
+
+Here's a Cloudformation snippet which sets up an ~AWS::IAM::Role~ for use as the execution role of an ~AWS::ECS::TaskDefinition~ (ie the ~ExecutionRoleArn~ property):
+
+#+begin_src yaml
+  ECSTaskExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - 'ecs-tasks.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+#+end_src
+
+The ~AssumeRolePolicyDocument~ property defines the *trust policy* assigned to the role, a special policy which specifies which entities can assume the role.  Here we are setting the ~Principal~ to be Amazon ECS tasks (ie a [[https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services][service principal]]).  Other values such as ~Principal: {AWS: arn:aws:sts::AWS-account-ID:role/role-name}~ could also be used here, the aforementioned would have the effect of allowing the role ~role-name~ to assume our new role.
