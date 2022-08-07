@@ -77,7 +77,7 @@
   (require 'haskell-tng-extra-projectile)
   (require 'haskell-tng-extra-smartparens))
 
-(use-package yaml)
+(use-package yaml-mode)
 
 (use-package terraform-mode)
 
@@ -118,7 +118,7 @@
 (require 'scala-mode)
 (require 'haskell-tng-mode)
 (require 'python)
-(require 'yaml)
+(require 'yaml-mode)
 (require 'terraform-mode)
 (require 'ox-yaow)
 (require 'htmlize)
