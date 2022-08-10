@@ -1,0 +1,16 @@
+#+TITLE: Deployments
+
+* AWS CLI
+
+To deploy a [[https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html][stack]] defined in Cloudformation we can use the ~aws deploy~ command:
+
+#+begin_src bash
+aws cloudformation deploy --stack-name my-cool-stack --template-file my-cool-stack.yaml --capabilities CAPABILITY_IAM --parameters-overrides "MyParameter=value" "MyOtherParameter=value"
+#+end_src
+
+The ~--capabilities~ flag is required if your template includes resources that affect permissions on your account, e.g. one of your resources is a ~AWS::IAM::Role~.
+
+Another flag omitted above is the ~--no-execute-changeset~ which allows you view and confirm your changes before executing the change set.
+
+~deploy~ is a wrapper around ~CreateChangeSet~, ~CreateStack~, and ~UpdateStack~; we can use ~deploy~ whether the stack already exists or not.
+
