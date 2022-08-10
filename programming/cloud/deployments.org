@@ -14,3 +14,11 @@ Another flag omitted above is the ~--no-execute-changeset~ which allows you view
 
 ~deploy~ is a wrapper around ~CreateChangeSet~, ~CreateStack~, and ~UpdateStack~; we can use ~deploy~ whether the stack already exists or not.
 
+* Updating Stacks
+
+Updating a Cloudformation resource will either result in:
+
+- *Update with No Interruption:* the update occurs with no disruption to existing resources.  The resource's physical ID (e.g. EC2 instance ID or an S3 bucket name) is not changed.
+- *Updates with Some Interruption:* There may be some interruption updating the resource
+- *Replacement:* The resource is recreated during the update and thus its physical ID is also changed.
+
