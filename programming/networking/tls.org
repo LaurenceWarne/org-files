@@ -1,0 +1,32 @@
+#+TITLE: TLS
+
+TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).
+
+* The Protocol
+
+Communication starts with the client and server agreeing to use a certain [[https://en.wikipedia.org/wiki/Cipher_suite][cipher suite]].  The server will then provide its [[https://en.wikipedia.org/wiki/Public_key_certificate][Digital Certificate]]:
+
+#+begin_src python
+import ssl
+# https://github.com/mcepl/M2Crypto
+import M2Crypto
+
+certificate = ssl.get_server_certificate(('www.gnu.org', 443))
+x509 = M2Crypto.X509.load_cert_string(certificate)
+x509.get_issuer.as_text()
+# "C=US, O=Let's Encrypt, CN=R3"
+x509.get_subject().as_text()
+# "CN=wildebeest1p.gnu.org"
+#+end_src
+
+Note [[https://en.wikipedia.org/wiki/X.509][x.509]] is the format used in TLS/SSL certificates.  In the above snippet we obtain information about the certificate of ~'www.gnu.org'~.  There are two principals associated with a certificate: the *issuer* and the *subject*.
+
+First of all we obtain information about the issuer:
+- ~C=US~ tells us that the issuer is located in the US
+- ~O=Let's Encrypt~ is the organisation distributing the certificate ([[https://letsencrypt.org/][Let's Encrypt]])
+- ~CN=R3~ indicates that this is an intermediate certificate (~CN~ stands for "Common Name")
+
+We could obtain similar information using the ~openssl~ cli tool:
+#+begin_src bash
+openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 </dev/null
+#+end_src
