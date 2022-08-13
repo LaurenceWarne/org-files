@@ -2,7 +2,7 @@
 
 TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).
 
-* The Protocol
+* Digital Certificates
 
 Communication starts with the client and server agreeing to use a certain [[https://en.wikipedia.org/wiki/Cipher_suite][cipher suite]].  The server will then provide its [[https://en.wikipedia.org/wiki/Public_key_certificate][Digital Certificate]]:
 
@@ -24,9 +24,19 @@ Note [[https://en.wikipedia.org/wiki/X.509][x.509]] is the format used in TLS/SS
 First of all we obtain information about the issuer:
 - ~C=US~ tells us that the issuer is located in the US
 - ~O=Let's Encrypt~ is the organisation distributing the certificate ([[https://letsencrypt.org/][Let's Encrypt]])
-- ~CN=R3~ indicates that this is an intermediate certificate (~CN~ stands for "Common Name")
+- ~CN=R3~ [[https://letsencrypt.org/certificates/][R3]] is an intermediate certificate (~CN~ stands for "Common Name"), we will need to follow the certificate chain to fully verify this certificate:
 
-We could obtain similar information using the ~openssl~ cli tool:
-#+begin_src bash
-openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 </dev/null
-#+end_src
+  #+begin_src bash
+$ openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 </dev/null          
+CONNECTED(00000003)
+depth=2 C = US, O = Internet Security Research Group, CN = ISRG Root X1
+verify return:1
+depth=1 C = US, O = Let's Encrypt, CN = R3
+verify return:1
+depth=0 CN = wildebeest1p.gnu.org
+verify return:1
+# More output omitted
+  #+end_src
+
+Next we obtain information about the subject:
+- ~CN=wildebeest1p.gnu.org~ this is the entity to whom the certificate is assigned
