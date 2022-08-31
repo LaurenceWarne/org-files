@@ -1,0 +1,15 @@
+#+TITLE: Lambda
+
+* Intro
+
+The main method of triggering Lambdas is to use an [[https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html][event source mapping]] which typically reads an item from a stream or queue and then uses this item to invoke a Lambda using the appropriate event type.
+
+* Runtimes
+
+Lambdas run in *execution environments* which provide an isolated environment for Lambda functions to run.  [[https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html][runtimes]] provide support for a specific language within an execution environment.  If the frequency of events is more than a single instance can handle, AWS Lambda will scale by starting more instances, and will stop instances that are no longer active.
+
+* Lifecycle
+
+When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
+
+
