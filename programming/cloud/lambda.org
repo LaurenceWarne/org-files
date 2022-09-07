@@ -2,9 +2,9 @@
 
 * Links
 
-- AWS developer guide: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
-- AWS Lambda Cloudformation docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
-- AWS Lambda Terraform docs: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
+- *AWS developer guide*: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- *AWS Lambda Cloudformation docs*: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
+- *AWS Lambda Terraform docs*: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
 
 * Intro
 

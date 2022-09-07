@@ -1,0 +1,25 @@
+#+TITLE: Hax
+
+Scala LyfHax.
+
+* Unapplying a String Interpolator
+
+Since 2.13 you can use ~unapply~ with string interpolators:
+
+#+begin_src scala
+"0 13 * * * echo 'Every day at 1pm'" match {
+  case s"$min $hour $dayOfMonth $month $dayOfWeek $cmd" => Some(cmd)
+  case _                                                => None
+}
+// Option[String] = Some("echo 'Every day at 1pm'")
+#+end_src
+
+* null to Option
+
+We can easily turn possible ~null~ values into an ~Option~ via ~apply~:
+
+#+begin_src scala
+val myString: String = null
+Option(myString)
+// Option[String] = None
+#+end_src
