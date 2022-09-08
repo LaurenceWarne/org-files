@@ -23,3 +23,5 @@ val myString: String = null
 Option(myString)
 // Option[String] = None
 #+end_src
+
+Note without the type hint here the ~Option~ will have type ~Option[Null]~.
