@@ -175,6 +175,23 @@ With
 c_n = \sum_{d|n} d a_d
 \]
 
+* Floor Sums
+
+We can compute the sum:
+\[
+D(n) = \sum_{k = 1}^n \left \lfloor \frac{n}{k} \right \rfloor
+\]
+
+Also known as the [[https://en.wikipedia.org/wiki/Divisor_summatory_function][Divisor Summatory Function]], in \( O(\sqrt{n}) \) time:
+
+#+begin_src python
+def divisor_sum(n):
+    u = int(math.sqrt(n))  # equivalent to math.isqrt(n) in python 3.8
+    return 2*sum(n//k for k in range(1, u + 1)) - u*u
+#+end_src
+
+Also known fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n x \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor^2 \) and even more generally \( \sum_{x = 0}^n x^{k_1} \left \lfloor \frac{ax + b}{c} \right \rfloor^{k_2} \), see [[https://asfjwd.github.io/2020-04-24-floor-sum-ap/][this]] blog posts for more details.
+
 * Assorted
 
 - \( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \) 
