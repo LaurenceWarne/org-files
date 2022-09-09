@@ -190,7 +190,7 @@ def divisor_sum(n):
     return 2*sum(n//k for k in range(1, u + 1)) - u*u
 #+end_src
 
-Also known fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n x \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor^2 \) and even more generally \( \sum_{x = 0}^n x^{k_1} \left \lfloor \frac{ax + b}{c} \right \rfloor^{k_2} \), see [[https://asfjwd.github.io/2020-04-24-floor-sum-ap/][this]] blog posts for more details.
+Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n x \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor^2 \) and even more generally \( \sum_{x = 0}^n x^{k_1} \left \lfloor \frac{ax + b}{c} \right \rfloor^{k_2} \), see [[https://asfjwd.github.io/2020-04-24-floor-sum-ap/][this]] blog posts for more details.
 
 * Assorted
 

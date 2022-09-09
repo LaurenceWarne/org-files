@@ -25,3 +25,34 @@ Option(myString)
 #+end_src
 
 Note without the type hint here the ~Option~ will have type ~Option[Null]~.
+
+* Apply on Different Data Structures
+
+** Lists
+
+We can use the ~apply~ method on List objects to obtain the value at an index, but beware this is not safe, ~lift~ is usually a better option.
+
+#+begin_src scala
+val myList = List(1, 2, 3)
+myList(1)
+// 2
+myList(3)
+// java.lang.IndexOutOfBoundsException: 3
+//   scala.collection.LinearSeqOps.apply(LinearSeq.scala:117)
+//   scala.collection.LinearSeqOps.apply$(LinearSeq.scala:114)
+//   scala.collection.immutable.List.apply(List.scala:79)
+#+end_src
+
+~apply~ on Maps, Strings, Arrays, Ranges, Vectors and Seqs behave similarly.
+
+** Sets
+
+~apply~ on Sets can be used to test membership:
+
+#+begin_src scala
+val bellsLt1k = Set(1, 2, 5, 15, 52, 203, 877)
+bellsLt1k(203)
+// true
+bellsLt1k(10)
+// false
+#+end_src
