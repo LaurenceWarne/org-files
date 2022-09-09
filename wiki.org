@@ -24,6 +24,7 @@ It's (very) possible there are mistakes, feel free to open a PR or issue at the 
 *** [[./programming/haskell/haskell.html][Haskell]]
 *** [[./programming/networking/networking.html][Networking]]
 *** [[./programming/python/python.html][Python]]
+*** [[./programming/scala/scala.html][Scala]]
 *** [[./programming/types/types.html][Types]]
 
 [[file:bernie-meme.jpg]]
