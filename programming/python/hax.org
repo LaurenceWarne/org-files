@@ -80,3 +80,18 @@ print("Dezipped: " + str(dezipped))
 : Zipped up: [(0, 'a', 'A'), (1, 'b', 'B'), (2, 'c', 'C'), (3, 'd', 'D'), (4, 'e', 'E'), (5, 'f', 'F'), (6, 'g', 'G'), (7, 'h', 'H'), (8, 'i', 'I'), (9, 'j', 'J')]
 : Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'), ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')]
 
+
+* ~=~ in Format Strings
+
+Since 3.8 you can prepend the expression text to the evaluated expression if you append an ~=~ to the format expression.
+
+#+BEGIN_SRC python :results output (scripting mode) :exports both
+name = "Bob"
+age = "37"
+
+print(f"Person({name=}, {age=})")
+#+END_SRC
+
+#+RESULTS:
+: Person(name='Bob', age='37')
+
