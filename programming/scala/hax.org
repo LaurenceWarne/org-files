@@ -43,7 +43,7 @@ myList(3)
 //   scala.collection.immutable.List.apply(List.scala:79)
 #+end_src
 
-~apply~ on Maps, Strings, Arrays, Ranges, Vectors and Seqs behave similarly.
+~apply~ on Maps, Strings, Arrays, Ranges, Vectors and Seqs behaves similarly.
 
 ** Sets
 
@@ -55,4 +55,24 @@ bellsLt1k(203)
 // true
 bellsLt1k(10)
 // false
+#+end_src
+* For Comprehension One-liner
+
+#+begin_src scala
+val rollOfTwoDie = (for (x <- (1 to 6); y <- (1 to 6)) yield x + y).sorted
+// Vector(2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12)
+#+end_src
+
+* Tuple to Case Class
+
+We can use the ~.tupled~ method of [[https://www.scala-lang.org/api/current/scala/Function2.html][FunctionN]] to nicely obtain a case class instance from a tuple:
+
+#+begin_src scala
+case class Book(title: String, author: String)
+
+val bookData = ("Old Man's War", "John Scalzi")
+// Pre Scala 2.11.8
+val book1 = (Book.apply _).tupled(bookData)
+// The companion object of case class extends FunctionN so we can do this is 2.11.8+
+val book2 = Book.tupled(bookData)
 #+end_src
