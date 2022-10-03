@@ -18,6 +18,8 @@ Lambdas run in *execution environments* which provide an isolated environment fo
 
 When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
 
+You can use *reserved concurrency* (~ReservedConcurrentExecutions~) to guarentee the maximum number of concurrent instances of the function.  Setting this to zero will stop any events being processed.  Alternatively, you can use *provisioned concurrency* to initialize a requested number of environments prior to any invocations.
+
 * Layers
 
 You can use Lambda [[https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html][Layers]] to re-use particular parts of your environment.  A layer basically consists of a zip file containing files grouped into one or more directories who themselves have special meaning.  For example, if you are using the java runtime, then ~CLASSPATH~ is always set to ~java/lib~ and so you can add to the classpath if you use a layer like:

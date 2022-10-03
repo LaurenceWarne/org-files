@@ -1,0 +1,14 @@
+#+TITLE: Kinesis
+
+* Links
+
+- *Using Kinesis With Lambdas*: https://aws.amazon.com/blogs/big-data/best-practices-for-consuming-amazon-kinesis-data-streams-using-aws-lambda/
+
+* Shards
+
+A shard is a sequence of records in a stream.  It supports 1 MB/s and 1000 records/s  for writes and 2 MB/s for reads.
+
+* Consumers
+
+You can use Enhanced Fan-Out Consumers to create independent consumers for a given stream.
+
