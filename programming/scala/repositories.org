@@ -1,0 +1,27 @@
+#+TITLE: Repositories
+
+* Maven
+
+[[https://maven.apache.org/guides/introduction/introduction-to-repositories.html][Maven repositories]] are responsible for holding artefacts and dependencies, they can either be local (on a user's local machine, typically ~~/.m2~) or remote like maven central https://repo.maven.apache.org/maven2/.
+
+You can add a maven repository to a mill module like so:
+#+begin_src scala
+import coursier.maven.MavenRepository
+
+def repositories = super.repositories ++ Seq(
+  MavenRepository("https://oss.sonatype.org/content/repositories/releases")
+)
+#+end_src
+
+Or sbt:
+#+begin_src scala
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
+#+end_src
+
+* Ivy
+
+You can find your local ivy cache at ~~/.ivy2/cache~ and your local repository at ~~/.ivy2/local~.
+
+* Coursier
+
+Both sbt and mill use [[https://get-coursier.io/docs/overview][coursier]] for artefact fetching, and as a result most artefacts consumed by them are found in the coursier cache, located at ~~/.cache/coursier/v1~.  From here the path artefacts lie in is generally split into repositories and then the artefacts themselves (see [[https://get-coursier.io/docs/cache][here]] for more information).
