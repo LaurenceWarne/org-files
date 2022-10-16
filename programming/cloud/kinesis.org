@@ -10,5 +10,6 @@ A shard is a sequence of records in a stream.  It supports 1 MB/s and 1000 recor
 
 * Consumers
 
+https://stackoverflow.com/questions/34503226/multiple-consumers-per-kinesis-shard?noredirect=1&lq=1
 You can use Enhanced Fan-Out Consumers to create independent consumers for a given stream.
 

@@ -76,3 +76,20 @@ val book1 = (Book.apply _).tupled(bookData)
 // The companion object of case class extends FunctionN so we can do this is 2.11.8+
 val book2 = Book.tupled(bookData)
 #+end_src
+
+* Quicksort
+
+Obligatory quicksort implementation:
+
+#+begin_src scala
+import scala.math.Ordering.Implicits._
+
+def quicksort[A: Ordering](l: List[A]): List[A] = {
+  l match {
+    case Nil => Nil
+    case head :: tail =>
+      val (before, after) = tail.partition(_ <= head)
+      (before :+ head) ::: after
+  }
+}
+#+end_src
