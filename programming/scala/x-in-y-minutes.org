@@ -1,0 +1,13 @@
+#+TITLE: X In Y Minutes
+
+My take on the x in y minutes saga for Scala 2.
+
+#+begin_src scala
+// The following are implicitly imported in every scala file:
+
+// import java.lang._
+// import scala._
+// import scala.Predef._
+
+
+#+end_src
