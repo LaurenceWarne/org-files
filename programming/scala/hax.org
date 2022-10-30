@@ -93,3 +93,15 @@ def quicksort[A: Ordering](l: List[A]): List[A] = {
   }
 }
 #+end_src
+
+* Capturing Standard Output
+
+You can easily capture standard output using ~Console.withOut~.  This saves you from having to reset the output stream when you're done if you were to use ~System.setOut~.
+
+#+begin_src scala
+val baos = new java.io.ByteArrayOutputStream()
+// Note println is an alias for Console.println
+Console.withOut(baos)(println("Hi!"))
+println(baos)
+// "hello"
+#+end_src
