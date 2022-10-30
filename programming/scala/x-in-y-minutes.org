@@ -3,11 +3,55 @@
 My take on the x in y minutes saga for Scala 2.
 
 #+begin_src scala
+// Also see the Scala language specification: https://www.scala-lang.org/files/archive/spec/2.13/
 // The following are implicitly imported in every scala file:
 
 // import java.lang._
 // import scala._
 // import scala.Predef._
 
+
+//      /\  /\ !!!!!!!! /\  /\
+//     |! ||! |!!!!!!!!|! ||! |
+//     |! ||! |        |! ||! |
+//     |! ||! | Naming |! ||! |
+//     |! ||! |        |! ||! |
+//     |__||__|!!!!!!!!|__||__|
+//     (__)(__)!!!!!!!!(__)(__)
+
+// In Scala 2 val and defs cannot appear as toplevel definitions
+
+object Naming {
+
+  // Ordinarily, we wouldn't need to provide the type of x here since it can
+  // be determined via type inference, but here we voluntarily provide a
+  // 'type ascription'
+  val x: Int = 3
+
+  // Here Show is a Single Abstract Method (SAM) type
+  trait Show[A] {
+    def show(a: A): String
+  }
+
+  // Since Scala 2.12 function literals are accepted as valid SAM expressions:
+  implicit val intShow: Show[Int] = n => s"here is my integer: $n"
+
+  // A type alias
+  type MyInt = Int
+
+  // Beware, implicit classes and defs will still apply to Int!
+  import scala.concurrent.duration._
+  implicit def myIntToDuration(n: MyInt): Duration = Duration(n, SECONDS)
+
+  val myDuration: Duration = 3
+}
+
+//       /\  /\ !!!!!!!!! /\  /\
+//      |! ||! |!!!!!!!!!|! ||! |
+//      |! ||! |         |! ||! |
+//      |! ||! | Sorting |! ||! |
+//      |! ||! |         |! ||! |
+//      |__||__|!!!!!!!!!|__||__|
+//      (__)(__)!!!!!!!!!(__)(__)
 
 #+end_src
