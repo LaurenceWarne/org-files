@@ -101,7 +101,7 @@ You can easily capture standard output using ~Console.withOut~.  This saves you 
 #+begin_src scala
 val baos = new java.io.ByteArrayOutputStream()
 // Note println is an alias for Console.println
-Console.withOut(baos)(println("Hi!"))
+Console.withOut(baos)(println("hello"))
 println(baos)
 // "hello"
 #+end_src

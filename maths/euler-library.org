@@ -194,7 +194,7 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 
 * Binomial Coefficients Modulo \( p \)
 
-[[https://en.wikipedia.org/wiki/Lucas%27s_theorem][Lucas' Theorem]] states that if \( m_km_{k - 1}m_0 \) and \( n_kn_{k - 1}n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
+[[https://en.wikipedia.org/wiki/Lucas%27s_theorem][Lucas' Theorem]] states that if \( m_km_{k - 1}\hdots m_0 \) and \( n_kn_{k - 1}\hdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
 
 \[ \binom{m}{n} \equiv \prod_{i = 0}^k \binom{m_i}{n_i} \pmod p \]
 
