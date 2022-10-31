@@ -65,7 +65,7 @@ object Sorting {
   // Similarly, Ordered is the equivalent to java's Comparator, note both are
   // available without import, as they are Members of the scala package
   case class DummyLong(x: Long) extends AnyVal
-  // Ordering can be considered contravariant functor, with 'on' providing the
+  // Ordering can be considered a contravariant functor, with 'on' providing the
   // equivalent of contramap
   implicit val dummyLongOrdering: Ordering[DummyLong] =
     Ordering[Long].on(dummyLong => dummyLong.x)
