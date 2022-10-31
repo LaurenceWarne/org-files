@@ -54,4 +54,28 @@ object Naming {
 //      |__||__|!!!!!!!!!|__||__|
 //      (__)(__)!!!!!!!!!(__)(__)
 
+object Sorting {
+
+  // Ordered is the equivalent to (and indeed extends) java's Comparable, ie it
+  // represents 'natural' orderings
+  case class DummyInt(x: Int) extends Ordered[DummyInt] {
+    def compare(that: DummyInt): Int = x - that.x
+  }
+
+  // Similarly, Ordered is the equivalent to java's Comparator, note both are
+  // available without import, as they are Members of the scala package
+  case class DummyLong(x: Long) extends AnyVal
+  // Ordering can be considered contravariant functor, with 'on' providing the
+  // equivalent of contramap
+  implicit val dummyLongOrdering: Ordering[DummyLong] =
+    Ordering[Long].on(dummyLong => dummyLong.x)
+
+  val myList = List(DummyInt(10), DummyInt(1), DummyInt(-2), DummyInt(7))
+  println(myList.sorted)
+  // List(DummyInt(x = -2), DummyInt(x = 1), DummyInt(x = 7), DummyInt(x = 10))
+
+  // Note the signature of sorted is sorted[B >: A](implicit ord: Ordering[B])
+  // but the companion of Ordered provides an implicit conversion from Ordered[A]
+  // to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)
+}
 #+end_src
