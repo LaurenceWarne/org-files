@@ -56,4 +56,21 @@ close(1)                                = 0
 close(2)                                = 0
 exit_group(0)                           = ?
 +++ exited with 0 +++
+
+# File descriptors index a per-process file descriptor table which in turn
+# indexes into a system-wide table of files opened by all process called the file table
+$ nop &
+$ ls /proc/$!/fd  # You may need to escape the ! with zsh
+0  1  2
+$ file /proc/$!/fd/2
+/proc/PID/fd/2: symbolic link to /dev/pts/5
+
+# Note /prod/PID/fd/0, /prod/PID/fd/1, /prod/PID/fd/2 always point to stdin, stdout and
+# stderr, for the previous command, all 3 however will point to the psuedo-terminal
+# /dev/pts/5.  If instead we use the command:
+$ nop > out.file &
+$ file /proc/$!/fd/0
+/proc/PID/fd/1: symbolic link to /home/laurencewarne/projects/mill/out.file
+
+# We see stdout indeed points to a file.
 #+end_src
