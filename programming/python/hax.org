@@ -95,3 +95,22 @@ print(f"Person({name=}, {age=})")
 #+RESULTS:
 : Person(name='Bob', age='37')
 
+
+* ~shlex~ for Commands
+
+We can use ~shlex.split~ to transform a command string into a list of arguments suitable for ~subprocess.Popen~ or even:
+
+#+BEGIN_SRC python
+import shlex, subprocess, pprint
+
+command = """find . -type f -printf '%TY-%Tm-%Td %TT %p
+'"""  # Lists files and when they were last edited
+args = shlex.split(command)
+result = subprocess.run(args, capture_output=True)
+recently_edited = sorted(result.stdout.decode("utf-8").splitlines())[-2:]
+pprint.pp(recently_edited)
+# ['2022-08-01 18:12:41.0370089750 ./files.org',
+#  '2022-11-05 21:40:23.4741009550 ./hax.org']
+#+END_SRC
+
+Also useful are ~shlex.quote(s)~ which returns a shell escaped version of ~s~ and ~shlex.join~, the inverse to ~shlex.split~.
