@@ -70,7 +70,39 @@ $ file /proc/$!/fd/2
 # /dev/pts/5.  If instead we use the command:
 $ nop > out.file &
 $ file /proc/$!/fd/0
-/proc/PID/fd/1: symbolic link to /home/laurencewarne/projects/mill/out.file
+/proc/PID/fd/1: symbolic link to /home/laurencewarne/out.file
 
 # We see stdout indeed points to a file.
+
+#############
+# Processes #
+#############
+# On linux processes are grouped into groups, which are further grouped into sessions.
+# Lets have a look at what commands are running in our shell session:
+$ ps -o command,pid,ppid,pgid,sid --ppid $$
+COMMAND                         PID    PPID    PGID     SID
+ps -o command,pid,ppid,pgid   19765    4739   19765    4739
+
+# PGID and SID point to the process group leader and session leader respectively.
+# Here we see our ps process is a process group leader (the sole member of its group),
+# but not a session leader, in fact the session group leader is the shell process
+# (zsh in my case).
+
+$ ps -o command,pid,ppid,pgid,sid --ppid $$ | cat
+COMMAND                         PID    PPID    PGID     SID
+ps -o command,pid,ppid,pgid   20135    4739   20135    4739
+cat                           20136    4739   20135    4739
+
+# Here we see a slight difference, cat has it's process group id set to the pid of
+# the ps command.  Process groups are useful as it's possible to direct signals
+# to whole process groups instead of singular processes using the killpg() system
+# call or prepending '-' to the kill command.
+
+# Sessions are usually tied to a controlling terminal, e.g. bash.  If the exiting
+# process is a session leader and its controlling terminal is the controlling
+# terminal of the session, then each process in the foreground process group of
+# this controlling terminal is sent a SIGHUP signal, and the terminal is
+# disassociated from this session, allowing it to be acquired by a new controlling
+# process.More info can be found here: https://man7.org/linux/man-pages/man3/exit.3.html
+# another link is here: https://man7.org/linux/man-pages/man3/exit.3.html.
 #+end_src
