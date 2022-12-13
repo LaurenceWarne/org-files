@@ -77,5 +77,13 @@ object Sorting {
   // Note the signature of sorted is sorted[B >: A](implicit ord: Ordering[B])
   // but the companion of Ordered provides an implicit conversion from Ordered[A]
   // to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)
+
+  // An ordering on DummyLong induces an ordering on Seqs (the lexicographic ordering),
+  // we can obtain it via the import
+  import scala.math.Ordering.Implicits._
+
+  // Note the above import also gives us '<' and such
+  println(List(DummyLong(10)) < List(DummyLong(10), DummyLong(1)))
+  // true
 }
 #+end_src
