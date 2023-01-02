@@ -41,6 +41,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 2. Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).  What if \( J \) is not a field?
 
+3. Let \( R \) denote the set of rows of a matrix \( A \), and \( C \) the set of column.  Prove or find a counterexample to: if \( R = C \) then \( A \) is symmetric.
+
 ** Number Theory
 
 1. Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.
