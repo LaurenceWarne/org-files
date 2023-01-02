@@ -34,6 +34,30 @@
    \[
    M^{-1} = \frac{adj(M)}{det(M)}
    \]
+3. False, a counterexample is:
+   \[
+   A = \begin{pmatrix}
+      0 & 0 & 1 \\
+      1 & 0 & 0 \\
+      0 & 1 & 0
+   \end{pmatrix}
+   \]
+   We might guess from this \( A \) must either be symmetric or [[https://en.wikipedia.org/wiki/Persymmetric_matrix][persymmetric]], but this is also not true:
+   \[
+   A = \begin{pmatrix}
+      0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+      0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+   \end{pmatrix}
+   \]
+   Though in the case the \( |R| = |C| \le 2 \) the statement (about symmetricity) is true: suppose for a contradiction the matrix is not symmetric, then there exists a row \( R_i \) and column \( C_i \) such that \( R_i \ne C_i \).  They are not equal so we must have \( R_{i,k} \ne C_{i,k} \) for some \( k \).  Then consider the kth row \( R_k \) and column \( C_k \), these must be the same since they intersect at their kth component.  But \( V = R_k = C_k \) intersects both \( C_i \) and \( R_i \) at their kth components, as this implies \( V \) has different values at a given index, a contradiction.
 
 ** Number Theory
 

@@ -82,7 +82,7 @@ object Sorting {
   // we can obtain it via the import
   import scala.math.Ordering.Implicits._
 
-  // Note the above import also gives us '<' and such
+  // This import also brings into scope '<' (and others) to use with Orderings
   println(List(DummyLong(10)) < List(DummyLong(10), DummyLong(1)))
   // true
 }
