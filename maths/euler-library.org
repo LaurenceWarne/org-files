@@ -156,7 +156,6 @@ It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taki
 *** Proof :collapsible:
 If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction we see we cannot have \( p|(x + i) \) or \( p | (x - i) \).  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)), and so if \( (c + di)(a + bi) = p \) we must have \( c + di = a - bi \) since \( p \) is real.  This completes the proof.
 
-
 *** Sum of Squares
 
 This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: https://mathoverflow.net/a/319809/332110.
@@ -203,6 +202,16 @@ In base two, this implies that \( \binom{m}{n} \) is odd iff the bits of \( n \)
 [[https://en.wikipedia.org/wiki/Kummer%27s_theorem][Kummer's Theorem]] states that \( v_p(\binom{m}{n}) \) is equal to the number of carries when \( m \) is added to \( n - m \) in base \( p \).
 
 The number of entries in the mth row of Pascal's triangle that are not divisible by \( p \)  is equal to the product over all digits \( d \) of \( m \) written in base \( p \) of \( 1 + d \).  Similar formulations exist for the number of entries divisible by \( p \) in the first \( m \) rows of Pascal's triangle.
+
+* Diophantine Equations
+
+http://www.numbertheory.org/PDFS/patz5.pdf
+https://crypto.stanford.edu/pbc/notes/ep/pell.html
+https://www.alpertron.com.ar/METHODS.HTM
+http://www.numbertheory.org/PDFS/general_quadratic_solution.pdf
+https://docplayer.net/52564027-Solving-the-diophantine-equation-ax-2-bxy-cy-2-dx-ey-f-0.html
+https://citeseerx.ist.psu.edu/viewdoc/download?rep=rep1&type=pdf&doi=10.1.1.210.6849
+http://www.numbertheory.org/php/jprquadraticdio0.html 
 
 * Assorted
 
