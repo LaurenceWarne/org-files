@@ -213,6 +213,11 @@ https://docplayer.net/52564027-Solving-the-diophantine-equation-ax-2-bxy-cy-2-dx
 https://citeseerx.ist.psu.edu/viewdoc/download?rep=rep1&type=pdf&doi=10.1.1.210.6849
 http://www.numbertheory.org/php/jprquadraticdio0.html 
 
+* Transforms
+
+http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial
+https://csacademy.com/blog/fast-fourier-transform-and-variations-of-it
+
 * Assorted
 
 - \( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \) 
