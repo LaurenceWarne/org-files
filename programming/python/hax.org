@@ -117,7 +117,7 @@ Also useful are ~shlex.quote(s)~ which returns a shell escaped version of ~s~ an
 
 * Built in [[https://en.wikipedia.org/wiki/Iverson_bracket][Iverson Brackets]]
 
-We can perform arithmetric with boolean values and integers, basically ~True = 1~ and ~False = 0~ (so much for strong typing!).  We can use this behaviour to implement Iverson Brackets fairly readably:
+We can perform arithmetic with boolean values and integers, basically ~True = 1~ and ~False = 0~ (so much for strong typing!).  We can use this behaviour to implement Iverson Brackets fairly readably:
 
 #+BEGIN_SRC python
 from math import gcd

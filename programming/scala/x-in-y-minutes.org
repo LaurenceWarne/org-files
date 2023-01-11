@@ -86,4 +86,32 @@ object Sorting {
   println(List(DummyLong(10)) < List(DummyLong(10), DummyLong(1)))
   // true
 }
+
+object Types {
+  // A singleton type is a type which depends on a literal
+  // See: https://docs.scala-lang.org/sips/42.type.html
+  val lsSingle: List[1] = List(1, 1)
+
+  // Let's introduce TypeTags!  Consider the following:
+  sealed trait BankBalance
+  case class Savings(value: Int) extends BankBalance
+  case class Debt(value: Int) extends BankBalance
+
+  def check[A <: BankBalance](xs: List[A]) = xs match {
+    case l: List[Debt] => s"Debts of size ${l.sum}!"
+    case _: List[BankBalance] => "OK"
+  }
+
+  // The method above produces the compiler warning:
+  // 'the type test for List[test.Debt] cannot be checked at runtime'
+  // This is because of type erasure.
+
+  // We can use TypeTags to fix this:
+  import scala.reflect.runtime.universe._
+
+  def check2[A <: BankBalance : TypeTag](xs: List[A]) = typeOf[A] match {
+    case t if t =:= typeOf[Debt] => "list of strings"
+    case t if t <:< typeOf[BankBalance] => "list of foos"
+  }
+}
 #+end_src
