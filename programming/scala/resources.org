@@ -1,0 +1,21 @@
+#+TITLE: Resources
+
+* Types
+
+- [[https://underscore.io/blog/posts/2016/12/05/type-lambdas.html][Kind Projector plugin]] motivation and usage
+
+* Tooling
+
+- [[https://www.chris-kipp.io/blog/an-intro-to-the-scala-presentation-compiler][Introduction to the Scala Presentation Compiler]] by Chris Kipp
+
+* The Scala Standard Library
+
+- [[https://pavelfatin.com/scala-collections-tips-and-tricks/][Scala collections tips and tricks]] by Pavel Fatin
+- [[https://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html][Scala Binary Compatibility]]
+- [[https://docs.scala-lang.org/overviews/collections/performance-characteristics.html][Time complexity of Scala collection operations]]
+
+* Libraries
+ 
+* Miscellaneous
+
+- [[https://blog.ssanj.net/posts/2019-05-01-why-are-default-parameter-values-considered-bad-in-scala.html][Why are default parameters considered bad]] by Sanjiv Sahayam 
