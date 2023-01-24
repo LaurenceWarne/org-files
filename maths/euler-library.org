@@ -205,6 +205,60 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 
 * Diophantine Equations
 
+** Nonnegative Solutions to Linear Equations
+
+Consider nonnegative solutions to \( x_1 + \cdots + x_k = n \) where \( n \) is known.  Using stars and bars, we can see the total numbers of n-tuple solutions is \( \binom{n + k - 1}{k - 1} \).
+
+A fast method exists for \( a_1x_1 + \cdots + a_kx_k = n \) also.  Let \( f(n) \) be the number of solutions to the equation for \( n \), and \( F(x) = \sum_{n = 0}^{\infty} f(n)x^n \) then we see:
+
+\begin{align*}
+F(x) &= (1 + x^{a_1} + x^{2a_1} + \cdots)(1 + x^{a_2} + x^{2a_2} + \cdots)\cdots(1 + x^{a_k} + x^{2a_k} + \cdots) \\
+     &= \frac{1}{1 - x^{a_1}}\frac{1}{1 - x^{a_2}}\cdots\frac{1}{1 - x^{a_k}}
+\end{align*}
+
+Which we can rearrange to obtain:
+\[
+(1 - x^{a_1})(1 - x^{a_2})\cdots(1 - x^{a_k})F(x) = 1
+\]
+
+Expanding, we can derive a linear recurrence for \( f(n) \).  For example, suppose we want solutions to :
+
+\[
+3x + 4y + 5z + w + 9v = n
+\]
+
+We obtain:
+
+\[
+F(x)\left(-x^{22} + x^{21} + x^{19} - x^{16} - x^{15} + x^{13} - x^9 + x^7 + x^6 - x^3 - x + 1\right) = 1
+\]
+
+From which we can derive the recurrence:
+
+\[
+f(n) = f(n - 1) + f(n - 3) - f(n - 6) - f(n - 7) + f(n - 9) - f(n - 13) + f(n - 15) + f(n - 16) - f(n - 19) - f(n - 21) + f(n - 22)
+\]
+
+The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( F(x) \), but only including powers \( \le k \).
+
+*** Python                                                      :collapsible:
+#+BEGIN_SRC python
+from collections import defaultdict
+
+def recurrence(coeffs):  # Usage: recurrence([3, 4, 5, 1, 9])
+    # return an array [a1, a2, a3...] s.t. f(n) = a1*f(n - 1) + a2*f(n - 2) + ...
+    d = defaultdict(int, {0: 1})
+    for pw in coeffs:
+        new_dct = d.copy()
+        for k, v in d.items(): new_dct[k + pw] += -1*v
+        d = new_dct
+    mx = max(d) 
+    mul = -1*d[mx] // abs(d[mx])
+    return [d[i]*mul for i in range(mx)][::-1]
+#+END_SRC
+
+** Pell Equations
+
 http://www.numbertheory.org/PDFS/patz5.pdf
 https://crypto.stanford.edu/pbc/notes/ep/pell.html
 https://www.alpertron.com.ar/METHODS.HTM
