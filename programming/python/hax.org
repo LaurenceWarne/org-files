@@ -129,3 +129,11 @@ def ramp(x):
     return x*(x > 0)
 #+END_SRC
 
+* Ad-hoc Timing
+
+IPython's ~%timeit~ is extremely useful, but for situations where this is not possible, we can use ~time~ in conjuction with the ~-c~ flag to time a function belonging to a module in the current directory:
+
+#+BEGIN_SRC bash
+time pypy3 -c "from mymodule import foo;print(foo('arg'))"
+#+END_SRC
+
