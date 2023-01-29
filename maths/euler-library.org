@@ -158,7 +158,17 @@ If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction 
 
 *** Sum of Squares
 
-This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: https://mathoverflow.net/a/319809/332110.
+This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: https://mathoverflow.net/a/319809/332110, and also implies if \( S(n) \) denotes the total number of ways an integer \( n = 2^\lambda p_1^{a_1}p_2^{a_2}...p_n^{a_n}q_1^{b_1}q_2^{b_2}...q_m^{b_m} \) (\( p_i \equiv 1 \pmod 4, q_i \equiv 3 \pmod 4 \)), can be written as the sum of two positive squares then:
+
+\begin{equation*}
+S(n) =
+     \begin{cases}
+        \frac{1}{2}\left[\prod_{i=1}^m (2a_i + 1) - 1\right] & \text{if } b_i \text{ are all even}\\
+        0 & \text{otherwise }
+    \end{cases}
+\end{equation*}
+
+Which follows from the [[https://en.wikipedia.org/wiki/Brahmagupta%E2%80%93Fibonacci_identity][Brahmagupta–Fibonacci identity]].
 
 * Euler Transform
 
