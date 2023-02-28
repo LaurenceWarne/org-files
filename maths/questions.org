@@ -85,5 +85,44 @@ def append2(x: List, y: List):
 
 6. [@6] https://en.wikipedia.org/wiki/Littlewood%27s_law
    https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
+   https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem
+   https://math.stackexchange.com/questions/1290246/estimates-for-the-normal-approximation-of-the-binomial-distribution
+   https://www.johndcook.com/blog/normal_approx_to_binomial/
+   https://stats.stackexchange.com/questions/30468/error-in-normal-approximation-to-a-uniform-sum-distribution?rq=1
 
-We define a "miracle" as an event which has a one in a million chance of happening. If Littlewood the tortoise lives to the ripe old age of 100, what is probability that he experiences at least 1024 miracles in his lifetime? You may assume he is awake for exactly 8 hours a day and can see or hear one event per second. (Note tortoise years do not count the additional day provided by the leap years used in the Gregorian calendar).
+We define a "miracle" as an event which has a one in a million chance of happening.  Supposing Littlewood the tortoise lives to the ripe old age of 100 exaanni (10^20 years), and X is the rv denoting the total number of miracles the tortoise sees in his life, find P(E(X) - 28974460953 <= X <= E(X) + 28974460953).
+You may assume he is awake for exactly 8 hours a day, can see or hear exactly one event per second when awake, and any given event has a random one in a million chance of being a miracle (and independently of other events). (Note tortoise years do not count leap years).
+
+
+Essentially, the question reduces to calculating the values of a cumulative binomial distribution with large parameters.  My idea is that the normal approximation to the binomial distribution can be used, since a there exists a strict upper bound on the error: https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem (the error is O(1/sqrt(n))).  n is chosen so that the error is very small to try an eliminate precision errors, I find the answer to six decimal places is 0.628497.
+
+
+
+Total trials (n): 60*60*8*365*10**20 = 1051200000000000000000000000 ≅ 10^28
+
+E(X) = n*p = 60*60*8*365*10**20 * (1/10^6) = 1051200000000000000000 ≅ 10^21
+
+Error is at most C*(p**2 + q**2) / math.sqrt(1051200000000000000000000000*p*q) = 1.4644258375342247e-11
+
+P( (B(n, p) - np) / sqrt(n*p*q) ) <= x = phi(x)
+
+P( B(n, p) ) <= x*sqrt(n*p*q) + np = phi(x)
+
+10^21 = x*sqrt(n*p*q) + np => x = (10^21 - np) / sqrt(n*p*q)
+
+** Proof stuff
+
+We derive the error for the binomial distribution, e.g. when \( X_i \) are Bernoulli rvs.  First, note the standard deviation and third absolute moment of \( X_i \) are given by:
+
+  \begin{align*}
+  \sigma &= \sqrt{pq} \\
+  \rho &= p
+  \end{align*}
+
+The stdev is well known, the value of \( \rho \) follows from the fact that \( E[X^n] = p \forall n \).  Subbing into the inequality (taking https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem as our source), we see:
+
+\[
+\left| F_n(x) - \Phi(x) \right| \le \frac{C\rho}{\sigma^3\sqrt{n}} = \frac{Cp}{\sqrt{pq}pq\sqrt{n}} 
+\]
+
+
