@@ -21,8 +21,12 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 * Diagnostics
 
 - https://github.com/scalameta/metals/blob/main/docs/editors/overview.md
-   - Diagnostics are triggered on compile, compilation is triggered on file save for the build target (project/module) containing the focused text file.
-   - Syntax errors are published as you type but type errors are handled by the build tool
+  - Diagnostics are triggered on compile, compilation is triggered on file save for the build target (project/module) containing the focused text file.
+  - Syntax errors are published as you type but type errors are handled by the build tool
+
+- About scalafix:
+  - why removed: https://github.com/scalameta/metals/commit/b84fa4479e614afa4cb6a5ce5b52873c42d1d1ed
+  - implementation: https://github.com/scalameta/metals/pull/154
 
 ** Flow
 1. metals sends a ~buildTarget/compile~ ([[https://build-server-protocol.github.io/docs/specification#compile-request][link]]) request to the BSP server (in ~BuildServerConnection.compile~), to ask the build server to compile a list of build targets.

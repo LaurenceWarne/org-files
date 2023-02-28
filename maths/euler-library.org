@@ -101,6 +101,8 @@ print([a_n(n) + b_n(n) for n in range(1, 14)])
 
 #+RESULTS:
 
+See also https://math.stackexchange.com/questions/1348838/sum-and-product-of-linear-recurrences.
+
 * Power Modulo
 
 If \( a \) and \( p \) are coprime then:
@@ -203,15 +205,15 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 
 * Binomial Coefficients Modulo \( p \)
 
-[[https://en.wikipedia.org/wiki/Lucas%27s_theorem][Lucas' Theorem]] states that if \( m_km_{k - 1}\hdots m_0 \) and \( n_kn_{k - 1}\hdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
+[[https://en.wikipedia.org/wiki/Lucas%27s_theorem][Lucas' Theorem]] states that if \( m_km_{k - 1}\cdots m_0 \) and \( n_kn_{k - 1}\cdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
 
-\[ \binom{m}{n} \equiv \prod_{i = 0}^k \binom{m_i}{n_i} \pmod p \]
+\[  \binom{m}{n} \equiv \prod_{i = 0}^k \binom{m_i}{n_i} \pmod p \]
 
-In base two, this implies that \( \binom{m}{n} \) is odd iff the bits of \( n \) are a subset of the bits of \( m \).
+In base two, this implies that \( \binom{m}{n} \) is odd iff the bits of \( n \) are a subset of the bits of \( m \).  There exist extensions to this theorem for prime powers (see https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf).
 
 [[https://en.wikipedia.org/wiki/Kummer%27s_theorem][Kummer's Theorem]] states that \( v_p(\binom{m}{n}) \) is equal to the number of carries when \( m \) is added to \( n - m \) in base \( p \).
 
-The number of entries in the mth row of Pascal's triangle that are not divisible by \( p \)  is equal to the product over all digits \( d \) of \( m \) written in base \( p \) of \( 1 + d \).  Similar formulations exist for the number of entries divisible by \( p \) in the first \( m \) rows of Pascal's triangle.
+The number of entries in the mth row of Pascal's triangle that are not divisible by \( p \) is equal to the product over all digits \( d \) of \( m \) written in base \( p \) of \( 1 + d \).  Similar formulations exist for the number of entries divisible by \( p \) in the first \( m \) rows of Pascal's triangle.
 
 * Diophantine Equations
 
@@ -266,16 +268,6 @@ def recurrence(coeffs):  # Usage: recurrence([3, 4, 5, 1, 9])
     mul = -1*d[mx] // abs(d[mx])
     return [d[i]*mul for i in range(mx)][::-1]
 #+END_SRC
-
-** Pell Equations
-
-http://www.numbertheory.org/PDFS/patz5.pdf
-https://crypto.stanford.edu/pbc/notes/ep/pell.html
-https://www.alpertron.com.ar/METHODS.HTM
-http://www.numbertheory.org/PDFS/general_quadratic_solution.pdf
-https://docplayer.net/52564027-Solving-the-diophantine-equation-ax-2-bxy-cy-2-dx-ey-f-0.html
-https://citeseerx.ist.psu.edu/viewdoc/download?rep=rep1&type=pdf&doi=10.1.1.210.6849
-http://www.numbertheory.org/php/jprquadraticdio0.html 
 
 * Transforms
 
