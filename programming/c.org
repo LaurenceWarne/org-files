@@ -1,0 +1,13 @@
+#+TITLE: C
+
+* Pointers
+
+A pointer is a data type that contains the address of a storage location of a variable of a particular type.  We need to use ~*~ to show a variable is a pointer:
+
+#+begin_src c
+int my_int = 3;           // We could use string instead of char[] in c++
+int* int_ptr = &my_int;   // Obtain pointer from value
+int my_int2 = *int_ptr    // Obtain value from pointer
+#+end_src
+
+Whitespace before or after the ~*~ is optional.
