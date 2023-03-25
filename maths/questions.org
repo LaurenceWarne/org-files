@@ -126,3 +126,6 @@ The stdev is well known, the value of \( \rho \) follows from the fact that \( E
 \]
 
 
+\[
+\left[ \frac{- \sqrt{4 x + 1} - 1}{2 x}, \  \frac{\sqrt{4 x + 1} - 1}{2 x}\right]
+\]
