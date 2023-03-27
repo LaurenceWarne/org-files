@@ -78,8 +78,8 @@ object Sorting {
   // but the companion of Ordered provides an implicit conversion from Ordered[A]
   // to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)
 
-  // An ordering on DummyLong induces an ordering on Seqs (the lexicographic ordering),
-  // we can obtain it via the import
+  // An ordering on DummyLong induces an ordering on Seqs of DummyLongs
+  // (the lexicographic ordering), we can obtain it via the import
   import scala.math.Ordering.Implicits._
 
   // This import also brings into scope '<' (and others) to use with Orderings
@@ -110,8 +110,8 @@ object Types {
   import scala.reflect.runtime.universe._
 
   def check2[A <: BankBalance : TypeTag](xs: List[A]) = typeOf[A] match {
-    case t if t =:= typeOf[Debt] => "list of strings"
-    case t if t <:< typeOf[BankBalance] => "list of foos"
+    case t if t =:= typeOf[Debt] => s"Debts of size ${l.sum}!"
+    case t if t <:< typeOf[BankBalance] => "OK"
   }
 }
 #+end_src
