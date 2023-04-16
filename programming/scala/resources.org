@@ -15,7 +15,10 @@
 - [[https://docs.scala-lang.org/overviews/collections/performance-characteristics.html][Time complexity of Scala collection operations]]
 
 * Libraries
- 
+
+- [[https://www.reddit.com/r/scala/comments/s23dve/comment/hsdee67/?context=3][How CE3 works]] by Daniel Spiewak
+- [[https://www.scalatest.org/user_guide/selecting_a_style][Scalatest styles]]
+
 * Miscellaneous
 
 - [[https://blog.ssanj.net/posts/2019-05-01-why-are-default-parameter-values-considered-bad-in-scala.html][Why are default parameters considered bad]] by Sanjiv Sahayam 
