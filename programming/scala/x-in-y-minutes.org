@@ -114,4 +114,13 @@ object Types {
     case t if t <:< typeOf[BankBalance] => "OK"
   }
 }
+
+object collections {
+  // A standard Java array
+  val a = Array(1, 2, 3)
+
+  // Beware == on Array returns true iff the arrays point to the same reference
+  a == Array(1, 2, 3)
+  // false
+}
 #+end_src
