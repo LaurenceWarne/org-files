@@ -1,0 +1,12 @@
+#+TITLE: Kafka
+
+* Links
+- [[https://kafka.apache.org/24/documentation.html][Official Documentation]]
+- https://ibm-cloud-architecture.github.io/refarch-eda/technology/kafka-overview/
+
+* Topics
+
+A topics is an independent, named stream of records which produces push to and consumers get records from:
+
+[[https://ibm-cloud-architecture.github.io/refarch-eda/technology/images/kafka-hl-view.png]]
+
