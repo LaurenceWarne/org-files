@@ -1,26 +1,19 @@
 #+TITLE: X In Y Minutes
 
-My take on the x in y minutes saga for Scala 2.
+My take on the x in y minutes saga for Scala 2 (Also see the Scala language specification: https://www.scala-lang.org/files/archive/spec/2.13/).
+
+First of all, the following are implicitly imported in every scala file:
 
 #+begin_src scala
-// Also see the Scala language specification: https://www.scala-lang.org/files/archive/spec/2.13/
-// The following are implicitly imported in every scala file:
+import java.lang._
+import scala._
+import scala.Predef._
+#+end_src
 
-// import java.lang._
-// import scala._
-// import scala.Predef._
+* Naming
 
-
-//      /\  /\ !!!!!!!! /\  /\
-//     |! ||! |!!!!!!!!|! ||! |
-//     |! ||! |        |! ||! |
-//     |! ||! | Naming |! ||! |
-//     |! ||! |        |! ||! |
-//     |__||__|!!!!!!!!|__||__|
-//     (__)(__)!!!!!!!!(__)(__)
-
-// In Scala 2 val and defs cannot appear as toplevel definitions
-
+Note in Scala 2 val and defs cannot appear as toplevel definitions.
+#+begin_src scala
 object Naming {
 
   // Ordinarily, we wouldn't need to provide the type of x here since it can
@@ -45,15 +38,12 @@ object Naming {
 
   val myDuration: Duration = 3
 }
+#+begin_src 
+* Sorting
 
-//       /\  /\ !!!!!!!!! /\  /\
-//      |! ||! |!!!!!!!!!|! ||! |
-//      |! ||! |         |! ||! |
-//      |! ||! | Sorting |! ||! |
-//      |! ||! |         |! ||! |
-//      |__||__|!!!!!!!!!|__||__|
-//      (__)(__)!!!!!!!!!(__)(__)
+Also worth looking up are the notions of [[https://en.wikipedia.org/wiki/Partially_ordered_set][partial orderings]], [[https://en.wikipedia.org/wiki/Total_order][total orderings]] and [[https://en.wikipedia.org/wiki/Well-order][well-orderings]].
 
+#+begin_src scala
 object Sorting {
 
   // Ordered is the equivalent to (and indeed extends) java's Comparable, ie it
@@ -86,7 +76,10 @@ object Sorting {
   println(List(DummyLong(10)) < List(DummyLong(10), DummyLong(1)))
   // true
 }
+#+begin_src 
 
+* Types
+#+begin_src scala
 object Types {
   // A singleton type is a type which depends on a literal
   // See: https://docs.scala-lang.org/sips/42.type.html
@@ -115,6 +108,10 @@ object Types {
   }
 }
 
+#+begin_src 
+
+* Collections 
+#+begin_src scala
 object collections {
   // A standard Java array
   val a = Array(1, 2, 3)
