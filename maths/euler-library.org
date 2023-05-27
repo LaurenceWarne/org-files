@@ -140,6 +140,8 @@ n^kx^n = \left[Q_1(x)f(x) + Q_2(x)f'(x) + ... + Q_k(x) f^{(k)}(x)\right] + r_{m 
 
 Since \( \alpha_i \) is a root of mulitplicity \( k \) in \( f(x) \), the bracketed expression is equal to zero when evaluated at \( x=\alpha_i \), and so we can mulitply by \( c_i \) and sum over all \( i, k \) and achieve the same result as before.
 
+Alternate explanation: https://codeforces.com/blog/entry/61306
+
 *** Example
 
 Suppose \( b_n = 2^n + n = 2^n + n(1)^n \), and so has characteristic polynomial \( f(x) = (x - 1)^2(x - 2) = x^3 - 4x^2 + 5x - 2 \) , and so \( b_n = 4b_{n - 1} - 5b_{n - 2} + 2b_{n - 3} \), with base cases \( b_0 = 1, \ b_1 = 3, \ b_2 = 6 \).  Suppose we want to find \( b_7 \).  Then:
@@ -149,6 +151,10 @@ x^7 = \left(x^4 + 4x^3 + 11x^2 + 26x + 57\right)f(x) + \left[120x^2 - 233x + 114
 \]
 
 And so we find that \( 120b_2 - 233b_1 + 114b_0 = 135 = 2^7 + 7 \).
+
+** 💖 Matrices 💖
+
+And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is the characteristic polynomial of our recurrence.
 
 * Power Modulo
 
