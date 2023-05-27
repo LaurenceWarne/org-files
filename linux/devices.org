@@ -1,0 +1,5 @@
+#+TITLE: Devices
+
+* Managing Partitions
+
+https://unix.stackexchange.com/questions/271671/move-free-space-from-end-of-the-drive-to-first-partition-with-gparted
