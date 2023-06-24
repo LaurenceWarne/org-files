@@ -1,0 +1,11 @@
+#+TITLE: Vpcs
+
+* Subnets
+
+A subnet is said to be *public* if and only if it a route exists in it's route table to an [[https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html][internet gateway]], else a subnet is said to be *private*.  For example:
+
+[[./subnet-route-table.png]]
+
+We see the default gateway destination (~0.0.0.0/0~) is set to an internet gateway, thus the subnet is public.
+
+In a public subnet however, it is also necesarry to assign public ips to instances which need to be accessible from the internet *and* access the internet.  This can be done by enabling the ~Auto-assign public IPv4 address~ on the subnet, or alternatively assigning [[https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html][elastic ip addresses]].
