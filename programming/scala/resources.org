@@ -3,6 +3,7 @@
 * Types
 
 - [[https://underscore.io/blog/posts/2016/12/05/type-lambdas.html][Kind Projector plugin]] motivation and usage
+- [[https://squidarth.com/scala/types/2019/01/11/type-erasure-scala.html][Type Erasure]] by Sid Shanker
 
 * Tooling
 
