@@ -1,0 +1,8 @@
+#+TITLE: Route53
+
+* Hosted Zones
+
+*Hosted Zones* groups DNS records associated with a particular domain.  A [[https://en.wikipedia.org/wiki/Domain_Name_System#Resource_records][DNS record]] defines how traffic is routed for the domain (or subdomain) it is associated with.
+
+Many common DNS record types are supported, though there is also a Route 53-specific virtual record type called ~Alias~, which function similarly to CNAME records but are resolved on the server side and appear to clients as an A record.  They can be used to create transparent references to other AWS resources that only provide DNS names and not IP addresses, such as an Elastic Load Balancer or a CloudFront distribution.
+
