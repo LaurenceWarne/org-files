@@ -13,6 +13,7 @@ import scala.Predef._
 * Naming
 
 Note in Scala 2 val and defs cannot appear as toplevel definitions.
+
 #+begin_src scala
 object Naming {
 
@@ -38,11 +39,11 @@ object Naming {
 
   val myDuration: Duration = 3
 }
-#+begin_src 
+#+end_src
+
 * Sorting
 
 Also worth looking up are the notions of [[https://en.wikipedia.org/wiki/Partially_ordered_set][partial orderings]], [[https://en.wikipedia.org/wiki/Total_order][total orderings]] and [[https://en.wikipedia.org/wiki/Well-order][well-orderings]].
-
 #+begin_src scala
 object Sorting {
 
@@ -76,7 +77,7 @@ object Sorting {
   println(List(DummyLong(10)) < List(DummyLong(10), DummyLong(1)))
   // true
 }
-#+begin_src 
+#+end_src
 
 * Types
 #+begin_src scala
@@ -107,8 +108,7 @@ object Types {
     case t if t <:< typeOf[BankBalance] => "OK"
   }
 }
-
-#+begin_src 
+#+end_src
 
 * Collections 
 #+begin_src scala
