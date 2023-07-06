@@ -1,6 +1,16 @@
 #+TITLE: TLS
 
-TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).
+TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).  [[https://wiki.archlinux.org/title/OpenSSL][OpenSSL]] is a common implementation of both SSL and TLS used on linux platforms.
+
+* Certificate Authorities
+
+The OpenSSL configuration files live in ~/etc/ssl~, notably ~/etc/ssl/certs~ which holds a list of trusted certificates for the platform.
+
+~PEM~ is a method in which ~x.509~ (see below) are encoded.
+
+When establishing an SSL/TLS connection, OpenSSL and other software may first look in the /etc/ssl/certs directory for individual certificate files that match the server's certificate. If a matching certificate is found, it can be used to verify the server's identity. If no matching certificate is found, the software may then fall back to using the /etc/ssl/certs/ca-certificates.crt bundle to establish trust.
+
+See also: https://manpages.ubuntu.com/manpages/xenial/man8/update-ca-certificates.8.html.
 
 * Digital Certificates
 
