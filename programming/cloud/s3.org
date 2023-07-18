@@ -16,3 +16,12 @@ Resources:
         Rules:
           - ObjectOwnership: BucketOwnerEnforced
 #+end_src
+Though note this is also the default
+
+** Public
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-policy-status
+
+* See Also
+
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
