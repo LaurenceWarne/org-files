@@ -1,0 +1,12 @@
+#+TITLE: Alarms
+
+* Alarm Attributes
+
+  *Example*: If you alarm on 4 out of 5 data points with a period of 1 minute, then:
+  - ~datapointsToAlarm~ = 4
+  - ~evaluationPeriods~ = 5
+  - ~period~            = 1 minute
+    
+  ~threshold~ is what determines whether a data point (calculated from the metric definition) is "bad" and contributes to the 4 out of 5 data points rule.
+  see also: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
+    
