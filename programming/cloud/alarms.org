@@ -1,12 +1,17 @@
 #+TITLE: Alarms
 
-* Alarm Attributes
+* Alarms
 
-  *Example*: If you alarm on 4 out of 5 data points with a period of 1 minute, then:
+The most common kind of alarm is a *metric alarm* which is an alarm linked to a Cloudwatch metric (though more sophisticated alarms are available).  Alarms of this kind are typically configured to trigger after said metric exceeds a threshold in a given number of time periods.
+
+*Actions* are associated with alarms and are dispatched once alarms reach ~ALARM~ state, a common example would be to send a notification to an [[https://docs.aws.amazon.com/sns/latest/dg/welcome.html][SNS topic]].
+
+** Example:
+If you alarm on 4 out of 5 data points with a period of 1 minute, then:
   - ~datapointsToAlarm~ = 4
   - ~evaluationPeriods~ = 5
   - ~period~            = 1 minute
-    
-  ~threshold~ is what determines whether a data point (calculated from the metric definition) is "bad" and contributes to the 4 out of 5 data points rule.
-  see also: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
-    
+
+~threshold~ is what determines whether a data point (calculated from the metric definition) is "bad" and contributes to the 4 out of 5 data points rule.
+See also: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
+
