@@ -1,0 +1,28 @@
+#+TITLE: Dns
+
+* Introduction
+
+We can use ~dig~ to obtain data about DNS servers:
+
+#+begin_src bash
+dig gnu.org
+
+; <<>> DiG 9.16.42-Debian <<>> gnu.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 43493
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;gnu.org.			IN	A
+
+;; ANSWER SECTION:
+gnu.org.		1796	IN	A	209.51.188.116
+
+;; Query time: 4 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1)
+;; WHEN: Wed Aug 16 19:53:27 BST 2023
+;; MSG SIZE  rcvd: 52
+#+end_src
