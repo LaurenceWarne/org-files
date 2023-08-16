@@ -7,8 +7,12 @@
 
 * Topics
 
-A topics is an independent, named stream of records which produces push to and consumers get records from:
+A topic is an independent, named stream of records which produces push to and consumers get records from:
 [[https://ibm-cloud-architecture.github.io/refarch-eda/technology/images/kafka-hl-view.png]]
+
+Topics are further subdivided into partitions.  A record is published to exactly one partition in a topic, and it's guarenteed exactly one consumer in a given consumer group will read from a given partition at a given point in time.
+
+See https://stackoverflow.com/a/51829144/10930142, for a rundown on how mismatches between the number of consumers (in a group) and the number of topic partitions are handled by Kafka.
 
 * Commands
 
