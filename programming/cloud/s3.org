@@ -4,7 +4,7 @@
 
 S3 allows you to associate ACLs (access control lists) at the bucket and object level to control access to objects.  AWS provides a set of predefined ACLs called *canned ACLs*, for example ~private~, ~public-read~, ~public-read-write~, etc.
 
-However, use of S3 ACLs is not recommended, instead, use of policies to control S3 read/write access is recommended by AWS (though note policies only operate at the bucket level).  Disabling ACLs can be done by [[https://docs.aws.amazon.com/AmazonS3/latest/userguide/ensure-object-ownership.html][applying the bucket owner enforced setting]] for object ownership, for example:
+However, use of S3 ACLs is not recommended, instead, use of policies to control S3 read/write access is recommended by AWS (though note policies only operate at the bucket level).  Disabling ACLs can be done by [[https://docs.aws.amazon.com/AmazonS3/latest/userguide/ensure-object-ownership.html][applying the bucket owner enforced setting]] for object ownership and configuring the bucket's [[https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html][block public access configuration]], for example:
 
 #+begin_src yaml
 AWSTemplateFormatVersion: 2010-09-09
@@ -15,8 +15,13 @@ Resources:
       OwnershipControls:
         Rules:
           - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
 #+end_src
-Though note this is also the default
+Though note as of [[https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/][April 2023]], all new buckets will have S3 Block Public Access enabled and ACLs disabled.
 
 ** Public
 
