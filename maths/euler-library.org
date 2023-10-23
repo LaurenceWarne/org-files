@@ -279,12 +279,26 @@ The following properties hold:
 
 1. \( P^n_{i, j} \) gives the probability of being in state \( j \) starting at state \( i \) after \( n \) transitions
 2. The ith entry of \( N1_n \) gives the expected number of steps to absorption when starting from state \( i \)
-3. \begin{align*} P^k = \left(
-  \begin{array}{cc}
-  Q^k & (1 - Q^k)NR \\
-  0   & I_n \\
-  \end{array}
-\right) \end{align*}
+3. \( P^k = \left(\begin{array}{cc}Q^k & (1 - Q^k)NR \\ 0   & I_n \\\end{array}\right)\)
+
+If we want for example to compute the expected number of steps until absorption for some initial state, e.g. \( N1_n \), it is usually faster (and generally when using matrix-vector calculations) to skip matrix inversion and do the following:
+
+\begin{align*}
+N*1_n = (I_n - Q)^{-1}*1_n \\
+\Rightarrow (I_n - Q)^{-1}*1_n = v \\
+\Rightarrow 1_n = (I_n - Q)v
+\end{align*}
+
+Then for example ~sage~ ~(In - Q).solve_right(ones_vector)~ gives us \( v \):
+
+#+begin_src python
+def expected(i, Q, ring=QQ):
+    n = Q.dimensions()[0]
+    I = identity_matrix(ring, n)
+    N_inv = (I - Q)
+    ones_vector = vector([1]*n)
+    return M.solve_right(ones_vector)[i]
+#+end_src 
 
 * Binomial Coefficients Modulo \( p \)
 
