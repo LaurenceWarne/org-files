@@ -256,6 +256,36 @@ def divisor_sum(n):
 
 Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n x \left \lfloor \frac{ax + b}{c} \right \rfloor \), \( \sum_{x = 0}^n \left \lfloor \frac{ax + b}{c} \right \rfloor^2 \) and even more generally \( \sum_{x = 0}^n x^{k_1} \left \lfloor \frac{ax + b}{c} \right \rfloor^{k_2} \), see [[https://asfjwd.github.io/2020-04-24-floor-sum-ap/][this]] blog posts for more details.
 
+* Markov Chains
+
+An absorbing Markov chain has the following form:
+
+ \begin{align*}
+P = \left(
+  \begin{array}{cc}
+  Q & R \\
+  0   & I_n \\
+  \end{array}
+\right)
+\end{align*}
+
+Where \( Q \) is the matrix of transitions between non-absorbing states, and \( R \) the matrix between absorbing and non-absorbing states.  We further define the fundamental matrix:
+
+\[
+N = \sum_{k = 0}^{\infty} Q^k = (I_t - Q)^{-1}
+\]
+
+The following properties hold:
+
+1. \( P^n_{i, j} \) gives the probability of being in state \( j \) starting at state \( i \) after \( n \) transitions
+2. The ith entry of \( N1_n \) gives the expected number of steps to absorption when starting from state \( i \)
+3. \begin{align*} P^k = \left(
+  \begin{array}{cc}
+  Q^k & (1 - Q^k)NR \\
+  0   & I_n \\
+  \end{array}
+\right) \end{align*}
+
 * Binomial Coefficients Modulo \( p \)
 
 [[https://en.wikipedia.org/wiki/Lucas%27s_theorem][Lucas' Theorem]] states that if \( m_km_{k - 1}\cdots m_0 \) and \( n_kn_{k - 1}\cdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
