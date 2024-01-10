@@ -156,51 +156,6 @@ And so we find that \( 120b_2 - 233b_1 + 114b_0 = 135 = 2^7 + 7 \).
 
 And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is the characteristic polynomial of our recurrence.
 
-* Power Modulo
-
-If \( a \) and \( p \) are coprime then:
-
-\[
-a^x \pmod p = a^{x \pmod{\phi (p)}}\pmod p
-\]
-
-We can also reduce \( \phi (p) \) to \( |\langle a \rangle | \) if necessary.  More generally if no restrictions are placed on \( a \) and \( p \) then:
-
-\[
-a^x \pmod p = \begin{cases}
-a^{\left(x\pmod{\phi (p)}\right) + \phi(p)} \pmod p  & \text{for } x \ge \phi(n) \\
-a^x \pmod p & \text{for } x < \phi(p)\\
-\end{cases}
-\]
-
-** Proof (first condition): :collapsible:
-
-Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
-
-\[
-a^{\phi(n)} \pmod{p_i^{e_i}} = (\lambda p_i^{e_i'})^{\phi(n)} \pmod{p_i^{e_i}}
-\]
-
-Where \( \lambda \) is coprime to \( p \).  Now if \( \phi(n) > e_i \) then 
-
-\[
-(\lambda p_i^{e_i'})^{\phi(n)} \equiv 0 \pmod{p_i^{e_i}}
-\]
-
-For all nonzero \( e_i' \), ie if \( a \) is \( p \)-free.  We have:
-
-\[
-e_i < p^{e_i}(p - 1) = \phi(p^{e_i}) \le \phi(n)
-\]
-
-Now consider the simultaneous congruences we have for \( a^{q\phi(n) + r} \), with \( q > 0 \) :
-
-\[
-a^{q\phi(n) + r} = \ m_i \pmod{p_i^{e_i}}
-\]
-
-For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q > 0 \), and applying Euler's Theorem for \( p_i \not | a \), we arrive at the conclusion that the simultaneous congruences do not depend on \( q > 0 \).  From here, applying The Chinese remainder theorem gets us our claim.
-
 * Factorisation in Quadratic Integer Rings
 
 ** Gaussian Integers
@@ -365,6 +320,10 @@ def recurrence(coeffs):  # Usage: recurrence([3, 4, 5, 1, 9])
     mul = -1*d[mx] // abs(d[mx])
     return [d[i]*mul for i in range(mx)][::-1]
 #+END_SRC
+
+* Nim
+
+The Sprague-Grundy Theorem states that every impartial game is equivalent to a game of Nim with a single heap.
 
 * Transforms
 
