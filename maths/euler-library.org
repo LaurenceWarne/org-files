@@ -118,7 +118,7 @@ Where \( f_i \) are some polynomials and \( \alpha_i \) are the roots of \( f \)
 x^n = Q(x)f(x) + R(x)
 \end{equation}
 
-Where \( R(x) \) is of degree \( < m \).  Substituting \( x=\alpha_i^n \), we see that \( \alpha_i^n = Q(\alpha_i)*0 + R(\alpha_i) \).  Let's assume first of all that \( f(x) \) has no repeated roots, so that \( b_n = \sum_i c_i\alpha_i^n \) for some constants \( c_i \).  Then summing over the expression for each \( \alpha_i \) (multiplied by \( c_i \)), we obtain:
+Where \( R(x) \) is of degree \( < m \).  Substituting \( x=\alpha_i \), we see that \( \alpha_i^n = Q(\alpha_i)*0 + R(\alpha_i) \).  Let's assume first of all that \( f(x) \) has no repeated roots, so that \( b_n = \sum_i c_i\alpha_i^n \) for some constants \( c_i \).  Then summing over the expression for each \( \alpha_i \) (multiplied by \( c_i \)), we obtain:
 
 \[
 \sum_i c_i\alpha_i^n = \sum_i c_i R(\alpha_i) = r_{m - 1}(c_1 \alpha_1^{m - 1} + c_2 \alpha_2^{m - 1} + ...) + r_{m - 2}(c_1 \alpha_1^{m - 2} + c_2 \alpha_2^{m - 2} + ...) + ... + r_0(c_1 + c_2 + ...)
@@ -324,6 +324,24 @@ def recurrence(coeffs):  # Usage: recurrence([3, 4, 5, 1, 9])
 * Nim
 
 The Sprague-Grundy Theorem states that every impartial game is equivalent to a game of Nim with a single heap.
+
+* Partisan Game Theory
+
+We may represent a partisan game as \( G = \{ G^L \left| G^R \} \) where the \( G^L, G^R \) represent the set of games a player can move to.  We may assign a number to \( G \) according to the *move advantage* for either player; though only if there exist no \( x \in G^L, y \in G^R \) such that \( y < x \).  A positive value represents an advantage for the left player (\( L \)), and negative an advantage for the right (\( R \)) (with zero representing a win for whoever moves second, ie no moves).  Examples (for \( n \ge 0 \)):
+
+\begin{align*}
+\{ \ | \ \} &= 0 \text{  (no moves for either player)}\\
+\{ n | \ \} &= n + 1\text{  (L may move to game n - so +1, but R has no moves)}\\
+\{ \ | -n \} &= -n - 1\text{  (R may move to game n, but L has no moves)}
+\end{align*}
+
+Note there exist games for which one player is guarenteed a win, but has less than a one move advantage, for example:
+
+\[
+\{ -1 \left| 0 \}
+\]
+
+The *Simplicity Theorem* states that \( \{ a | b \} \) is equal to the first value \( a < x < b \) which occurs first in a special [[https://math.stackexchange.com/questions/816540/proof-of-conways-simplicity-rule-for-surreal-numbers][construction]], in particular all finite games will be dyadic.
 
 * Transforms
 

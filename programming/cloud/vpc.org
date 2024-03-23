@@ -17,3 +17,9 @@ In order to make instances in private subnets able to access the internet, it's 
 Also noteworthy is by default all subnets within a VPC can communicate with each other.  This is illustrated by the first entry in the image above with Target ~local~, which by default is added to all route tables.
 
 If your route table has multiple routes, the most specific route that matches the traffic (longest prefix match) is used - so in the image above it doesn't matter whether the default root precedes or supersedes the other.
+
+* DNS
+
+DNS support is determined by the ~EnableDnsSupport~ and ~EnableDnsHostnames~ VPC attributes.  The former (enabled by default) means DNS queries to the local Route 53 Resolver for the applicable AZ succeed on the VPC; the latter means instances with public IPs will be assigned public IP addresses.
+
+*Note* instances will generally receive a private IP address and private DNS hostname regardless of the VPC attributes, though the ~EnableDnsHostnames~ attribute for the VPC will determine if the instance will be assigned a public IP.
