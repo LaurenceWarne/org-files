@@ -1,0 +1,19 @@
+#+TITLE: Transit Gateways
+
+* Introduction
+
+A [[https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html][Transit Gateway]] is a virtual router which can be leveraged to route traffic between VPCs.  Some important properties are:
+
+- *DefaultRouteTableAssociation*: when enabled, all transit gateway attachments are automatically added to a default route table.  *Note* this table is the default association route table, and the default propagation route table.
+- *DefaultRouteTablePropagation*: enables automatic propagation of routes to the default propagation route table
+
+* Definitions
+
+- *Transit Gateway Route Tables*: when a Transit Gateway is created, all Transit Gateway attachments are automatically added to a default route table.  All transit gateway attachments will also have this route table set as Example:
+
+  | Destination | Target               | Route Type |
+  |-------------+----------------------+------------|
+  | VPC A CIDR  | Attachment for VPC A | propagated |
+  | VPC B CIDR  | Attachment for VPC B | propagated |
+  | VPC C CIDR  | Attachment for VPC C | propagated |
+
