@@ -343,6 +343,29 @@ Note there exist games for which one player is guarenteed a win, but has less th
 
 The *Simplicity Theorem* states that \( \{ a | b \} \) is equal to the first value \( a < x < b \) which occurs first in a special [[https://math.stackexchange.com/questions/816540/proof-of-conways-simplicity-rule-for-surreal-numbers][construction]], in particular all finite games will be dyadic.
 
+** Resources
+- https://www.maths.dur.ac.uk/users/herbert.gangl/LIT/ww1chap2.pdf
+
+* Graph Theory
+
+** Bipartite Graphs
+
+[[https://python.igraph.org/en/main/][igraph]] is quite fast:
+
+#+begin_src python
+import igraph as ig
+
+edges = [(0, 6), (1, 7), (1, 8), (2, 5), (2, 7), (2, 8), (3, 6), (3, 7), (3, 8), (4, 7)]
+
+vs = max(e + 1 for e, _ in edges)
+G = ig.Graph.Bipartite(
+    [False]*vs + [True]*vs,
+    edges
+)
+matching = G.maximum_bipartite_matching()
+# Matching(<igraph.Graph object at 0x7fb71fd1c950>,[6, 7, 5, 8, -1, 2, 0, 1, 3, -1],types=[False, False, False, False, False, True, True, True, True, True])
+#+end_src
+
 * Transforms
 
 http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial
