@@ -1,0 +1,9 @@
+#+TITLE: Emacs
+
+* From Source
+
+The ~configure~ options I'm currently using:
+
+#+begin_src bash
+configure --with-tree-sitter --with-native-compilation --with-gnutls --with-imagemagick --with-jpeg --with-png --with-rsvg --with-tiff --with-wide-int --with-xft --with-xml2 --with-xpm --with-x-toolkit=gtk3 --with-xwidgets --with-xaw3d --with-pgtk
+#+end_src
