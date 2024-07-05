@@ -350,7 +350,9 @@ The *Simplicity Theorem* states that \( \{ a | b \} \) is equal to the first val
 
 ** Bipartite Graphs
 
-[[https://python.igraph.org/en/main/][igraph]] is quite fast:
+Finding a maximal matching can be done in \( O(nm) \) time where \( n,m \) denote the number of vertices and edges respectively.
+
+[[https://python.igraph.org/en/main/][igraph]] is quite fast (though see also https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html):
 
 #+begin_src python
 import igraph as ig
