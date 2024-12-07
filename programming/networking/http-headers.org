@@ -1,0 +1,18 @@
+#+TITLE: Http Headers
+
+** [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin][🔗]] ~Access-Control-Allow-Origin~
+
+By default, a site's pages aren't accessible to any other origin (defined by a triple (domain, schema, port number)), but by using ~Access-Control-Allow-Origin~, we can allow custom cross-origin access.
+
+If a site ~a.com~ issues an ajax request to ~b.com~, ~b.com~ can use ~Access-Control-Allow-Origin: https://a.com~ to indicate to the browser that ~a.com~ is permitted to see response.  Otherwise, such a request would *will* still be performed by the browser, but the response data denied to the calling JS code.
+
+** [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy][🔗]] ~Content-Security-Policy~
+
+A header used to indicate to browsers which resources (e.g. JS, CSS, images) can be loaded on a given page, as a mitigation against [[https://en.wikipedia.org/wiki/Cross-site_scripting][XSS]].  The values of this header are split into one or more [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives][directives]].
+
+Note unlike ~Access-Control-Allow-Origin~, if not specified in server responses, the browser will allow *everything*!
+
+Examples:
+
+- ~Content-Security-Policy: default-src 'self'~ allows loading of resources from the current origin only
+- ~Content-Security-Policy: default-src 'none'; script-src 'self' https://js.example.com~ allows loading of scripts (and no other resources) from the current origin and https://js.example.com - as illustrated here, directives with greater specificity override more general directives

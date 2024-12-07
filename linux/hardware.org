@@ -1,0 +1,4 @@
+#+TITLE: Hardware
+
+- *DIMM* [[https://en.wikipedia.org/wiki/DIMM][Dual In-line Memory Module]]: a type of memory that provides RAM to a computer's motherboard, aka a RAM stick
+- *PCIE* [[https://en.wikipedia.org/wiki/PCI_Express][Peripheral Component Interconnected Express]]: a high-speed serial computer expansion bus standard which comes in x1, x4, x8, x16, x32 configurations, additionally with later generations giving greater transfer speeds.
