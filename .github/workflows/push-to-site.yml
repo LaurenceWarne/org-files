@@ -41,9 +41,10 @@ jobs:
           git config user.name "GH-actions-bot"
           git commit -m "Sync from org repo: $MSG"
 
+      # https://github.com/ad-m/github-push-action
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_PAT }}
+          github_token: ${{ secrets.GH_PAT }}
           repository: LaurenceWarne/LaurenceWarne.github.io
           force_with_lease: true
