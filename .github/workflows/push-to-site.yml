@@ -2,25 +2,37 @@ name: ci
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      EMACS_VERSION: 29.4
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
       - name: Pull
-        run: docker pull silex/emacs:27.2
+        run: docker pull silex/emacs:${{ env.EMACS_VERSION }}
+
       - name: Export org Files to html
-        run: docker run -v $(pwd)/wiki-html:/root/wiki -v $(pwd):/root/org silex/emacs:27.2 bash -c 'apt update && apt install git -y && emacs --script /root/org/ox-yaow-publish.el'
+        run: docker run -v $(pwd)/wiki-html:/root/wiki -v $(pwd):/root/org silex/emacs:${{ env.EMACS_VERSION }} bash -c 'apt update && apt install git -y && emacs --script /root/org/ox-yaow-publish.el'
+
       - name: Clone Site Repo
-        run: git clone https://laurencewarne:${{ secrets.API_TOKEN_GITHUB }}@github.com/LaurenceWarne/LaurenceWarne.github.io.git
+        uses: actions/checkout@v4
+        with:
+          repository: LaurenceWarne/LaurenceWarne.github.io
+          path: ./LaurenceWarne.github.io/
+
       - name: Copy Files
         run: |
           rm -rf LaurenceWarne.github.io/_wiki/*
           find $(pwd)/wiki-html/ | grep "~$" | xargs -r rm
           cp -r $(pwd)/wiki-html/* LaurenceWarne.github.io/_wiki
+
       - name: Set Environment
         run: echo "MSG=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
       - name: Commit
         working-directory: ./LaurenceWarne.github.io/
         run: |
@@ -28,7 +40,9 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "GH-actions-bot"
           git commit -m "Sync from org repo: $MSG"
-      - name: Push
-        working-directory: ./LaurenceWarne.github.io/
-        run: |
-          git push origin master
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_PAT }}
+          repository: LaurenceWarne/LaurenceWarne.github.io
