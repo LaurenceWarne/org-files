@@ -45,6 +45,7 @@ jobs:
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
+          directory: ./LaurenceWarne.github.io/
           github_token: ${{ secrets.GH_PAT }}
           repository: LaurenceWarne/LaurenceWarne.github.io
           force_with_lease: true
