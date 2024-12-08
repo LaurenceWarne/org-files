@@ -1,15 +1,12 @@
 (require 'package)
-
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
   
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t))
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)  ; Get most recent versions of org mode
 
 (package-initialize)
@@ -18,15 +15,16 @@
 ;; Note it's a melpa package so this has to come after the melpa repository is added
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package)
-  (require 'use-package))
+  (package-install 'use-package))
 
+(require 'use-package)
 (setq use-package-always-ensure t)
 
 ;; git executable location
 (add-to-list 'exec-path "/usr/bin")
 
 (use-package quelpa
+  :demand t
   :config
   ;; https://github.com/quelpa/quelpa-use-package
   (quelpa
@@ -57,11 +55,13 @@
   :demand t)
 
 (use-package scala-mode
-  :mode "\\.s\\(c\\|cala\\|bt\\)$")
+  :mode "\\.s\\(c\\|cala\\|bt\\)$"
+  :demand t)
 
 (use-package haskell-tng-mode
   :ensure nil
   :quelpa (haskell-tng-mode :fetcher gitlab :repo "tseenshe/haskell-tng.el")
+  :demand t
   :mode ((rx ".hs" eos) . haskell-tng-mode)
   :bind
   (:map
