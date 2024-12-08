@@ -11,6 +11,9 @@ jobs:
       EMACS_VERSION: 29.4
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Pull
         run: docker pull silex/emacs:${{ env.EMACS_VERSION }}
@@ -21,6 +24,8 @@ jobs:
       - name: Clone Site Repo
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
+          fetch-depth: 0
           repository: LaurenceWarne/LaurenceWarne.github.io
           path: ./LaurenceWarne.github.io/
 
@@ -48,4 +53,4 @@ jobs:
           directory: ./LaurenceWarne.github.io/
           github_token: ${{ secrets.GH_PAT }}
           repository: LaurenceWarne/LaurenceWarne.github.io
-          force_with_lease: true
+          branch: master
