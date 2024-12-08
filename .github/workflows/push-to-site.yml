@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # https://github.com/ad-m/github-push-action/issues/44#issuecomment-581706892
           persist-credentials: false
           fetch-depth: 0
 
