@@ -130,7 +130,8 @@ No ALPN negotiated
 Early data was not sent
 Verify return code: 0 (ok)
 ---
-DONE  #+end_src
+DONE
+ #+end_src
 
 Next we obtain information about the subject:
 - ~CN=wildebeest1p.gnu.org~ this is the entity to whom the certificate is assigned
