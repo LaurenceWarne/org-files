@@ -198,11 +198,13 @@ c_n = \sum_{d|n} d a_d
 
 Sums of arithmetic functions:
 
-| Sum                          | oeis                     | About                                                                                                                                                      |
-|------------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \( D(n) = \sum\sigma_0(n) \) | https://oeis.org/A006218 | ([[https://en.wikipedia.org/wiki/Divisor_summatory_function][The divisor summatory function]]) Can be done in \( O(\sqrt{n} }) \) (see below) and extended to \( O(n^{\frac{1}{3} }) \): https://arxiv.org/abs/1206.3369 |
-| \( \sum\phi(n) \)            | https://oeis.org/A002088 | Can be done in \( \( O(n^{\frac{2}{3} }) \), see https://gbroxey.github.io/blog/2023/04/30/mult-sum-1.html#summing-mu-and-varphi                           |
-|                              |                          |                                                                                                    
+| Sum                          | oeis                     | About                                                                                                                                                    |
+|------------------------------+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \( D(x) = \sum\sigma_0(n) \) | https://oeis.org/A006218 | ([[https://en.wikipedia.org/wiki/Divisor_summatory_function][The divisor summatory function]]) Can be done in \( O(\sqrt{n}) \) (see below) and extended to \( O(n^{\frac{1}{3} }) \): https://arxiv.org/abs/1206.3369 |
+| \( \sum\sigma_k(n) \)        | -                        | Can be computed for all \( k \) via a generalisation of the method used to compute \( D(x) \)                                                            |
+| \( \sum\phi(n) \)            | https://oeis.org/A002088 | Can be done in \( O(n^{\frac{2}{3}}) \), see https://gbroxey.github.io/blog/2023/04/30/mult-sum-1.html#summing-mu-and-varphi                             |
+| \( M(x) = \sum\mu(n) \)      | https://oeis.org/A002321 | ([[https://en.wikipedia.org/wiki/Mertens_function][The Mertens function]]) \( O(n^{\frac{2}{3}}) \), see https://gbroxey.github.io/blog/2023/04/30/mult-sum-1.html#summing-mu-and-varphi                     |
+|                              |                          |                                                                                                                                                          |
 
 * Floor Sums
 
