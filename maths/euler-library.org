@@ -201,7 +201,7 @@ Sums of arithmetic functions:
 | Sum                          | oeis                     | About                                                                                                                                                    |
 |------------------------------+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | \( D(x) = \sum\sigma_0(n) \) | https://oeis.org/A006218 | ([[https://en.wikipedia.org/wiki/Divisor_summatory_function][The divisor summatory function]]) Can be done in \( O(\sqrt{n}) \) (see below) and extended to \( O(n^{\frac{1}{3} }) \): https://arxiv.org/abs/1206.3369 |
-| \( \sum\sigma_k(n) \)        | -                        | Can be computed for all \( k \) via a generalisation of the method used to compute \( D(x) \)                                                            |
+| \( \sum\sigma_k(n) \)        | -                        | Can be computed for all \( k \) in \( O(\sqrt{N}) \) via a generalisation of the method used to compute \( D(x) \)                                                 |
 | \( \sum\phi(n) \)            | https://oeis.org/A002088 | Can be done in \( O(n^{\frac{2}{3}}) \), see https://gbroxey.github.io/blog/2023/04/30/mult-sum-1.html#summing-mu-and-varphi                             |
 | \( M(x) = \sum\mu(n) \)      | https://oeis.org/A002321 | ([[https://en.wikipedia.org/wiki/Mertens_function][The Mertens function]]) \( O(n^{\frac{2}{3}}) \), see https://gbroxey.github.io/blog/2023/04/30/mult-sum-1.html#summing-mu-and-varphi                     |
 |                              |                          |                                                                                                                                                          |
@@ -339,7 +339,7 @@ The Sprague-Grundy Theorem states that every impartial game is equivalent to a g
 
 * Partisan Game Theory
 
-We may represent a partisan game as \( G = \{ G^L \left| G^R \} \) where the \( G^L, G^R \) represent the set of games a player can move to.  We may assign a number to \( G \) according to the *move advantage* for either player; though only if there exist no \( x \in G^L, y \in G^R \) such that \( y < x \).  A positive value represents an advantage for the left player (\( L \)), and negative an advantage for the right (\( R \)) (with zero representing a win for whoever moves second, ie no moves).  Examples (for \( n \ge 0 \)):
+We may represent a partisan game as \( G = \{ G^L | G^R \} \) where the \( G^L, G^R \) represent the set of games a player can move to.  We may assign a number to \( G \) according to the *move advantage* for either player; though only if there exist no \( x \in G^L, y \in G^R \) such that \( y < x \).  A positive value represents an advantage for the left player (\( L \)), and negative an advantage for the right (\( R \)) (with zero representing a win for whoever moves second, ie no moves).  Examples (for \( n \ge 0 \)):
 
 \begin{align*}
 \{ \ | \ \} &= 0 \text{  (no moves for either player)}\\
@@ -350,7 +350,7 @@ We may represent a partisan game as \( G = \{ G^L \left| G^R \} \) where the \( 
 Note there exist games for which one player is guarenteed a win, but has less than a one move advantage, for example:
 
 \[
-\{ -1 \left| 0 \}
+\{ -1 | 0 \}
 \]
 
 The *Simplicity Theorem* states that \( \{ a | b \} \) is equal to the first value \( a < x < b \) which occurs first in a special [[https://math.stackexchange.com/questions/816540/proof-of-conways-simplicity-rule-for-surreal-numbers][construction]], in particular all finite games will be dyadic.
