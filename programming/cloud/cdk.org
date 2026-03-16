@@ -1,0 +1,5 @@
+#+TITLE: Cdk
+
+* Good to Know
+
+- You *cannot* perform an update which would result in the deletion of a named resource (source: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html).  The reason for this is that when Cloudformation decides it needs to replace a resource, it will (usually) first create the new resource before deleting the old one.  There are ways around this, for example RDS parameter groups are re-created if their engine version is changed, so it might be a good idea to incorporate the engine version in the name.

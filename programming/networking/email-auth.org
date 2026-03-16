@@ -1,0 +1,10 @@
+#+TITLE: Email Auth
+
+A good source on SPF, DKIM and DMARC can be found here: https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dmarc.html.
+
+* SPF
+
+An SPF record is a kind of DNS text record which lists servers authorized to send emails from a given domain.  It checks the domain of an email ~return-path~ (also known confusingly as bounce address, reverse path, envelope from, envelope sender, return address, and MAIL FROM) matches matches an IP in this given list.
+
+A example round trip can be found in the ~How does a mail server check an SPF record?~ [[https://www.cloudflare.com/en-gb/learning/dns/dns-records/dns-spf-record/][here]].
+
