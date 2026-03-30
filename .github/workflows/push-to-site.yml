@@ -8,11 +8,10 @@ jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      EMACS_VERSION: 29.4
+      EMACS_VERSION: 30.2
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
         with:
-          # https://github.com/ad-m/github-push-action/issues/44#issuecomment-581706892
           persist-credentials: false
           fetch-depth: 0
 
@@ -23,9 +22,10 @@ jobs:
         run: docker run -v $(pwd)/wiki-html:/root/wiki -v $(pwd):/root/org silex/emacs:${{ env.EMACS_VERSION }} bash -c 'apt update && apt install git -y && emacs --script /root/org/ox-yaow-publish.el'
 
       - name: Clone Site Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
+          token: ${{ secrets.GH_PAT }}
           fetch-depth: 0
           repository: LaurenceWarne/LaurenceWarne.github.io
           path: ./LaurenceWarne.github.io/
@@ -43,15 +43,14 @@ jobs:
         working-directory: ./LaurenceWarne.github.io/
         run: |
           git add -A
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config user.name "GH-actions-bot"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "GH-actions-bot"
           git commit -m "Sync from org repo: $MSG"
 
-      # https://github.com/ad-m/github-push-action
-      - name: Push Changes
-        uses: ad-m/github-push-action@master
-        with:
-          directory: ./LaurenceWarne.github.io/
-          github_token: ${{ secrets.GH_PAT }}
-          repository: LaurenceWarne/LaurenceWarne.github.io
-          branch: master
+      - name: Push
+        working-directory: ./LaurenceWarne.github.io/
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/LaurenceWarne/LaurenceWarne.github.io.git
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
